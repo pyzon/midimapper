@@ -1,0 +1,79 @@
+
+TODO
+	Üzenet feldolgozó
+		konstansokba kiszervezni a számokat
+			Talán egy külön fájlba
+		Érték mappelő függvények
+			Minden paraméterre, mindkét irányba egy-egy Map.
+			Az adatokat táblázatból, fájlból lehetne beolvasni a program indulásakor.
+			Ezeket a mappeléseket össze lehetne gyűjteni egyetlen map-be.
+			És akkor a függvény rendkívül egyszerű lehetne: mindössze meg kell neki adni, hogy melyik mappelést szeretnénk és milyen értéket szeretnénk mappelni vele.
+		Segédfüggvények
+			lineáris -> slider
+				határok megadásával
+				Nem baj, ha nem stimmel a határ
+					Ha kintebb van a határ, mint a legszélső érték, akkor nincs teendő.
+					Ha bentebb van a határ, akkor csonkolni kell.
+			frekvencia -> slider
+				A cubase furán számolja a frekit, nem exponenciálisan.
+				Illeszteni kell. Az 5-ödfokú már egész jó.
+				Előre ki kéne számolni, és egy tömbben eltárolni. Sokkal hatékonyabb, mint minden egyes alkalommal kiszámolni egy bonyolult függvényt, amikor max 128 különböző bemenet lehet.
+	Midi eszközök
+		Console -> DAW
+			m400In
+			loopMidi
+				48 input
+					loopMidiInCh1_16
+					loopMidiInCh17_32
+					loopMidiInCh33_48
+				16 aux
+					loopMidiInAux
+				main, egyebek (8 mtx)
+					loopMidiInMain
+		DAW -> Console
+			m400Out
+			loopMidi
+				48 input
+					loopMidiOutCh1_16
+					loopMidiOutCh17_32
+					loopMidiOutCh33_48
+				16 aux
+					loopMidiOutAux
+				main, egyebek (8 mtx)
+					loopMidiOutMain
+	Üzenetküldés visszafelé
+		Az odairány minden üzenete inverzen.
+		Szinkronizálás
+			A titok nyitja, hogy csatlakoztatva kell legyen a pult, amikor megnyitjuk a projektet (elindítjuk a programot), és minden paramétert, amire kimenő midi van beállítva, elküld.
+Done
+	-Tray menü
+		-Reconnect devices
+	-Az a baj, hogy nem tudjuk érzékelni, hogyha szétkapcsolt.
+		Polling nem jó, mert zavarja a tényleges üzengetést.
+		Ha sehogy, akkor marad a reconnect gomb, de akkor a státusz sem kell.
+TODO maybe
+	Identity check?
+	Nevek, színek átvitele a konzolra automatikusan, vagy fél-automatikusan
+		Ezt nem lehet egyszerű midi-vel
+
+CC
+	Fader
+	Mute
+SysEx
+	Gain
+		1
+		Ez nincs, csak ha csatlakoztatva van a rack
+	Solo
+		1
+	Filter
+		1
+	EQ
+		10 (+ 3)
+	Gate
+		1 + 4
+	Compressor
+		1 + 5
+	Pan
+		1
+	Aux sends
+		amennyi kell, max 16
