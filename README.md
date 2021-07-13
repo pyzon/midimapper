@@ -170,6 +170,37 @@ Unfortunately, we have no control over the way the MIDI CC message maps to the c
 
 </details>
 
+## The layout of the parameters in the virtual MIDI devices
+
+An important part of the implementation is to decide for each individual parameter that where we should map them on the virtual devices, specifically, to which CC of which channel of which device.
+
+There are 16 channels a MIDI device can use. In each channel, there are 128 Control Changes. This means that a device can handle distinct 2048 parameters. This amount is barely enough for a basic set of parameters for the amount of mixer channels we desire to use. Furthermore, if all the parameters were tightly packed, it would not be well-structured, could not be understood by a glance, and it would be hardly maintainable, in other words, it would be a programmatic nightmare.
+
+So after a short contemplation, I decided to make each mixer channel correspond to a single MIDI channel. This way, we would need a couple more virtual MIDI devices, but each channel would have plenty of room for all the parameters we need and even more if we decide that we need to implement more in the future. It is easier from a programmatic standpoint too, because each kind of parameter can have the same CC number throughout all the channels, for example the gain of the first band of the equalizer can be the CC 10 on every channel.
+
+### Organizing the channels
+
+Okay, so we would like to be able to control the parameters of 48 input channels, 16 auxiliary output, a main output channel, maybe 8 [DCAs](https://www.sweetwater.com/sweetcare/articles/behringer-x32-what-is-a-dca-and-when-should-i-use-one/) and some more channels in the future (e.g. talkback). So how would we organize these channels into MIDI devices of 16 channels? Fortunately, it is pretty intuitive (these all have the loopMidi prefix to be easily identifiable in the code):
+
+- `loopMidiInCh1_16`
+- `loopMidiInCh17_32`
+- `loopMidiInCh33_48`
+- `loopMidiInAux`
+- `loopMidiInMain`
+
+The first four are full already, the `loopMidiInMain` has 15 remaining channels that can be used for DCAs and other purposes.
+
+### Organizing the parameters
+
+In the table below, you can see the complete mapping of the parameters to CCs. Note that certain kinds of parameters only applies to certain groups of channels For example, the effect sends are only for the input channels.
+
+|Parameter|CC|Input|Aux|Main|DCA
+|---|---|---|---|---|---|
+|Mute|0|✓|✓|✓|✓|
+|Level|1|✓|✓|✓|✓|
+|Pan|2|✓|✓|✓||
+
+
 ## Java MIDI package
 
 The program uses the `javax.sound.midi` package. The most important classes/interfaces in this application are `MidiDevice`, `Receiver`, `Transmitter`, `MidiMessage` and `ShortMessage`.
