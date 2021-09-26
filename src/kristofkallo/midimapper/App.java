@@ -89,6 +89,7 @@ public class App {
                 }
             }
             if (devices.containsKey(info.getName())) {
+                // the loopMIDI devices should have the same names as in the devices map
                 if (device.getMaxReceivers() != 0 && info.getName().contains("In") ||
                     device.getMaxTransmitters() != 0 && info.getName().contains("Out")) {
 
@@ -118,6 +119,7 @@ public class App {
             }*/
             //System.out.println(info.getName() + " transmitters:" + device.getMaxTransmitters() + " receivers:" + device.getMaxReceivers());
         }
+        // Error checking
         for (String deviceKey : devices.keySet()) {
             if (devices.get(deviceKey) == null) {
                 trayMenu.getTrayIcon().displayMessage(APP_NAME, deviceKey + " device not found.", TrayIcon.MessageType.ERROR);
@@ -128,8 +130,10 @@ public class App {
                 return;
             }
         }
+        // creating an empty receivers array
         Receiver[] receivers = new Receiver[0];
         try {
+            // filling up the receivers array with our receivers
             receivers = new Receiver[]{
                     devices.get("loopMidiInCh1_16").getReceiver(),
                     devices.get("loopMidiInCh17_32").getReceiver(),

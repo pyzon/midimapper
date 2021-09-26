@@ -56,24 +56,4 @@ TODO maybe
 	Nevek, színek átvitele a konzolra automatikusan, vagy fél-automatikusan
 		Ezt nem lehet egyszerű midi-vel
 
-CC
-	Fader
-	Mute
-SysEx
-	Gain
-		1
-		Ez nincs, csak ha csatlakoztatva van a rack
-	Solo
-		1
-	Filter
-		1
-	EQ
-		10 (+ 3)
-	Gate
-		1 + 4
-	Compressor
-		1 + 5
-	Pan
-		1
-	Aux sends
-		amennyi kell, max 16
+

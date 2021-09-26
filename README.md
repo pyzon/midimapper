@@ -12,7 +12,7 @@ The dataflow would be two-way: we can control the various parameters in the DAW 
 
 ### Mapping between SysEx and CC
 
-One part of the problem is to transform the messages from the console's SysEx messages to CC messages, and then back from CC to SysEx. This is pretty straightforward, it just involves a lot of [documentation](https://static.roland.com/assets/media/pdf/m400_m380_MIDI_e03.pdf) reading, and organizing the code meaningfully and maintainably.
+One part of the problem is to transform the messages from the console's SysEx messages to CC messages, and then back from CC to SysEx. This was pretty straightforward, it just involved a lot of [documentation](https://static.roland.com/assets/media/pdf/m400_m380_MIDI_e03.pdf) reading, and organizing the code meaningfully and maintainably.
 
 ### Mapping values
 
@@ -20,7 +20,7 @@ The other and definitely more challenging part is to define a map that maps the 
 
 The M-400 has a predefined set of values for each control. For example, the equalizer frequencies can have 121 distinct values: 20, 21, 22, 24, 25, 27, ..., 18.0k, 19.0k, 20.0k (Hz) (see the table below). These scales are designed to roughly conform with a meaningful scale (logarithmic in this example) but also to have more or less rounded values that are easily readable and memorable.
 
-These scales in the DAW are much different. In the case of equalizer frequency (in Fabfilter Pro-Q 2), the values span from 10 Hz to 30 kHz. When we assign a MIDI CC to a control in the DAW, whenever a message arrives (it will have a value between 0 and 127), a certain value will be set on the control. In this example, the value 0 will set the frequency to 10.000 Hz, 1 will set it to 10.651 Hz, 2 to 11.344 Hz, etc. all the way up to 127 to 30000 Hz.
+The scales in the DAW are much different. In the case of equalizer frequency (in Fabfilter Pro-Q 2), the values span from 10 Hz to 30 kHz. When we assign a MIDI CC to a control in the DAW, whenever a message arrives (it will have a value between 0 and 127), a certain value will be set on the control. In this example, the value 0 will set the frequency to 10.000 Hz, 1 will set it to 10.651 Hz, 2 to 11.344 Hz, etc. all the way up to 127 to 30000 Hz.
 
 Unfortunately, we have no control over the way the MIDI CC message maps to the control value. The best we can do is to find the closest value on the scale of the console, and map that value to the corresponding CC value. This comes with some suboptimal value mappings, but the difference is subtle. For example, the CC value 22 maps to 40.024 Hz, which is close to 40 Hz, but 25 maps to 48.356 Hz, which is halfway between 47 and 50 Hz. See the table below for the complete mapping of frequency.
 
@@ -172,9 +172,9 @@ Unfortunately, we have no control over the way the MIDI CC message maps to the c
 
 ## The layout of the parameters in the virtual MIDI devices
 
-An important part of the implementation is to decide for each individual parameter that where we should map them on the virtual devices, specifically, to which CC of which channel of which device.
+An important part of the implementation was to decide for each individual parameter where to map them on the virtual devices, specifically, to which CC of which channel of which device. This layout is arbitrary, it does not affect the behavior in any way, it just helps to better overview the parameters.
 
-There are 16 channels a MIDI device can use. In each channel, there are 128 Control Changes. This means that a device can handle distinct 2048 parameters. This amount is barely enough for a basic set of parameters for the amount of mixer channels we desire to use. Furthermore, if all the parameters were tightly packed, it would not be well-structured, could not be understood by a glance, and it would be hardly maintainable, in other words, it would be a programmatic nightmare.
+There are 16 channels a MIDI device can use. In each channel, there are 128 Control Changes. This means that a device can handle 2048 distinct parameters. This amount is just enough for a basic set of parameters for the amount of mixer channels we desire to use. However, if all the parameters were tightly packed, it would not be well-structured, could not be understood by a glance, and it would be hardly maintainable, in other words, it would be a programmatic nightmare.
 
 So after a short contemplation, I decided to make each mixer channel correspond to a single MIDI channel. This way, we would need a couple more virtual MIDI devices, but each channel would have plenty of room for all the parameters we need and even more if we decide that we need to implement more in the future. It is easier from a programmatic standpoint too, because each kind of parameter can have the same CC number throughout all the channels, for example the gain of the first band of the equalizer can be the CC 10 on every channel.
 
@@ -192,7 +192,7 @@ The first four are full already, the `loopMidiInMain` has 15 remaining channels 
 
 ### Organizing the parameters
 
-In the table below, you can see the complete mapping of the parameters to CCs. Note that certain kinds of parameters only applies to certain groups of channels For example, the effect sends are only for the input channels.
+In the table below, you can see the complete mapping of the parameters to CCs. Certain kinds of parameters only applies to certain groups of channels For example, the effect sends are only for the input channels. This is what the checkmarks indicate.
 
 |Parameter|CC|Input|Aux|Main|DCA
 |---|---|---|---|---|---|
@@ -203,6 +203,13 @@ In the table below, you can see the complete mapping of the parameters to CCs. N
 
 ## Java MIDI package
 
-The program uses the `javax.sound.midi` package. The most important classes/interfaces in this application are `MidiDevice`, `Receiver`, `Transmitter`, `MidiMessage` and `ShortMessage`.
+The program uses the `javax.sound.midi` package. The most important classes/interfaces in this application are `MidiDevice`, `Receiver`, `Transmitter`, `MidiMessage`, `ShortMessage` and `SysexMessage`.
 
-A `MidiDevice` is what the OS sees when you plug in a physical device. We can get an array of the currently available MIDI devices in the system with the `MidiSystem.getMidiDeviceInfo()` function. Usually each device has two instances, for an IN and an OUT port. An IN port is the one that sends data from the device to the OS, and it is represented as a MidiDevice that can have a `Transmitter`. On the other hand, an OUT port is the one that sends data from the OS back to the device. This one can have a `Receiver`.
+A `MidiDevice` is what the OS sees when you plug in a physical device. We can get an array of the currently available MIDI devices in the system with the `MidiSystem.getMidiDeviceInfo()` function. Usually, each device has two instances, for an IN and an OUT port. An IN port is the one that sends data from the device to the OS, and it is represented as a MidiDevice that can have a `Transmitter`. On the other hand, an OUT port is the one that sends data from the OS back to the device. This one can have a `Receiver`.
+
+The messages coming from transmitters can be captured by custom receivers that implement the `Receiver` interface. In order to do this, first, we need to pass our receiver to the transmitter's `setReceiver()` function as parameter. Second, in our receiver implementation, the `send(MidiMessage message, long timeStamp)` overridden method should handle the transmitter's messages.
+
+To send a message from the program to a receiver, we can simply call its send method, and pass a subclass of `MidiMessage`, particularly `ShortMessage` for Control Change, and `SysexMessage` for SysEx messages.
+
+## Block diagram of the whole system
+![alt](./resources/MIDI mapper block diagram.png)
