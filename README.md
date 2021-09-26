@@ -212,4 +212,4 @@ The messages coming from transmitters can be captured by custom receivers that i
 To send a message from the program to a receiver, we can simply call its send method, and pass a subclass of `MidiMessage`, particularly `ShortMessage` for Control Change, and `SysexMessage` for SysEx messages.
 
 ## Block diagram of the whole system
-![alt](./resources/MIDI mapper block diagram.png)
+![alt](https://github.com/pyzon/midimapper/blob/master/resources/MIDI%20mapper%20block%20diagram.png)
