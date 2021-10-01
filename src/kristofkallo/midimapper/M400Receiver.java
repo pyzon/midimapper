@@ -67,22 +67,29 @@ public class M400Receiver implements Receiver {
                 if (msg[7] == MessageCategory.INPUT_CHANNEL ||
                         msg[7] == MessageCategory.MAIN_CHANNEL) {
                     byte param = 127;
-                    byte value = 0;
+                    int value = 0;
                     byte[] messageType = Arrays.copyOfRange(msg, 9, 11);
                     if (Arrays.equals(messageType, MessageType.EQ_1_FREQ)) {
-                        value = frequencyToSliderValue(squash(Arrays.copyOfRange(msg, 11, 14)));
+                        value = logToLin(squash(Arrays.copyOfRange(msg, 11, 14)), 20, 20000, 16384, 10, 30000);
                         param = 0;
-                    } else if (Arrays.equals(messageType, MessageType.EQ_2_FREQ)) {
+                    } /*else if (Arrays.equals(messageType, MessageType.EQ_2_FREQ)) {
                         value = frequencyToSliderValue(squash(Arrays.copyOfRange(msg, 11, 14)));
                         param = 1;
                     } else if (Arrays.equals(messageType, MessageType.EQ_2_Q)) {
                         value = linearToSliderValue(squash(Arrays.copyOfRange(msg, 11, 13)), 0, 1200);
                         param = 2;
-                    }
+                    }*/
                     ShortMessage outMsg = new ShortMessage();
-                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, param, value);
-                    if (outReceiver != null)
-                        outReceiver.send(outMsg, timeStamp);
+//                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, param, value);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, 0);
+                    this.receivers[0].send(outMsg, timeStamp);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, 0);
+                    this.receivers[0].send(outMsg, timeStamp);
+                    byte[] valueParts = split(value);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
+                    this.receivers[0].send(outMsg, timeStamp);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
+                    this.receivers[0].send(outMsg, timeStamp);
                 }
             } catch (InvalidMidiDataException e) {
                 e.printStackTrace();
@@ -120,6 +127,13 @@ public class M400Receiver implements Receiver {
 
     }
 
+    /**
+     * Interprets an array of 7-bit bytes as a signed number. The first byte is the MSB.
+     * The number follows the two's complement representation.
+     * @param bytes Array of 7-bit bytes, meaning that the first bit is 0 and is
+     *              ignored during the interpretation.
+     * @return The squashed number as an int.
+     */
     private int squash(byte[] bytes) {
         int result = 0;
         for(int i = 0; i < bytes.length; i++) {
@@ -133,15 +147,31 @@ public class M400Receiver implements Receiver {
         }
         return result;
     }
-    private byte frequencyToSliderValue(double freq) {
-        // TODO: maybe we need different interval than (20, 20000), it should be another function with these parameters
-        if (freq < 20 || freq > 20000)
-            throw new IllegalArgumentException("Frequency is out of range (20 to 20000).");
-        return (byte) Math.round(127 * Math.log(freq/20.0) / Math.log(1000.0));
+
+    /**
+     * Splits a 14 digit unsigned integer into two 7-bit bytes.
+     * @param number The number to split.
+     * @return Array of two bytes, the first one being the MSB.
+     */
+    private byte[] split(int number) {
+        System.out.println(number);
+        if (number < 0 || 16383 < number) {
+            throw new IllegalArgumentException("expected unsigned 14-bit number");
+        }
+        return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
+    }
+    private int logToLin(double source, double sourceMin, double sourceMax, double destRes, double destMin, double destMax) {
+        if (source < sourceMin) {
+            source = sourceMin;
+        }
+        if (source > sourceMax) {
+            source = sourceMax;
+        }
+        return (int) Math.round(destRes * Math.log(source/destMin) / Math.log(destMax/destMin));
     }
     private byte linearToSliderValue(double level, double min, double max) {
         if (level < min || level > max)
-            throw new IllegalArgumentException("Level is out of range.");
+            throw new IllegalArgumentException("level is out of range");
         return (byte) Math.round(127 * (level - min) / (max - min));
     }
 }
