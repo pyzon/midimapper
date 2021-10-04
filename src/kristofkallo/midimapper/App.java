@@ -6,8 +6,6 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Receiver;
 import java.awt.*;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * The application class.
@@ -30,11 +28,11 @@ import java.util.Map;
 public class App {
     static final String APP_NAME = "M-400 MIDI Mapper";
 
-    private final Map<String, MidiDevice> devices = new HashMap<>();
-
     private final TrayMenu trayMenu;
-//    private MidiDevice m400In; // M-400 -> Midi Mapper
-//    private MidiDevice loopMidiOut; // Midi Mapper -> loopMidi
+    private MidiDevice m400In; // M-400 console -> this program
+    private MidiDevice loopMidiIn; // this program -> loopMidi (-> DAW)
+    private MidiDevice loopMidiOut; // (DAW ->) loopMidi -> this program
+    private MidiDevice m400Out; // this program -> M-400 console
 //    private Receiver loopMidiOutReceiver;
 //    private final JPanel panel;
 
@@ -42,20 +40,6 @@ public class App {
 //        panel = new JPanel();
 //        panel.setVisible(false);
         trayMenu = new TrayMenu(this);
-        // Console -> this program -> loopMidi -> DAW
-        devices.put("m400In", null);
-        devices.put("loopMidiInCh1_16", null);
-        devices.put("loopMidiInCh17_32", null);
-        devices.put("loopMidiInCh33_48", null);
-        devices.put("loopMidiInAux", null);
-        devices.put("loopMidiInMain", null);
-        // DAW -> loopMidi -> this program -> Console
-        devices.put("m400Out", null);
-        devices.put("loopMidiOutCh1_16", null);
-        devices.put("loopMidiOutCh17_32", null);
-        devices.put("loopMidiOutCh33_48", null);
-        devices.put("loopMidiOutAux", null);
-        devices.put("loopMidiOutMain", null);
         connectDevices();
 //        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
 //        scheduledThreadPool.scheduleAtFixedRate(() -> checkConnection(), 0, 1, TimeUnit.SECONDS);
@@ -71,117 +55,113 @@ public class App {
                 trayMenu.getTrayIcon().displayMessage(APP_NAME, "MIDI error: " + e.getLocalizedMessage(), TrayIcon.MessageType.ERROR);
                 return;
             }
+//            System.out.println(info.getName());
 
             if (info.getName().contains("RSS M-400") && device.getMaxTransmitters() != 0) {
-                devices.replace("m400In", device);
+                m400In = device;
                 try {
-                    devices.get("m400In").open();
+                    m400In.open();
                 } catch (MidiUnavailableException e) {
-                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open M-400 MIDI OUT port (M-400 -> PC).", TrayIcon.MessageType.ERROR);
+                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open M-400 MIDI In port.", TrayIcon.MessageType.ERROR);
+                    return;
                 }
             }
             if (info.getName().contains("RSS M-400") && device.getMaxReceivers() != 0) {
-                devices.replace("m400Out", device);
+                m400Out = device;
                 try {
-                    devices.get("m400Out").open();
+                    m400Out.open();
                 } catch (MidiUnavailableException e) {
-                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open M-400 MIDI IN port (M-400 <- PC).", TrayIcon.MessageType.ERROR);
+                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open M-400 MIDI Out port.", TrayIcon.MessageType.ERROR);
+                    return;
                 }
             }
-            if (devices.containsKey(info.getName())) {
-                // the loopMIDI devices should have the same names as in the devices map
-                if (device.getMaxReceivers() != 0 && info.getName().contains("In") ||
-                    device.getMaxTransmitters() != 0 && info.getName().contains("Out")) {
-
-                    devices.replace(info.getName(), device);
-                    try {
-                        devices.get(info.getName()).open();
-                    } catch (MidiUnavailableException e) {
-                        trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open " + info.getName() + " port.", TrayIcon.MessageType.ERROR);
-                    }
+            if (info.getName().equals("loopMidiIn") && device.getMaxReceivers() != 0) {
+                loopMidiIn = device;
+                try {
+                    loopMidiIn.open();
+                } catch (MidiUnavailableException e) {
+                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open loopMidiIn.", TrayIcon.MessageType.ERROR);
+                    return;
                 }
             }
-            /*if (info.getName().equals() && device.getMaxReceivers() != 0) {
+            if (info.getName().equals("loopMidiOut") && device.getMaxTransmitters() != 0) {
                 loopMidiOut = device;
-
                 try {
                     loopMidiOut.open();
                 } catch (MidiUnavailableException e) {
-                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open loopMidi IN port.", TrayIcon.MessageType.ERROR);
+                    trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open loopMidiOut.", TrayIcon.MessageType.ERROR);
+                    return;
                 }
-                try {
-                    loopMidiOutReceiver = loopMidiOut.getReceiver();
-                } catch (MidiUnavailableException e) {
-                    // This shouldn't happen
-                    e.printStackTrace();
-                }
-
-            }*/
-            //System.out.println(info.getName() + " transmitters:" + device.getMaxTransmitters() + " receivers:" + device.getMaxReceivers());
+            }
         }
         // Error checking
-        for (String deviceKey : devices.keySet()) {
-            if (devices.get(deviceKey) == null) {
-                trayMenu.getTrayIcon().displayMessage(APP_NAME, deviceKey + " device not found.", TrayIcon.MessageType.ERROR);
-                return;
-            }
-            if (!devices.get(deviceKey).isOpen()) {
-                trayMenu.getTrayIcon().displayMessage(APP_NAME, "Could not open " + deviceKey + " port. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-                return;
-            }
+        if (m400In == null) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "M-400 (In port) device not found. Is the console plugged in and running?", TrayIcon.MessageType.ERROR);
+            return;
         }
-        // creating an empty receivers array
-        Receiver[] receivers = new Receiver[0];
-        try {
-            // filling up the receivers array with our receivers
-            receivers = new Receiver[]{
-                    devices.get("loopMidiInCh1_16").getReceiver(),
-                    devices.get("loopMidiInCh17_32").getReceiver(),
-                    devices.get("loopMidiInCh33_48").getReceiver(),
-                    devices.get("loopMidiInAux").getReceiver(),
-                    devices.get("loopMidiInMain").getReceiver(),
-            };
-        } catch (MidiUnavailableException e) {
-            trayMenu.getTrayIcon().displayMessage(APP_NAME, "loopMidi receivers could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-            e.printStackTrace();
+        if (m400Out == null) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "M-400 (Out port) device not found. Is the console plugged in and running?", TrayIcon.MessageType.ERROR);
+            return;
         }
-        // Receiver null checks
-        for (Receiver receiver: receivers) {
-            if (receiver == null) {
-                trayMenu.getTrayIcon().displayMessage(APP_NAME, "One or more loopMidi receiver is null. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-                return;
-            }
-        }
-        try {
-            devices.get("m400In").getTransmitter().setReceiver(new M400Receiver(receivers));
-        } catch (MidiUnavailableException e) {
-            trayMenu.getTrayIcon().displayMessage(APP_NAME, "m400 transmitter could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-            e.printStackTrace();
-        }
-        /*if (m400In == null) {
-            trayMenu.getTrayIcon().displayMessage(APP_NAME, "M-400 device not found.", TrayIcon.MessageType.ERROR);
+        if (loopMidiIn == null) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "loopMidiIn device not found. Is loopMIDI running?", TrayIcon.MessageType.ERROR);
             return;
         }
         if (loopMidiOut == null) {
-            trayMenu.getTrayIcon().displayMessage(APP_NAME, "loopMidi device not found.", TrayIcon.MessageType.ERROR);
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "loopMidiOut device not found. Is loopMIDI running?", TrayIcon.MessageType.ERROR);
             return;
         }
-        if (m400In.isOpen() && loopMidiOut.isOpen() && loopMidiOutReceiver != null) {
-            try {
-                m400In.getTransmitter().setReceiver(new M400Receiver(loopMidiOutReceiver));
-            } catch (MidiUnavailableException e) {
-                // This shouldn't happen
-                e.printStackTrace();
-            }
-        }*/
+        // Checks for isOpen() are not necessary
+        // Get receivers
+        Receiver loopMidiReceiver = null;
+        try {
+            loopMidiReceiver = loopMidiIn.getReceiver();
+        } catch (MidiUnavailableException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "loopMidi receiver could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+            return;
+        }
+        Receiver m400Receiver = null;
+        try {
+            m400Receiver = m400Out.getReceiver();
+        } catch (MidiUnavailableException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "M-400 receiver could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+            return;
+        }
+        // Set receivers on the transmitters
+        try {
+            m400In.getTransmitter().setReceiver(new M400Receiver(loopMidiReceiver));
+        } catch (MidiUnavailableException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "m400 transmitter could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+            return;
+        }
+//        try {
+//            loopMidiOut.getTransmitter().setReceiver(new LoopMidiReceiver(m400Receiver));
+//        } catch (MidiUnavailableException e) {
+//            trayMenu.getTrayIcon().displayMessage(APP_NAME, "m400 transmitter could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
+//            e.printStackTrace();
+//            return;
+//        }
+        trayMenu.getTrayIcon().displayMessage(APP_NAME, "All connections established successfully.", TrayIcon.MessageType.INFO);
     }
     private void closeDevices() {
-        for (String deviceKey : devices.keySet()) {
-            MidiDevice device = devices.get(deviceKey);
-            if (device != null) {
-                device.close();
-            }
-            devices.replace(deviceKey, null);
+        if (m400In != null) {
+            m400In.close();
+            m400In = null;
+        }
+        if (m400Out != null) {
+            m400Out.close();
+            m400Out = null;
+        }
+        if (loopMidiIn != null) {
+            loopMidiIn.close();
+            loopMidiIn = null;
+        }
+        if (loopMidiOut != null) {
+            loopMidiOut.close();
+            loopMidiOut = null;
         }
     }
     public void quit() {

@@ -32,19 +32,18 @@ public class M400Receiver implements Receiver {
 
     }
 
-    private final Receiver[] receivers = new Receiver[5];
+    private final Receiver receiver;
 
-    public M400Receiver(Receiver[] receivers) {
-        System.arraycopy(receivers, 0, this.receivers, 0, this.receivers.length);
+    public M400Receiver(Receiver receiver) {
+        this.receiver = receiver;
     }
 
     @Override
     public void send(MidiMessage message, long timeStamp) {
-        for (Receiver receiver: receivers) {
-            if (receiver == null) {
-                Main.app.getTrayMenu().getTrayIcon().displayMessage(APP_NAME, "One or more loopMidi receiver is null. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-                return;
-            }
+        // Sanity check
+        if (receiver == null) {
+            Main.app.getTrayMenu().getTrayIcon().displayMessage(APP_NAME, "Receiver is null. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
+            return;
         }
         byte[] msg = message.getMessage();
         // SysEx status byte f0 which is -16
@@ -79,17 +78,18 @@ public class M400Receiver implements Receiver {
                         value = linearToSliderValue(squash(Arrays.copyOfRange(msg, 11, 13)), 0, 1200);
                         param = 2;
                     }*/
+                    byte[] valueParts = split(value);
+
                     ShortMessage outMsg = new ShortMessage();
 //                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, param, value);
                     outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, 0);
-                    this.receivers[0].send(outMsg, timeStamp);
+                    receiver.send(outMsg, timeStamp);
                     outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, 0);
-                    this.receivers[0].send(outMsg, timeStamp);
-                    byte[] valueParts = split(value);
+                    receiver.send(outMsg, timeStamp);
                     outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
-                    this.receivers[0].send(outMsg, timeStamp);
+                    receiver.send(outMsg, timeStamp);
                     outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
-                    this.receivers[0].send(outMsg, timeStamp);
+                    receiver.send(outMsg, timeStamp);
                 }
             } catch (InvalidMidiDataException e) {
                 e.printStackTrace();
