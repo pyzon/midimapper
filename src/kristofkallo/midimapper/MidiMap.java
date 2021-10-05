@@ -13,13 +13,15 @@ public class MidiMap {
         channels = new ArrayList<>();
 
         File mapFile = new File(pathname);
-        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        dbFactory.setNamespaceAware(true);
+        dbFactory.setIgnoringElementContentWhitespace(true);
+        DocumentBuilder documentBuilder = dbFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(mapFile);
         document.getDocumentElement().normalize();
 
         // Channels
-        NodeList channelNodes = document.getDocumentElement().getChildNodes();
+        NodeList channelNodes = document.getElementsByTagName("channel");
         for(int i = 0; i < channelNodes.getLength(); i++) {
             Node channelNode = channelNodes.item(i);
             NamedNodeMap channelAttributes = channelNode.getAttributes();
@@ -27,6 +29,9 @@ public class MidiMap {
             String name = channelAttributes.getNamedItem("name").getNodeValue();
 
             Node addressNode = channelNode.getFirstChild();
+            while (!addressNode.getNodeName().equals("address")) {
+                addressNode = addressNode.getNextSibling();
+            }
             NamedNodeMap addressAttributes = addressNode.getAttributes();
             byte sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
             byte sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
@@ -38,9 +43,16 @@ public class MidiMap {
             // Parameters
             Node paramNode = addressNode.getNextSibling();
             while (paramNode != null) {
+                if (!paramNode.getNodeName().equals("parameter")) {
+                    paramNode = paramNode.getNextSibling();
+                    continue;
+                }
                 String paramName = paramNode.getAttributes().getNamedItem("name").getNodeValue();
 
                 addressNode = paramNode.getFirstChild();
+                while (!addressNode.getNodeName().equals("address")) {
+                    addressNode = addressNode.getNextSibling();
+                }
                 addressAttributes = addressNode.getAttributes();
                 sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
                 sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
@@ -48,6 +60,9 @@ public class MidiMap {
                 Address paramAddress = new Address(sysex0, sysex1, nrpn);
 
                 Node dataNode = addressNode.getNextSibling();
+                while (!dataNode.getNodeName().equals("data")) {
+                    dataNode = dataNode.getNextSibling();
+                }
                 NamedNodeMap dataAttributes = dataNode.getAttributes();
                 int min = Integer.parseInt(dataAttributes.getNamedItem("min").getNodeValue());
                 int max = Integer.parseInt(dataAttributes.getNamedItem("max").getNodeValue());

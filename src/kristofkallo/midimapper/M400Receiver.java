@@ -133,11 +133,11 @@ public class M400Receiver implements Receiver {
     private int mapLog(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
         source = clamp(source, sourceMin, sourceMax);
         source = clamp(source, destMin, destMax);
-        return (int) Math.round((double) 16384 * Math.log(source/destMin) / Math.log(destMax/destMin));
+        return (int) Math.floor((double) 16383 * Math.log(source/destMin) / Math.log(destMax/destMin));
     }
     private int mapLin(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
         source = clamp(source, sourceMin, sourceMax);
         source = clamp(source, destMin, destMax);
-        return (int) Math.round(16384 * (source - destMin) / (destMax - destMin));
+        return (int) Math.floor(16383 * (source - destMin) / (destMax - destMin));
     }
 }
