@@ -1,57 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<midimap version="1.0">
+<midimapconfig version="1.0">
 	<channel id="CH1" name="Kick out">
 		<address sysex0="0x03" sysex1="0x00" nrpn="0x00"/>
 		<parameter name="att">
 			<address sysex0="0x00" sysex1="0x0a" nrpn="0x00"/>
-			<data min="-480" max="240" bytes="2" scale="lin" dmin="-480" dmax="480"/>
+			<data min="-480" max="240" bytes="2" scale="LIN" dmin="-480" dmax="480"/>
 		</parameter>
 		<parameter name="mute">
 			<address sysex0="0x00" sysex1="0x0c" nrpn="0x01"/>
-			<data min="0" max="1" bytes="1" scale="lin" dmin="0" dmax="1"/>
+			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="solo">
 			<address sysex0="0x00" sysex1="0x0d" nrpn="0x02"/>
-			<data min="0" max="1" bytes="1" scale="lin"/>
-			<daw min="0" max="0"/>
+			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="fader">
 			<address sysex0="0x00" sysex1="0x0e" nrpn="0x03"/>
-			<data min="-906" max="100" bytes="2" scale="lin"/>
-			<daw min="-1000" max="602"/>
+			<data min="-906" max="100" bytes="2" scale="LIN" dmin="-1000" dmax="602"/>
 		</parameter>
 		<parameter name="pan">
 			<address sysex0="0x00" sysex1="0x10" nrpn="0x04"/>
-			<data min="1" max="127" bytes="1" scale="lin"/>
-			<daw min="1" max="127"/>
+			<data min="1" max="127" bytes="1" scale="LIN" dmin="1" dmax="127"/>
 		</parameter>
 	</channel>
 	<channel id="CH2" name="Kick in">
 		<address sysex0="0x03" sysex1="0x01" nrpn="0x01"/>
 		<parameter name="att">
 			<address sysex0="0x00" sysex1="0x0a" nrpn="0x00"/>
-			<data min="-480" max="240" bytes="2" scale="lin"/>
-			<daw min="-480" max="480"/>
+			<data min="-480" max="240" bytes="2" scale="LIN" dmin="-480" dmax="480"/>
 		</parameter>
 		<parameter name="mute">
 			<address sysex0="0x00" sysex1="0x0c" nrpn="0x01"/>
-			<data min="0" max="1" bytes="1" scale="lin"/>
-			<daw min="0" max="0"/>
+			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="solo">
 			<address sysex0="0x00" sysex1="0x0d" nrpn="0x02"/>
-			<data min="0" max="1" bytes="1" scale="lin"/>
-			<daw min="0" max="0"/>
+			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="fader">
 			<address sysex0="0x00" sysex1="0x0e" nrpn="0x03"/>
-			<data min="-906" max="100" bytes="2" scale="lin"/>
-			<daw min="-1000" max="602"/>
+			<data min="-906" max="100" bytes="2" scale="LIN" dmin="-1000" dmax="602"/>
 		</parameter>
 		<parameter name="pan">
 			<address sysex0="0x00" sysex1="0x10" nrpn="0x04"/>
-			<data min="1" max="127" bytes="1" scale="lin"/>
-			<daw min="1" max="127"/>
+			<data min="1" max="127" bytes="1" scale="LIN" dmin="1" dmax="127"/>
 		</parameter>
 	</channel>
-</midimap>
+</midimapconfig>

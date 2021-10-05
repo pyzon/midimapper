@@ -1,10 +1,9 @@
 package kristofkallo.midimapper;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Channel {
-    private final String id;
+    private final String id; // TODO: id and name probably not needed
     private final String name;
     private final Address address;
     private final ArrayList<Parameter> parameters;
@@ -26,8 +25,11 @@ public class Channel {
         return address;
     }
 
-    public Parameter getParameter(int index) {
-        return parameters.get(index);
+    public Parameter getParameterByAddress(byte address0, byte address1) {
+        return parameters.stream()
+                .filter(p -> p.getAddress().getSysex0() == address0 && p.getAddress().getSysex1() == address1)
+                .findAny()
+                .orElse(null);
     }
     public void putParameter(Parameter parameter) {
         parameters.add(parameter);

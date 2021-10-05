@@ -1,11 +1,15 @@
 package kristofkallo.midimapper;
 
+import org.xml.sax.SAXException;
+
 import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Receiver;
+import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * The application class.
@@ -29,22 +33,34 @@ public class App {
     static final String APP_NAME = "M-400 MIDI Mapper";
 
     private final TrayMenu trayMenu;
+
     private MidiDevice m400In; // M-400 console -> this program
     private MidiDevice loopMidiIn; // this program -> loopMidi (-> DAW)
     private MidiDevice loopMidiOut; // (DAW ->) loopMidi -> this program
     private MidiDevice m400Out; // this program -> M-400 console
-//    private Receiver loopMidiOutReceiver;
-//    private final JPanel panel;
+
+    private MidiMap midiMap;
 
     public App() throws FileNotFoundException, AWTException {
-//        panel = new JPanel();
-//        panel.setVisible(false);
         trayMenu = new TrayMenu(this);
+        loadConfig();
         connectDevices();
-//        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
-//        scheduledThreadPool.scheduleAtFixedRate(() -> checkConnection(), 0, 1, TimeUnit.SECONDS);
     }
-    public void connectDevices(){
+    public void loadConfig() {
+        try {
+            midiMap = new MidiMap("map.xml");
+        } catch (ParserConfigurationException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "Parser configuration error: " + e.getLocalizedMessage(), TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+        } catch (IOException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "Error reading map.xml: " + e.getLocalizedMessage(), TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+        } catch (SAXException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "Error parsing map.xml: " + e.getLocalizedMessage(), TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+        }
+    }
+    public void connectDevices() {
         closeDevices();
         MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
         for (MidiDevice.Info info : infos) {
@@ -131,7 +147,7 @@ public class App {
         }
         // Set receivers on the transmitters
         try {
-            m400In.getTransmitter().setReceiver(new M400Receiver(loopMidiReceiver));
+            m400In.getTransmitter().setReceiver(new M400Receiver(loopMidiReceiver, midiMap));
         } catch (MidiUnavailableException e) {
             trayMenu.getTrayIcon().displayMessage(APP_NAME, "m400 transmitter could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
             e.printStackTrace();

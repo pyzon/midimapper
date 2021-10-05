@@ -45,11 +45,11 @@ public class Parameter {
         return scale;
     }
 
-    public int getdMin() {
+    public int getDMin() {
         return dMin;
     }
 
-    public int getdMax() {
+    public int getDMax() {
         return dMax;
     }
 }
