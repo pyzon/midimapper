@@ -16,21 +16,6 @@ public class M400Receiver implements Receiver {
     private static final byte DEVICE_ID = 0x00;
     private static final byte[] MODEL_ID = {0x00, 0x00, 0x24};
     private static final byte DATA_SET_COMMAND_ID = 0x12;
-    private static class MessageCategory {
-        static final byte INPUT_CHANNEL = 0x03;
-        static final byte MAIN_CHANNEL = 0x06;
-        // TODO: Others maybe
-    }
-    private static class MessageType {
-        static final byte[] PAN = {0x00, 0x10};
-
-        static final byte[] FILTER_ATT = {0x00, 0x22};
-
-        static final byte[] EQ_1_FREQ = {0x00, 0x55};
-        static final byte[] EQ_2_FREQ = {0x00, 0x5a};
-        static final byte[] EQ_2_Q = {0x00, 0x5d};
-
-    }
 
     private final Receiver receiver;
     private final MidiMap midiMap;
