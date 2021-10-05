@@ -160,7 +160,6 @@ public class App {
 //            e.printStackTrace();
 //            return;
 //        }
-        trayMenu.getTrayIcon().displayMessage(APP_NAME, "All connections established successfully.", TrayIcon.MessageType.INFO);
     }
     private void closeDevices() {
         if (m400In != null) {
