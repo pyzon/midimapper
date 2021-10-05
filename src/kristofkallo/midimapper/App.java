@@ -48,7 +48,7 @@ public class App {
     }
     public void loadConfig() {
         try {
-            midiMap = new MidiMap("map.xml");
+            midiMap = new MidiMap("resources/map.xml");
         } catch (ParserConfigurationException e) {
             trayMenu.getTrayIcon().displayMessage(APP_NAME, "Parser configuration error: " + e.getLocalizedMessage(), TrayIcon.MessageType.ERROR);
             e.printStackTrace();

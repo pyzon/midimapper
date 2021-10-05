@@ -8,7 +8,7 @@ The program transforms the [System Exclusive](https://en.wikipedia.org/wiki/MIDI
 
 The program is written in Java with the use of the [javax.sound.midi](https://docs.oracle.com/javase/7/docs/api/javax/sound/midi/package-summary.html) package. It also takes advantage of [LoopMidi](https://www.tobias-erichsen.de/software/loopmidi.html) virtual MIDI devices. These are loopback devices, they immediately send out the messages they receive. We need these as links between the program and the DAW. Below is a block diagram of the whole system.
 
-![alt](https://github.com/pyzon/midimapper/blob/master/resources/MIDI%20mapper%20block%20diagram.png)
+![alt](https://github.com/pyzon/midimapper/blob/master/MIDI%20mapper%20block%20diagram.png)
 
 ## Java MIDI package
 
