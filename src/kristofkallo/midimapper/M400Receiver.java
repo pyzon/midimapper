@@ -176,7 +176,7 @@ public class M400Receiver implements Receiver {
 //                + -0.12201 * Math.pow(x, 5)
 //                + 0.12357 * Math.pow(x, 6)
 //                + -0.04635 * Math.pow(x, 7);
-        double y = -7.10113E-4 + 1.00061 * Math.pow(x, 0.24968); // TODO? simplify to 0.25
+        double y = Math.pow(x, 0.25);
         double res = Math.floor(16383 * y);
         return (int) clamp(res, 0, 16383);
     }
