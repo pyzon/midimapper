@@ -16,18 +16,9 @@ import java.io.IOException;
  * It has a tray menu. It is initialized in the constructor, and torn down
  * in the quit function. The tray icon is used for user actions, and for
  * displaying error or warning messages.
- * It has a bunch of MidiDevices in a hashmap. The reason for this is that we
- * already have like 10 and in the future there may be even more.
  *
- * A MidiDevice is what the OS sees when you plug in a physical device.
- * Usually each device has two instances, for an IN and an OUT port.
- * An IN port is the one that sends data from the device to the OS, and it is
- * represented as a MidiDevice that can have a Transmitter. Remember this.
- * On the other hand, an OUT port is the one that sends data from the OS back
- * to the device. This one can have a Receiver.
- *
- *
- * It establishes MIDI connections, registering receivers
+ * It has MIDI devices for two-way communication.
+ * It establishes MIDI connections, registering receivers.
  */
 public class App {
     static final String APP_NAME = "M-400 MIDI Mapper";
