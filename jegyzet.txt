@@ -1,59 +1,105 @@
 
-TODO
-	Üzenet feldolgozó
-		konstansokba kiszervezni a számokat
-			Talán egy külön fájlba
-		Érték mappelő függvények
-			Minden paraméterre, mindkét irányba egy-egy Map.
-			Az adatokat táblázatból, fájlból lehetne beolvasni a program indulásakor.
-			Ezeket a mappeléseket össze lehetne gyűjteni egyetlen map-be.
-			És akkor a függvény rendkívül egyszerű lehetne: mindössze meg kell neki adni, hogy melyik mappelést szeretnénk és milyen értéket szeretnénk mappelni vele.
-		Segédfüggvények
-			lineáris -> slider
-				határok megadásával
-				Nem baj, ha nem stimmel a határ
-					Ha kintebb van a határ, mint a legszélső érték, akkor nincs teendő.
-					Ha bentebb van a határ, akkor csonkolni kell.
-			frekvencia -> slider
-				A cubase furán számolja a frekit, nem exponenciálisan.
-				Illeszteni kell. Az 5-ödfokú már egész jó.
-				Előre ki kéne számolni, és egy tömbben eltárolni. Sokkal hatékonyabb, mint minden egyes alkalommal kiszámolni egy bonyolult függvényt, amikor max 128 különböző bemenet lehet.
-	Midi eszközök
-		Console -> DAW
-			m400In
-			loopMidi
-				48 input
-					loopMidiInCh1_16
-					loopMidiInCh17_32
-					loopMidiInCh33_48
-				16 aux
-					loopMidiInAux
-				main, egyebek (8 mtx)
-					loopMidiInMain
-		DAW -> Console
-			m400Out
-			loopMidi
-				48 input
-					loopMidiOutCh1_16
-					loopMidiOutCh17_32
-					loopMidiOutCh33_48
-				16 aux
-					loopMidiOutAux
-				main, egyebek (8 mtx)
-					loopMidiOutMain
-	Üzenetküldés visszafelé
-		Az odairány minden üzenete inverzen.
-		Szinkronizálás
-			A titok nyitja, hogy csatlakoztatva kell legyen a pult, amikor megnyitjuk a projektet (elindítjuk a programot), és minden paramétert, amire kimenő midi van beállítva, elküld.
-Done
-	-Tray menü
-		-Reconnect devices
-	-Az a baj, hogy nem tudjuk érzékelni, hogyha szétkapcsolt.
-		Polling nem jó, mert zavarja a tényleges üzengetést.
-		Ha sehogy, akkor marad a reconnect gomb, de akkor a státusz sem kell.
+Üzenet feldolgozó
+	XML fájl a csatornáknak és paramétereiknek
+	Érték mappelő függvények
+		Minden paraméter típusra egy-egy függvény, minkét irányba.
+		Ha egyszerű, akkor jó, például lineáris, logaritmikus, törtkitevős hatványfüggvény.
+		Ha bonyolult, akkor pedig meg kell nézni egy sor kontrol-pontot, és spline-t illeszteni rá.
+			Erre van egy jó osztály az org.apache.commons csomagban: SplineInterpolator
+Midi eszközök
+Üzenetküldés visszafelé
+	Az odairány minden üzenete inverzen.
+	Szinkronizálás
+		A titok nyitja, hogy csatlakoztatva kell legyen a pult, amikor megnyitjuk a projektet (elindítjuk a programot), mert akkor minden paramétert, amire kimenő midi van beállítva, elküld. És ha azt fogadni tudjuk, akkor elküldhetjük a pultnak.
+		Tehát a bekapcsolási sorrend:
+			1. számítógép
+			2. és 3. pult és loopMidi tetszőleges sorrendben
+			4. midimapper
+			5. Cubase
+		Ha nem sikerült helyes sorrendben kapcsolni, de már minden megy, akkor:
+			1. midimapper reconnect
+				Ha hiba van, akkor loopMidi újraindítás és/vagy pult kikapcs-bekapcs
+			2. Cubase újraindítás
+Tray menü
+	Set names...
+	Reconnect
+	Quit
+-Az a baj, hogy nem tudjuk érzékelni, hogyha szétkapcsolt.
+	Polling nem jó, mert zavarja a tényleges üzengetést.
+	Ha sehogy, akkor marad a reconnect gomb, de akkor a státusz sem kell.
 TODO maybe
 	Identity check?
 	Nevek, színek átvitele a konzolra automatikusan, vagy fél-automatikusan
 		Ezt nem lehet egyszerű midi-vel
+		Olyat lehet, hogy egy javafx-es felületen lehet beírni a neveket, amiket utána gombnyomásra lehet elküldeni
+			lehet autocomplete gyakori nevekre,
+			lehet egy dropdown a színekhez, vagy még jobb, ha hat rádiógomb
+			a név beviteli mezőt validálni kell ascii-re
 
 
+Unused code
+App
+	Fields
+//    private Receiver loopMidiOutReceiver;
+//    private final JPanel panel;
+	Constructor
+//        panel = new JPanel();
+//        panel.setVisible(false);
+//        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
+//        scheduledThreadPool.scheduleAtFixedRate(() -> checkConnection(), 0, 1, TimeUnit.SECONDS);
+TrayMenu
+	Fields
+    //private final MenuItem m400MenuItem;
+    //private final MenuItem loopMidiMenuItem;
+	Constructor
+        //Menu devicesMenu = new Menu("Devices");
+        //m400MenuItem = new MenuItem();
+        //m400MenuItem.setEnabled(false);
+        //loopMidiMenuItem = new MenuItem();
+        //loopMidiMenuItem.setEnabled(false);
+        //menu.add(m400MenuItem);
+        //menu.add(loopMidiMenuItem);
+M400Receiver
+	send
+			try {
+                int mixerChannel = 127;
+                switch (msg[7]) {
+                    case MessageCategory.INPUT_CHANNEL:
+                        mixerChannel = msg[8];
+                        break;
+                    case MessageCategory.MAIN_CHANNEL:
+                        mixerChannel = 72;
+                        break;
+                }
+                // Common parameters amongst input, main, and aux channels
+                if (msg[7] == MessageCategory.INPUT_CHANNEL ||
+                        msg[7] == MessageCategory.MAIN_CHANNEL) {
+                    byte param = 127;
+                    int value = 0;
+                    byte[] messageType = Arrays.copyOfRange(msg, 9, 11);
+                    if (Arrays.equals(messageType, MessageType.EQ_1_FREQ)) {
+                        value = logToLin(squash(Arrays.copyOfRange(msg, 11, 14)), 20, 20000, 16384, 10, 30000);
+                        param = 0;
+                    } /*else if (Arrays.equals(messageType, MessageType.EQ_2_FREQ)) {
+                        value = frequencyToSliderValue(squash(Arrays.copyOfRange(msg, 11, 14)));
+                        param = 1;
+                    } else if (Arrays.equals(messageType, MessageType.EQ_2_Q)) {
+                        value = linearToSliderValue(squash(Arrays.copyOfRange(msg, 11, 13)), 0, 1200);
+                        param = 2;
+                    }*/
+                    byte[] valueParts = split(value);
+
+                    ShortMessage outMsg = new ShortMessage();
+//                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, param, value);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, 0);
+                    receiver.send(outMsg, timeStamp);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, 0);
+                    receiver.send(outMsg, timeStamp);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
+                    receiver.send(outMsg, timeStamp);
+                    outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
+                    receiver.send(outMsg, timeStamp);
+                }
+            } catch (InvalidMidiDataException e) {
+                e.printStackTrace();
+            }
