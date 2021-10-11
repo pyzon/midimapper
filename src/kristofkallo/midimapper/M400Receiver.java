@@ -59,23 +59,7 @@ public class M400Receiver implements Receiver {
                     return;
                 }
                 byte[] data = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
-                int value = 0;
-                switch (param.getScale()) {
-                    case LIN:
-                        value = mapLin(squash(data, param.isSigned()), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
-                        break;
-                    case LOG:
-                        value = mapLog(squash(data, param.isSigned()), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
-                        break;
-                    case FADER:
-                        value = mapFader(squash(data, param.isSigned()));
-                        break;
-                    case ATTACK:
-                        value = mapAttack(squash(data, param.isSigned()), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
-                        break;
-                    case RATIO:
-                        return;
-                }
+                int value = map(squash(data, param.isSigned()), param.getScale(), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
 
                 byte[] valueParts = split(value);
 
@@ -133,6 +117,7 @@ public class M400Receiver implements Receiver {
         }
         return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
     }
+
     private double clamp(double number, double min, double max) {
         if (number < min) {
             number = min;
@@ -141,6 +126,21 @@ public class M400Receiver implements Receiver {
             number = max;
         }
         return  number;
+    }
+
+    private int map(double source, Scale scale, double sourceMin, double sourceMax, double destMin, double destMax) {
+        switch (scale) {
+            case LIN:
+                return mapLin(source, sourceMin, sourceMax, destMin, destMax);
+            case LOG:
+                return mapLog(source, sourceMin, sourceMax, destMin, destMax);
+            case FADER:
+                return mapFader(source);
+            case ATTACK:
+                return mapAttack(source, sourceMin, sourceMax, destMin, destMax);
+            case RATIO:
+        }
+        return 0;
     }
     private int mapLog(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
         source = clamp(source, sourceMin, sourceMax);
