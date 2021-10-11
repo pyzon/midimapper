@@ -90,6 +90,8 @@ public class MidiMap {
             channels.add(channel);
         }
 
+        // TODO: if there will be more scales with a control point list in the future,
+        //  we should find the correct scales by id not by index, just to be safe
         NodeList faderScalePointNodes = document.getElementsByTagName("scale").item(0).getChildNodes();
         ArrayList<Node> pointNodes = new ArrayList<>();
         for (int i = 0; i < faderScalePointNodes.getLength(); i++) {
