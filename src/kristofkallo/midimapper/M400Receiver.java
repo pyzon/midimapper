@@ -6,6 +6,8 @@ import javax.sound.midi.Receiver;
 import javax.sound.midi.ShortMessage;
 import java.awt.*;
 import java.util.Arrays;
+import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
+import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
 
 import static kristofkallo.midimapper.App.APP_NAME;
 
@@ -52,14 +54,24 @@ public class M400Receiver implements Receiver {
                 }
 
                 Parameter param = channel.getParameterByAddress(msg[9], msg[10]);
+                if (param == null) {
+                    // Parameter is not in the map file, i.e. unused
+                    return;
+                }
                 byte[] data = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
                 int value = 0;
                 switch (param.getScale()) {
                     case LIN:
-                        value = mapLin(squash(data), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
+                        value = mapLin(squash(data, param.isSigned()), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
                         break;
                     case LOG:
-                        value = mapLog(squash(data), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
+                        value = mapLog(squash(data, param.isSigned()), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
+                        break;
+                    case FADER:
+                        value = mapFader(squash(data, param.isSigned()));
+                        break;
+                    case ATTACK:
+                        value = mapAttack(squash(data, param.isSigned()), param.getMin(), param.getMax(), param.getDMin(), param.getDMax());
                         break;
                     case RATIO:
                         return;
@@ -89,19 +101,20 @@ public class M400Receiver implements Receiver {
     }
 
     /**
-     * Interprets an array of 7-bit bytes as a signed number. The first byte is the MSB.
+     * Interprets an array of 7-bit bytes as a signed or unsigned number.
+     * The first byte is the MSB.
      * The number follows the two's complement representation.
      * @param bytes Array of 7-bit bytes, meaning that the first bit is 0 and is
      *              ignored during the interpretation.
      * @return The squashed number as an int.
      */
-    private int squash(byte[] bytes) {
+    private int squash(byte[] bytes, boolean signed) {
         int result = 0;
         for(int i = 0; i < bytes.length; i++) {
             result += bytes[i] << ((bytes.length - i - 1) * 7);
         }
         // negative
-        if (bytes[0] >= 64) {
+        if (signed && bytes[0] >= 64) {
             int mask = -1;
             mask = mask << (bytes.length * 7);
             result = result | mask;
@@ -115,7 +128,6 @@ public class M400Receiver implements Receiver {
      * @return Array of two bytes, the first one being the MSB.
      */
     private byte[] split(int number) {
-        System.out.println(number);
         if (number < 0 || 16383 < number) {
             throw new IllegalArgumentException("expected unsigned 14-bit number");
         }
@@ -139,5 +151,33 @@ public class M400Receiver implements Receiver {
         source = clamp(source, sourceMin, sourceMax);
         source = clamp(source, destMin, destMax);
         return (int) Math.floor(16383 * (source - destMin) / (destMax - destMin));
+    }
+    private int mapFader(double source) {
+        source = clamp(source / 10, -90.6, 6.02);
+//        double rate = 500;
+//        double res = Math.floor(16383 * Math.exp(Math.log(rate) * (source - destMin) / (destMax - destMin)) / rate);
+//        return (int) clamp(res, 0, 16383);
+//        double x = (source - destMin) / (destMax - destMin);
+//        double y = 809.262 - 809.262 / (1 + 0.00061814 * Math.pow(x, 5.898)) + Math.exp(x * Math.log(600)) / 1200;
+//        double res = Math.floor(16383 * y);
+        double res = midiMap.getFaderScaleValue(source);
+        System.out.println(res);
+        return (int) clamp(res, 0, 16383);
+    }
+    private int mapAttack(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
+        source = clamp(source, sourceMin, sourceMax);
+        source = clamp(source, destMin, destMax);
+        double x = (source - destMin) / (destMax - destMin);
+        // Inverse
+//        double y = -1.36681E-5 * x
+//                + 0.00105 * Math.pow(x, 2)
+//                + -0.01187 * Math.pow(x, 3)
+//                + 1.05562 * Math.pow(x, 4)
+//                + -0.12201 * Math.pow(x, 5)
+//                + 0.12357 * Math.pow(x, 6)
+//                + -0.04635 * Math.pow(x, 7);
+        double y = -7.10113E-4 + 1.00061 * Math.pow(x, 0.24968); // TODO? simplify to 0.25
+        double res = Math.floor(16383 * y);
+        return (int) clamp(res, 0, 16383);
     }
 }

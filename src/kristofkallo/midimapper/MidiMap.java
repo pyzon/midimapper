@@ -1,13 +1,18 @@
 package kristofkallo.midimapper;
+import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
+import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
+import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MidiMap {
     private final ArrayList<Channel> channels;
+    private PolynomialSplineFunction faderScale;
 
     MidiMap(String pathname) throws ParserConfigurationException, IOException, SAXException {
         channels = new ArrayList<>();
@@ -64,14 +69,19 @@ public class MidiMap {
                     dataNode = dataNode.getNextSibling();
                 }
                 NamedNodeMap dataAttributes = dataNode.getAttributes();
-                int min = Integer.parseInt(dataAttributes.getNamedItem("min").getNodeValue());
-                int max = Integer.parseInt(dataAttributes.getNamedItem("max").getNodeValue());
                 int bytes = Integer.parseInt(dataAttributes.getNamedItem("bytes").getNodeValue());
+                boolean signed = Boolean.parseBoolean(dataAttributes.getNamedItem("signed").getNodeValue());
                 Scale scale = Scale.valueOf(dataAttributes.getNamedItem("scale").getNodeValue());
-                int dMin = Integer.parseInt(dataAttributes.getNamedItem("dmin").getNodeValue());
-                int dMax = Integer.parseInt(dataAttributes.getNamedItem("dmax").getNodeValue());
+                Node minAttr = dataAttributes.getNamedItem("min");
+                double min = minAttr == null ? 0 : Double.parseDouble(minAttr.getNodeValue());
+                Node maxAttr = dataAttributes.getNamedItem("max");
+                double max = maxAttr == null ? 0 : Double.parseDouble(maxAttr.getNodeValue());
+                Node dMinAttr = dataAttributes.getNamedItem("dmin");
+                double dMin = dMinAttr == null ? 0 : Double.parseDouble(dMinAttr.getNodeValue());
+                Node dMaxAttr = dataAttributes.getNamedItem("dmax");
+                double dMax = dMaxAttr == null ? 0 : Double.parseDouble(dMaxAttr.getNodeValue());
 
-                Parameter parameter = new Parameter(paramName, paramAddress, min, max, bytes, scale, dMin, dMax);
+                Parameter parameter = new Parameter(paramName, paramAddress, min, max, bytes, signed, scale, dMin, dMax);
                 channel.putParameter(parameter);
 
                 paramNode = paramNode.getNextSibling();
@@ -79,11 +89,34 @@ public class MidiMap {
 
             channels.add(channel);
         }
+
+        NodeList faderScalePointNodes = document.getElementsByTagName("scale").item(0).getChildNodes();
+        ArrayList<Node> pointNodes = new ArrayList<>();
+        for (int i = 0; i < faderScalePointNodes.getLength(); i++) {
+            Node pointNode = faderScalePointNodes.item(i);
+            if (!pointNode.getNodeName().equals("point")) {
+                continue;
+            }
+            pointNodes.add(pointNode);
+        }
+        int n = pointNodes.size();
+        double[] x = new double[n];
+        double[] y = new double[n];
+        for (int i = 0; i < n; i++) {
+            NamedNodeMap pointAttributes = pointNodes.get(i).getAttributes();
+            x[i] = Double.parseDouble(pointAttributes.getNamedItem("x").getNodeValue());
+            y[i] = Double.parseDouble(pointAttributes.getNamedItem("y").getNodeValue());
+        }
+        SplineInterpolator interpolator = new SplineInterpolator();
+        faderScale = interpolator.interpolate(x, y);
     }
     public Channel getChannelByAddress(byte address0, byte address1) {
         return channels.stream()
                 .filter(ch -> ch.getAddress().getSysex0() == address0 && ch.getAddress().getSysex1() == address1)
                 .findAny()
                 .orElse(null);
+    }
+    public double getFaderScaleValue(double x) {
+        return faderScale.value(x);
     }
 }

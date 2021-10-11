@@ -3,19 +3,21 @@ package kristofkallo.midimapper;
 public class Parameter {
     private final String name;
     private final Address address;
-    private final int min;
-    private final int max;
+    private final double min;
+    private final double max;
     private final int bytes;
+    private final boolean signed;
     private final Scale scale;
-    private final int dMin;
-    private final int dMax;
+    private final double dMin;
+    private final double dMax;
 
-    public Parameter(String name, Address address, int min, int max, int bytes, Scale scale, int dMin, int dMax) {
+    public Parameter(String name, Address address, double min, double max, int bytes, boolean signed, Scale scale, double dMin, double dMax) {
         this.name = name;
         this.address = address;
         this.min = min;
         this.max = max;
         this.bytes = bytes;
+        this.signed = signed;
         this.scale = scale;
         this.dMin = dMin;
         this.dMax = dMax;
@@ -29,11 +31,11 @@ public class Parameter {
         return address;
     }
 
-    public int getMin() {
+    public double getMin() {
         return min;
     }
 
-    public int getMax() {
+    public double getMax() {
         return max;
     }
 
@@ -41,15 +43,19 @@ public class Parameter {
         return bytes;
     }
 
+    public boolean isSigned() {
+        return signed;
+    }
+
     public Scale getScale() {
         return scale;
     }
 
-    public int getDMin() {
+    public double getDMin() {
         return dMin;
     }
 
-    public int getDMax() {
+    public double getDMax() {
         return dMax;
     }
 }

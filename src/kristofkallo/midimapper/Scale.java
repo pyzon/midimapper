@@ -1,5 +1,5 @@
 package kristofkallo.midimapper;
 
 public enum Scale {
-    LIN, LOG, RATIO
+    LIN, LOG, FADER, ATTACK, RATIO
 }

@@ -4,46 +4,83 @@
 		<address sysex0="03" sysex1="00" nrpn="00"/>
 		<parameter name="att">
 			<address sysex0="00" sysex1="0a" nrpn="00"/>
-			<data min="-480" max="240" bytes="2" scale="LIN" dmin="-480" dmax="480"/>
+			<data min="-480" max="240" bytes="2" signed="true" scale="LIN" dmin="-480" dmax="480"/>
 		</parameter>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="01"/>
-			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
+			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="solo">
 			<address sysex0="00" sysex1="0d" nrpn="02"/>
-			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
+			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="fader">
 			<address sysex0="00" sysex1="0e" nrpn="03"/>
-			<data min="-906" max="100" bytes="2" scale="LIN" dmin="-1000" dmax="602"/>
+			<data bytes="2" signed="true" scale="FADER"/>
 		</parameter>
 		<parameter name="pan">
 			<address sysex0="00" sysex1="10" nrpn="04"/>
-			<data min="1" max="127" bytes="1" scale="LIN" dmin="1" dmax="127"/>
+			<data min="1" max="127" bytes="1" signed="false" scale="LIN" dmin="1" dmax="127"/>
+		</parameter>
+		<parameter name="filter switch">
+			<address sysex0="00" sysex1="20" nrpn="05"/>
+			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1.5"/>
+		</parameter>
+		<parameter name="filter freq">
+			<address sysex0="00" sysex1="24" nrpn="06"/>
+			<data min="20" max="20000" bytes="3" signed="false" scale="LOG" dmin="10" dmax="30000"/>
+		</parameter>
+		<parameter name="gate thresh">
+			<address sysex0="00" sysex1="33" nrpn="07"/>
+			<data min="-800" max="0" bytes="2" signed="true" scale="LIN" dmin="-600" dmax="0"/>
+		</parameter>
+		<parameter name="gate attack">
+			<address sysex0="00" sysex1="39" nrpn="08"/>
+			<data min="0" max="8000" bytes="2" signed="false" scale="ATTACK" dmin="0" dmax="10000"/>
 		</parameter>
 	</channel>
 	<channel id="CH2" name="Kick in">
 		<address sysex0="03" sysex1="01" nrpn="01"/>
 		<parameter name="att">
 			<address sysex0="00" sysex1="0a" nrpn="00"/>
-			<data min="-480" max="240" bytes="2" scale="LIN" dmin="-480" dmax="480"/>
+			<data min="-480" max="240" bytes="2" signed="true" scale="LIN" dmin="-480" dmax="480"/>
 		</parameter>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="01"/>
-			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
+			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="solo">
 			<address sysex0="00" sysex1="0d" nrpn="02"/>
-			<data min="0" max="1" bytes="1" scale="LIN" dmin="0" dmax="1"/>
+			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 		<parameter name="fader">
 			<address sysex0="00" sysex1="0e" nrpn="03"/>
-			<data min="-906" max="100" bytes="2" scale="LIN" dmin="-1000" dmax="602"/>
+			<data min="-906" max="100" bytes="2" signed="true" scale="FADER" dmin="-1200" dmax="602"/>
 		</parameter>
 		<parameter name="pan">
 			<address sysex0="00" sysex1="10" nrpn="04"/>
-			<data min="1" max="127" bytes="1" scale="LIN" dmin="1" dmax="127"/>
+			<data min="1" max="127" bytes="1" signed="false" scale="LIN" dmin="1" dmax="127"/>
 		</parameter>
 	</channel>
+	<scale id="scale-fader">
+		<point x="-120" y="0"/>
+		<point x="-116.7" y="16"/>
+		<point x="-104.6" y="32"/>
+		<point x="-92.6" y="64"/>
+		<point x="-80.6" y="128"/>
+		<point x="-68.5" y="256"/>
+		<point x="-56.5" y="512"/>
+		<point x="-49.4" y="768"/>
+		<point x="-44.4" y="1024"/>
+		<point x="-37.4" y="1536"/>
+		<point x="-32.4" y="2048"/>
+		<point x="-25.3" y="3072"/>
+		<point x="-20.3" y="4096"/>
+		<point x="-13.3" y="6144"/>
+		<point x="-8.31" y="8192"/>
+		<point x="-4.08" y="10240"/>
+		<point x="-0.81" y="12288"/>
+		<point x="2.97" y="14336"/>
+		<point x="6.02" y="16384"/>
+	</scale>
 </midimapconfig>
