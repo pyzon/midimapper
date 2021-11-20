@@ -2,14 +2,12 @@ package kristofkallo.midimapper;
 
 import org.xml.sax.SAXException;
 
-import javax.sound.midi.MidiDevice;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Receiver;
+import javax.sound.midi.*;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * The application class.
@@ -151,6 +149,33 @@ public class App {
 //            e.printStackTrace();
 //            return;
 //        }
+//
+        // scale exploration code
+//        try {
+//
+//            for(int value = 0; value < 16383; value += 256) {
+//
+//                byte[] valueParts = split(value);
+//                long timeStamp = System.currentTimeMillis();
+//                ShortMessage outMsg = new ShortMessage();
+//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, 0);
+//                loopMidiReceiver.send(outMsg, timeStamp);
+//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, 10);
+//                loopMidiReceiver.send(outMsg, timeStamp);
+//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
+//                loopMidiReceiver.send(outMsg, timeStamp);
+//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
+//                loopMidiReceiver.send(outMsg, timeStamp);
+//
+//                System.out.println(value);
+//
+//                Scanner scanner = new Scanner(System.in);
+//                scanner.nextLine();
+//            }
+//        } catch (InvalidMidiDataException e) {
+//            e.printStackTrace();
+//        }
+
     }
     private void closeDevices() {
         if (m400In != null) {
@@ -178,5 +203,12 @@ public class App {
 
     public TrayMenu getTrayMenu() {
         return trayMenu;
+    }
+
+    private byte[] split(int number) {
+        if (number < 0 || 16383 < number) {
+            throw new IllegalArgumentException("expected unsigned 14-bit number");
+        }
+        return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
     }
 }

@@ -6,8 +6,6 @@ import javax.sound.midi.Receiver;
 import javax.sound.midi.ShortMessage;
 import java.awt.*;
 import java.util.Arrays;
-import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
-import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
 
 import static kristofkallo.midimapper.App.APP_NAME;
 
@@ -119,6 +117,12 @@ public class M400Receiver implements Receiver {
     }
 
     private double clamp(double number, double min, double max) {
+        // handle inverted intervals
+        if (max < min) {
+            double tmp = min;
+            min = max;
+            max = tmp;
+        }
         if (number < min) {
             number = min;
         }
@@ -132,15 +136,22 @@ public class M400Receiver implements Receiver {
         switch (scale) {
             case LIN:
                 return mapLin(source, sourceMin, sourceMax, destMin, destMax);
+            case SW:
+                return mapSw(source);
             case LOG:
                 return mapLog(source, sourceMin, sourceMax, destMin, destMax);
             case FADER:
                 return mapFader(source);
-            case ATTACK:
-                return mapAttack(source, sourceMin, sourceMax, destMin, destMax);
-            case RATIO:
+            case TIME:
+                return mapTime(source, sourceMin, sourceMax, destMin, destMax);
+            case RANGE:
+                return mapRange(source);
         }
         return 0;
+    }
+
+    private int mapSw(double source) {
+        return mapLin(source, 0, 1, 0, 1);
     }
     private int mapLog(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
         source = clamp(source, sourceMin, sourceMax);
@@ -161,10 +172,9 @@ public class M400Receiver implements Receiver {
 //        double y = 809.262 - 809.262 / (1 + 0.00061814 * Math.pow(x, 5.898)) + Math.exp(x * Math.log(600)) / 1200;
 //        double res = Math.floor(16383 * y);
         double res = midiMap.getFaderScaleValue(source);
-        System.out.println(res);
         return (int) clamp(res, 0, 16383);
     }
-    private int mapAttack(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
+    private int mapTime(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
         source = clamp(source, sourceMin, sourceMax);
         source = clamp(source, destMin, destMax);
         double x = (source - destMin) / (destMax - destMin);
@@ -178,6 +188,13 @@ public class M400Receiver implements Receiver {
 //                + -0.04635 * Math.pow(x, 7);
         double y = Math.pow(x, 0.25);
         double res = Math.floor(16383 * y);
+        return (int) clamp(res, 0, 16383);
+    }
+    private int mapRange(double source) {
+        // multiply by (-1) because the scale is inverted in the fabfilter plugin
+        source = clamp(-source / 10, 0, 100);
+        double res = midiMap.getRangeScaleValue(source);
+        System.out.println(res); // TODO: delete
         return (int) clamp(res, 0, 16383);
     }
 }

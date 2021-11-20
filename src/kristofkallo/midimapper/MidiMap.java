@@ -1,18 +1,24 @@
 package kristofkallo.midimapper;
+
 import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
 import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
-import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.*;
-import java.io.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MidiMap {
     private final ArrayList<Channel> channels;
-    private PolynomialSplineFunction faderScale;
+    private final PolynomialSplineFunction faderScale;
+    private final LineStripFunction rangeScale;
 
     MidiMap(String pathname) throws ParserConfigurationException, IOException, SAXException {
         channels = new ArrayList<>();
@@ -70,8 +76,12 @@ public class MidiMap {
                 }
                 NamedNodeMap dataAttributes = dataNode.getAttributes();
                 int bytes = Integer.parseInt(dataAttributes.getNamedItem("bytes").getNodeValue());
-                boolean signed = Boolean.parseBoolean(dataAttributes.getNamedItem("signed").getNodeValue());
                 Scale scale = Scale.valueOf(dataAttributes.getNamedItem("scale").getNodeValue());
+                Node signedAttr = dataAttributes.getNamedItem("signed");
+                boolean signed = (scale == Scale.FADER || scale == Scale.RANGE );
+                if (signedAttr != null) {
+                    signed = Boolean.parseBoolean(signedAttr.getNodeValue());
+                }
                 Node minAttr = dataAttributes.getNamedItem("min");
                 double min = minAttr == null ? 0 : Double.parseDouble(minAttr.getNodeValue());
                 Node maxAttr = dataAttributes.getNamedItem("max");
@@ -90,12 +100,36 @@ public class MidiMap {
             channels.add(channel);
         }
 
-        // TODO: if there will be more scales with a control point list in the future,
-        //  we should find the correct scales by id not by index, just to be safe
-        NodeList faderScalePointNodes = document.getElementsByTagName("scale").item(0).getChildNodes();
+        ScalePoints faderScalePoints = null;
+        ScalePoints rangeScalePoints = null;
+
+        NodeList scaleNodes = document.getElementsByTagName("scale");
+        for (int i = 0; i < scaleNodes.getLength(); i++) {
+            Node scaleNode = scaleNodes.item(i);
+            String scaleId = scaleNode.getAttributes().getNamedItem("id").getNodeValue();
+            NodeList scalePointNodes = scaleNode.getChildNodes();
+            if (scaleId.equals("scale-fader")) {
+                faderScalePoints = this.loadScale(scalePointNodes);
+            }
+            if (scaleId.equals("scale-range")) {
+                rangeScalePoints = this.loadScale(scalePointNodes);
+            }
+        }
+        SplineInterpolator interpolator = new SplineInterpolator();
+        faderScale = faderScalePoints == null ? null : interpolator.interpolate(faderScalePoints.x, faderScalePoints.y);
+        rangeScale = rangeScalePoints == null ? null : new LineStripFunction(rangeScalePoints.x, rangeScalePoints.y);
+    }
+
+    public Channel getChannelByAddress(byte address0, byte address1) {
+        return channels.stream()
+                .filter(ch -> ch.getAddress().getSysex0() == address0 && ch.getAddress().getSysex1() == address1)
+                .findAny()
+                .orElse(null);
+    }
+    private ScalePoints loadScale(NodeList scalePointNodes) {
         ArrayList<Node> pointNodes = new ArrayList<>();
-        for (int i = 0; i < faderScalePointNodes.getLength(); i++) {
-            Node pointNode = faderScalePointNodes.item(i);
+        for (int i = 0; i < scalePointNodes.getLength(); i++) {
+            Node pointNode = scalePointNodes.item(i);
             if (!pointNode.getNodeName().equals("point")) {
                 continue;
             }
@@ -109,16 +143,13 @@ public class MidiMap {
             x[i] = Double.parseDouble(pointAttributes.getNamedItem("x").getNodeValue());
             y[i] = Double.parseDouble(pointAttributes.getNamedItem("y").getNodeValue());
         }
-        SplineInterpolator interpolator = new SplineInterpolator();
-        faderScale = interpolator.interpolate(x, y);
+        return new ScalePoints(x, y);
     }
-    public Channel getChannelByAddress(byte address0, byte address1) {
-        return channels.stream()
-                .filter(ch -> ch.getAddress().getSysex0() == address0 && ch.getAddress().getSysex1() == address1)
-                .findAny()
-                .orElse(null);
-    }
+
     public double getFaderScaleValue(double x) {
         return faderScale.value(x);
+    }
+    public double getRangeScaleValue(double x) {
+        return rangeScale.value(x);
     }
 }
