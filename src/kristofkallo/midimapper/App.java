@@ -153,7 +153,7 @@ public class App {
         // scale exploration code
 //        try {
 //
-//            for(int value = 0; value < 16383; value += 256) {
+//            for(int value = 0; value < 16383; value += 512) {
 //
 //                byte[] valueParts = split(value);
 //                long timeStamp = System.currentTimeMillis();

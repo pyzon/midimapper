@@ -142,10 +142,14 @@ public class M400Receiver implements Receiver {
                 return mapLog(source, sourceMin, sourceMax, destMin, destMax);
             case FADER:
                 return mapFader(source);
-            case TIME:
-                return mapTime(source, sourceMin, sourceMax, destMin, destMax);
+            case ATTACK:
+                return mapAttack(source, sourceMin, sourceMax, destMin, destMax);
             case RANGE:
                 return mapRange(source);
+            case REL:
+                return mapRel(source);
+            case HOLD:
+                return mapHold(source);
         }
         return 0;
     }
@@ -165,27 +169,13 @@ public class M400Receiver implements Receiver {
     }
     private int mapFader(double source) {
         source = clamp(source / 10, -90.6, 6.02);
-//        double rate = 500;
-//        double res = Math.floor(16383 * Math.exp(Math.log(rate) * (source - destMin) / (destMax - destMin)) / rate);
-//        return (int) clamp(res, 0, 16383);
-//        double x = (source - destMin) / (destMax - destMin);
-//        double y = 809.262 - 809.262 / (1 + 0.00061814 * Math.pow(x, 5.898)) + Math.exp(x * Math.log(600)) / 1200;
-//        double res = Math.floor(16383 * y);
         double res = midiMap.getFaderScaleValue(source);
         return (int) clamp(res, 0, 16383);
     }
-    private int mapTime(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
+    private int mapAttack(double source, double sourceMin, double sourceMax, double destMin, double destMax) {
         source = clamp(source, sourceMin, sourceMax);
         source = clamp(source, destMin, destMax);
         double x = (source - destMin) / (destMax - destMin);
-        // Inverse
-//        double y = -1.36681E-5 * x
-//                + 0.00105 * Math.pow(x, 2)
-//                + -0.01187 * Math.pow(x, 3)
-//                + 1.05562 * Math.pow(x, 4)
-//                + -0.12201 * Math.pow(x, 5)
-//                + 0.12357 * Math.pow(x, 6)
-//                + -0.04635 * Math.pow(x, 7);
         double y = Math.pow(x, 0.25);
         double res = Math.floor(16383 * y);
         return (int) clamp(res, 0, 16383);
@@ -194,7 +184,23 @@ public class M400Receiver implements Receiver {
         // multiply by (-1) because the scale is inverted in the fabfilter plugin
         source = clamp(-source / 10, 0, 100);
         double res = midiMap.getRangeScaleValue(source);
-        System.out.println(res); // TODO: delete
+        return (int) clamp(res, 0, 16383);
+    }
+    private int mapRel(double source) {
+        source = clamp(source, 0, 5000);
+        double y;
+        if (source < 2500) {
+            double x = source / 2500;
+            y = 0.9 * Math.pow(x, 0.3333333333333);
+        } else {
+            y = 0.9 + (source - 2500) / 2500 * 0.1;
+        }
+        double res = Math.floor(16383 * y);
+        return (int) clamp(res, 0, 16383);
+    }
+    private int mapHold(double source) {
+        source = clamp(source, 0, 250);
+        double res = midiMap.getRangeScaleValue(source / 2.5);
         return (int) clamp(res, 0, 16383);
     }
 }

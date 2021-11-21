@@ -78,7 +78,7 @@ public class MidiMap {
                 int bytes = Integer.parseInt(dataAttributes.getNamedItem("bytes").getNodeValue());
                 Scale scale = Scale.valueOf(dataAttributes.getNamedItem("scale").getNodeValue());
                 Node signedAttr = dataAttributes.getNamedItem("signed");
-                boolean signed = (scale == Scale.FADER || scale == Scale.RANGE );
+                boolean signed = (scale == Scale.FADER);
                 if (signedAttr != null) {
                     signed = Boolean.parseBoolean(signedAttr.getNodeValue());
                 }

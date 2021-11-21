@@ -3,8 +3,8 @@
 	<channel id="CH1" name="Kick out">
 		<address sysex0="03" sysex1="00" nrpn="00"/>
 		<parameter name="att">
-			<address sysex0="00" sysex1="37" nrpn="0a"/>
-			<data bytes="2" scale="RANGE"/>
+			<address sysex0="00" sysex1="3d" nrpn="0a"/>
+			<data bytes="2" scale="HOLD"/>
 		</parameter>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="01"/>
@@ -44,7 +44,7 @@
 		</parameter>
 		<parameter name="gate attack">
 			<address sysex0="00" sysex1="39" nrpn="0b"/>
-			<data bytes="2" scale="TIME" signed="false" min="0" max="8000" dmin="0" dmax="10000"/>
+			<data bytes="2" scale="ATTACK" signed="false" min="0" max="8000" dmin="0" dmax="10000"/>
 		</parameter>
 		<parameter name="comp sw">
 			<address sysex0="00" sysex1="40" nrpn="0e"/>

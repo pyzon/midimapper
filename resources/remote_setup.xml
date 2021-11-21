@@ -24,7 +24,7 @@
 </ctrltable>
 <bank name="VST 1-16">
 <entry ctrl="CH1 att">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 mute">
 <value><device>VST Mixer</device><chan>0</chan><name>mute</name><flags>0</flags></value>
