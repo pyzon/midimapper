@@ -3,11 +3,11 @@ package kristofkallo.midimapper;
 public class Parameter {
     private final String name;
     private final Address address;
+    private final Scale scale;
+    private final int bytes;
     private final double min;
     private final double max;
-    private final int bytes;
     private final boolean signed;
-    private final Scale scale;
     private final double dMin;
     private final double dMax;
 
