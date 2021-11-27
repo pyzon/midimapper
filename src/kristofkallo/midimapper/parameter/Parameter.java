@@ -1,27 +1,17 @@
-package kristofkallo.midimapper;
+package kristofkallo.midimapper.parameter;
 
-public class Parameter {
-    private final String name;
-    private final Address address;
-    private final Scale scale;
-    private final int bytes;
-    private final double min;
-    private final double max;
-    private final boolean signed;
-    private final double dMin;
-    private final double dMax;
+import kristofkallo.midimapper.Address;
+import kristofkallo.midimapper.Scale;
 
-    public Parameter(String name, Address address, double min, double max, int bytes, boolean signed, Scale scale, double dMin, double dMax) {
-        this.name = name;
-        this.address = address;
-        this.min = min;
-        this.max = max;
-        this.bytes = bytes;
-        this.signed = signed;
-        this.scale = scale;
-        this.dMin = dMin;
-        this.dMax = dMax;
-    }
+public abstract class Parameter {
+    protected String name;
+    protected Address address;
+    protected int bytes;
+    protected boolean signed;
+    protected double min;
+    protected double max;
+    protected double dMin;
+    protected double dMax;
 
     public String getName() {
         return name;
@@ -47,15 +37,37 @@ public class Parameter {
         return signed;
     }
 
-    public Scale getScale() {
-        return scale;
-    }
-
     public double getDMin() {
         return dMin;
     }
 
     public double getDMax() {
         return dMax;
+    }
+
+    public abstract int mapConsoleToDAW(int source);
+
+    public abstract int mapDAWToConsole(int source);
+
+    protected static double clamp(double number, double min, double max) {
+        // handle inverted intervals
+        if (max < min) {
+            double tmp = min;
+            min = max;
+            max = tmp;
+        }
+        if (number < min) {
+            number = min;
+        }
+        if (number > max) {
+            number = max;
+        }
+        return number;
+    }
+
+    protected double clampSource(double source) {
+        double sourceClamped = Parameter.clamp(source, this.min, this.max);
+        sourceClamped = Parameter.clamp(sourceClamped, this.dMin, this.dMax);
+        return sourceClamped;
     }
 }

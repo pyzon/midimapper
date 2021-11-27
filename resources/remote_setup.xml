@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <remotedescription version="1.1">
 <ctrltable name="Standard MIDI">
-<ctrl><name>CH1 att</name><stat>2</stat><chan>0</chan><addr>10</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 att</name><stat>2</stat><chan>0</chan><addr>0</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 mute</name><stat>2</stat><chan>0</chan><addr>1</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 solo</name><stat>2</stat><chan>0</chan><addr>2</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 fader</name><stat>2</stat><chan>0</chan><addr>3</addr><max>16383</max><flags>19</flags></ctrl>
@@ -10,13 +10,11 @@
 <ctrl><name>CH1 filter freq</name><stat>2</stat><chan>0</chan><addr>6</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 gate sw</name><stat>2</stat><chan>0</chan><addr>7</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 gate thresh</name><stat>2</stat><chan>0</chan><addr>8</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>CH1 gate ratio</name><stat>2</stat><chan>0</chan><addr>9</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 gate attack</name><stat>2</stat><chan>0</chan><addr>11</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 comp sw</name><stat>2</stat><chan>0</chan><addr>14</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>CH1 eq sw 0</name><stat>2</stat><chan>0</chan><addr>22</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>CH1 eq sw 1</name><stat>2</stat><chan>0</chan><addr>22</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>CH1 eq sw 2</name><stat>2</stat><chan>0</chan><addr>22</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>CH1 eq sw 3</name><stat>2</stat><chan>0</chan><addr>22</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 comp thresh</name><stat>2</stat><chan>0</chan><addr>15</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 comp knee</name><stat>2</stat><chan>0</chan><addr>17</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 eq sw</name><stat>2</stat><chan>0</chan><addr>22</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 eq1 freq</name><stat>2</stat><chan>0</chan><addr>25</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 eq2 freq</name><stat>2</stat><chan>0</chan><addr>27</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 eq3 freq</name><stat>2</stat><chan>0</chan><addr>30</addr><max>16383</max><flags>19</flags></ctrl>
@@ -24,7 +22,7 @@
 </ctrltable>
 <bank name="VST 1-16">
 <entry ctrl="CH1 att">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 mute">
 <value><device>VST Mixer</device><chan>0</chan><name>mute</name><flags>0</flags></value>
@@ -39,7 +37,7 @@
 <value><device>VST Mixer</device><chan>0</chan><name>panner:panX</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 filter sw">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param148</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:on</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 filter freq">
 <value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
@@ -50,38 +48,32 @@
 <entry ctrl="CH1 gate thresh">
 <value><device>VST Mixer</device><chan>0</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
 </entry>
-<entry ctrl="CH1 gate ratio">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
-</entry>
 <entry ctrl="CH1 gate attack">
 <value><device>VST Mixer</device><chan>0</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 comp sw">
 <value><device>VST Mixer</device><chan>0</chan><name>inserts/slot3:on</name><flags>0</flags></value>
 </entry>
-<entry ctrl="CH1 eq sw 0">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param155</name><flags>0</flags></value>
+<entry ctrl="CH1 comp thresh">
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
 </entry>
-<entry ctrl="CH1 eq sw 1">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param162</name><flags>0</flags></value>
+<entry ctrl="CH1 comp knee">
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
 </entry>
-<entry ctrl="CH1 eq sw 2">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param169</name><flags>0</flags></value>
-</entry>
-<entry ctrl="CH1 eq sw 3">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param176</name><flags>0</flags></value>
+<entry ctrl="CH1 eq sw">
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot4:on</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 eq1 freq">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param156</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 eq2 freq">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param163</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 eq3 freq">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param170</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 eq4 freq">
-<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot1:param177</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
 </entry>
 </bank>
 </remotedescription>

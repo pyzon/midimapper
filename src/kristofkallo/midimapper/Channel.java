@@ -1,5 +1,7 @@
 package kristofkallo.midimapper;
 
+import kristofkallo.midimapper.parameter.Parameter;
+
 import java.util.ArrayList;
 
 public class Channel {

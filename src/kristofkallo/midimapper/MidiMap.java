@@ -1,11 +1,7 @@
 package kristofkallo.midimapper;
 
-import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
-import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import kristofkallo.midimapper.parameter.*;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -14,11 +10,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MidiMap {
     private final ArrayList<Channel> channels;
-    private final PolynomialSplineFunction faderScale;
-    private final LineStripFunction rangeScale;
+//    private final LineStripFunction rangeScale;
 
     MidiMap(String pathname) throws ParserConfigurationException, IOException, SAXException {
         channels = new ArrayList<>();
@@ -30,6 +27,19 @@ public class MidiMap {
         DocumentBuilder documentBuilder = dbFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(mapFile);
         document.getDocumentElement().normalize();
+
+        // Get the scale info before the parameters, because the parameter constructors need them
+        Map<String, ScalePoints> scalePointsMap = new HashMap<>(2);
+//        ScalePoints rangeScalePoints = null;
+
+        NodeList scaleNodes = document.getElementsByTagName("scale");
+        for (int i = 0; i < scaleNodes.getLength(); i++) {
+            Node scaleNode = scaleNodes.item(i);
+            String scaleId = scaleNode.getAttributes().getNamedItem("id").getNodeValue();
+            NodeList scalePointNodes = scaleNode.getChildNodes();
+            scalePointsMap.put(scaleId, this.loadScale(scalePointNodes));
+        }
+//        rangeScale = rangeScalePoints == null ? null : new LineStripFunction(rangeScalePoints.x, rangeScalePoints.y);
 
         // Channels
         NodeList channelNodes = document.getElementsByTagName("channel");
@@ -58,40 +68,7 @@ public class MidiMap {
                     paramNode = paramNode.getNextSibling();
                     continue;
                 }
-                String paramName = paramNode.getAttributes().getNamedItem("name").getNodeValue();
-
-                addressNode = paramNode.getFirstChild();
-                while (!addressNode.getNodeName().equals("address")) {
-                    addressNode = addressNode.getNextSibling();
-                }
-                addressAttributes = addressNode.getAttributes();
-                sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
-                sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
-                nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue(), 16);
-                Address paramAddress = new Address(sysex0, sysex1, nrpn);
-
-                Node dataNode = addressNode.getNextSibling();
-                while (!dataNode.getNodeName().equals("data")) {
-                    dataNode = dataNode.getNextSibling();
-                }
-                NamedNodeMap dataAttributes = dataNode.getAttributes();
-                int bytes = Integer.parseInt(dataAttributes.getNamedItem("bytes").getNodeValue());
-                Scale scale = Scale.valueOf(dataAttributes.getNamedItem("scale").getNodeValue());
-                Node signedAttr = dataAttributes.getNamedItem("signed");
-                boolean signed = (scale == Scale.FADER || scale == Scale.RANGE);
-                if (signedAttr != null) {
-                    signed = Boolean.parseBoolean(signedAttr.getNodeValue());
-                }
-                Node minAttr = dataAttributes.getNamedItem("min");
-                double min = minAttr == null ? 0 : Double.parseDouble(minAttr.getNodeValue());
-                Node maxAttr = dataAttributes.getNamedItem("max");
-                double max = maxAttr == null ? 0 : Double.parseDouble(maxAttr.getNodeValue());
-                Node dMinAttr = dataAttributes.getNamedItem("dmin");
-                double dMin = dMinAttr == null ? 0 : Double.parseDouble(dMinAttr.getNodeValue());
-                Node dMaxAttr = dataAttributes.getNamedItem("dmax");
-                double dMax = dMaxAttr == null ? 0 : Double.parseDouble(dMaxAttr.getNodeValue());
-
-                Parameter parameter = new Parameter(paramName, paramAddress, min, max, bytes, signed, scale, dMin, dMax);
+                Parameter parameter = MidiMap.readParameter(paramNode, scalePointsMap);
                 channel.putParameter(parameter);
 
                 paramNode = paramNode.getNextSibling();
@@ -100,24 +77,67 @@ public class MidiMap {
             channels.add(channel);
         }
 
-        ScalePoints faderScalePoints = null;
-        ScalePoints rangeScalePoints = null;
+    }
 
-        NodeList scaleNodes = document.getElementsByTagName("scale");
-        for (int i = 0; i < scaleNodes.getLength(); i++) {
-            Node scaleNode = scaleNodes.item(i);
-            String scaleId = scaleNode.getAttributes().getNamedItem("id").getNodeValue();
-            NodeList scalePointNodes = scaleNode.getChildNodes();
-            if (scaleId.equals("scale-fader")) {
-                faderScalePoints = this.loadScale(scalePointNodes);
-            }
-            if (scaleId.equals("scale-range")) {
-                rangeScalePoints = this.loadScale(scalePointNodes);
-            }
+    private static Parameter readParameter(Node paramNode, Map<String, ScalePoints> scalePointsMap) throws SAXException {
+        String paramName = paramNode.getAttributes().getNamedItem("name").getNodeValue();
+
+        Node addressNode = paramNode.getFirstChild();
+        while (!addressNode.getNodeName().equals("address")) {
+            addressNode = addressNode.getNextSibling();
         }
-        SplineInterpolator interpolator = new SplineInterpolator();
-        faderScale = faderScalePoints == null ? null : interpolator.interpolate(faderScalePoints.x, faderScalePoints.y);
-        rangeScale = rangeScalePoints == null ? null : new LineStripFunction(rangeScalePoints.x, rangeScalePoints.y);
+        NamedNodeMap addressAttributes = addressNode.getAttributes();
+        byte sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
+        byte sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
+        byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue(), 16);
+        Address paramAddress = new Address(sysex0, sysex1, nrpn);
+
+        Node dataNode = addressNode.getNextSibling();
+        while (!dataNode.getNodeName().equals("data")) {
+            dataNode = dataNode.getNextSibling();
+        }
+        NamedNodeMap dataAttributes = dataNode.getAttributes();
+        int bytes = Integer.parseInt(dataAttributes.getNamedItem("bytes").getNodeValue());
+        String scaleStr = dataAttributes.getNamedItem("scale").getNodeValue();
+        Scale scale = Scale.valueOf(scaleStr);
+
+        Parameter parameter;
+
+        Node signedAttr = dataAttributes.getNamedItem("signed");
+//        boolean signed = (scale == Scale.FADER || scale == Scale.RANGE);
+        boolean signed = signedAttr != null && Boolean.parseBoolean(signedAttr.getNodeValue());
+        Node minAttr = dataAttributes.getNamedItem("min");
+        double min = minAttr == null ? 0 : Double.parseDouble(minAttr.getNodeValue());
+        Node maxAttr = dataAttributes.getNamedItem("max");
+        double max = maxAttr == null ? 0 : Double.parseDouble(maxAttr.getNodeValue());
+        Node dMinAttr = dataAttributes.getNamedItem("dmin");
+        double dMin = dMinAttr == null ? 0 : Double.parseDouble(dMinAttr.getNodeValue());
+        Node dMaxAttr = dataAttributes.getNamedItem("dmax");
+        double dMax = dMaxAttr == null ? 0 : Double.parseDouble(dMaxAttr.getNodeValue());
+
+        switch (scale) {
+            case LIN:
+                parameter = new ParameterLinear(paramName, paramAddress, bytes, signed, min, max, dMin, dMax);
+                break;
+            case SW:
+                parameter = new ParameterSwitch(paramName, paramAddress);
+                break;
+            case LOG:
+                parameter = new ParameterLog(paramName, paramAddress, bytes, signed, min, max, dMin, dMax);
+                break;
+            case SPLINE:
+                String scaleId = MidiMap.getScaleId(paramName);
+                parameter = new ParameterSpline(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
+                break;
+            case POW:
+                Node expAttr = dataAttributes.getNamedItem("exp");
+                double exp = expAttr == null ? 0 : Double.parseDouble(expAttr.getNodeValue());
+                parameter = new ParameterPower(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, exp);
+                break;
+            default:
+                throw new SAXException("Unimplemented scale type.");
+        }
+        return parameter;
     }
 
     public Channel getChannelByAddress(byte address0, byte address1) {
@@ -146,10 +166,11 @@ public class MidiMap {
         return new ScalePoints(x, y);
     }
 
-    public double getFaderScaleValue(double x) {
-        return faderScale.value(x);
+    private static String getScaleId(String name) {
+        return "scale-" + name.replace(' ', '-');
     }
-    public double getRangeScaleValue(double x) {
-        return rangeScale.value(x);
-    }
+
+//    public double getRangeScaleValue(double x) {
+//        return rangeScale.value(x);
+//    }
 }

@@ -3,8 +3,8 @@
 	<channel id="CH1" name="Kick out">
 		<address sysex0="03" sysex1="00" nrpn="00"/>
 		<parameter name="att">
-			<address sysex0="00" sysex1="3d" nrpn="0a"/>
-			<data bytes="2" scale="HOLD"/>
+			<address sysex0="00" sysex1="0a" nrpn="00"/>
+			<data bytes="2" scale="LIN" signed="true" min="-480" max="240" dmin="-480" dmax="480"/>
 		</parameter>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="01"/>
@@ -16,7 +16,7 @@
 		</parameter>
 		<parameter name="fader">
 			<address sysex0="00" sysex1="0e" nrpn="03"/>
-			<data bytes="2" scale="FADER"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 		<parameter name="pan">
 			<address sysex0="00" sysex1="10" nrpn="04"/>
@@ -38,17 +38,21 @@
 			<address sysex0="00" sysex1="33" nrpn="08"/>
 			<data bytes="2" scale="LIN" signed="true" min="-800" max="0" dmin="-600" dmax="0"/>
 		</parameter>
-		<parameter name="gate ratio">
-			<address sysex0="00" sysex1="35" nrpn="09"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="13" dmin="0" dmax="13"/>
-		</parameter>
 		<parameter name="gate attack">
 			<address sysex0="00" sysex1="39" nrpn="0b"/>
-			<data bytes="2" scale="ATTACK" signed="false" min="0" max="8000" dmin="0" dmax="10000"/>
+			<data bytes="2" scale="POW" signed="false" min="0" max="8000" dmin="0" dmax="10000" exp="0.25"/>
 		</parameter>
 		<parameter name="comp sw">
 			<address sysex0="00" sysex1="40" nrpn="0e"/>
 			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="comp thresh">
+			<address sysex0="00" sysex1="42" nrpn="0f"/>
+			<data bytes="2" scale="LIN" signed="true" min="-400" max="0" dmin="-600" dmax="0"/>
+		</parameter>
+		<parameter name="comp knee">
+			<address sysex0="00" sysex1="45" nrpn="11"/>
+			<data bytes="1" scale="LIN" signed="false" min="0" max="9" dmin="0" dmax="27"/>
 		</parameter>
 		<parameter name="eq sw">
 			<address sysex0="00" sysex1="50" nrpn="16"/>
@@ -77,31 +81,29 @@
 			<address sysex0="00" sysex1="09" nrpn="00"/>
 			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
-		<!-- TODO More parameters -->
 	</channel>
-	<!-- TODO More channels -->
 	<scale id="scale-fader">
-		<point x="-120" y="0"/>
-		<point x="-116.7" y="16"/>
-		<point x="-104.6" y="32"/>
-		<point x="-92.6" y="64"/>
-		<point x="-80.6" y="128"/>
-		<point x="-68.5" y="256"/>
-		<point x="-56.5" y="512"/>
-		<point x="-49.4" y="768"/>
-		<point x="-44.4" y="1024"/>
-		<point x="-37.4" y="1536"/>
-		<point x="-32.4" y="2048"/>
-		<point x="-25.3" y="3072"/>
-		<point x="-20.3" y="4096"/>
-		<point x="-13.3" y="6144"/>
-		<point x="-8.31" y="8192"/>
-		<point x="-4.08" y="10240"/>
-		<point x="-0.81" y="12288"/>
+		<point x="-1200" y="0"/>
+		<point x="-1167" y="16"/>
+		<point x="-1046" y="32"/>
+		<point x="-926" y="64"/>
+		<point x="-806" y="128"/>
+		<point x="-685" y="256"/>
+		<point x="-565" y="512"/>
+		<point x="-494" y="768"/>
+		<point x="-444" y="1024"/>
+		<point x="-374" y="1536"/>
+		<point x="-324" y="2048"/>
+		<point x="-253" y="3072"/>
+		<point x="-203" y="4096"/>
+		<point x="-133" y="6144"/>
+		<point x="-83.1" y="8192"/>
+		<point x="-40.8" y="10240"/>
+		<point x="-8.1" y="12288"/>
 		<point x="0" y="12927"/>
-		<point x="1.2" y="13439"/>
-		<point x="2.97" y="14336"/>
-		<point x="6.02" y="16384"/>
+		<point x="12" y="13439"/>
+		<point x="29.7" y="14336"/>
+		<point x="60.2" y="16384"/>
 	</scale>
 	<scale id="scale-range">
 		<point x="0" y="0"/>
