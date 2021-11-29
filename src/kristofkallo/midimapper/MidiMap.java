@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class MidiMap {
     private final ArrayList<Channel> channels;
-//    private final LineStripFunction rangeScale;
 
     MidiMap(String pathname) throws ParserConfigurationException, IOException, SAXException {
         channels = new ArrayList<>();
@@ -30,7 +29,6 @@ public class MidiMap {
 
         // Get the scale info before the parameters, because the parameter constructors need them
         Map<String, ScalePoints> scalePointsMap = new HashMap<>(2);
-//        ScalePoints rangeScalePoints = null;
 
         NodeList scaleNodes = document.getElementsByTagName("scale");
         for (int i = 0; i < scaleNodes.getLength(); i++) {
@@ -39,7 +37,6 @@ public class MidiMap {
             NodeList scalePointNodes = scaleNode.getChildNodes();
             scalePointsMap.put(scaleId, this.loadScale(scalePointNodes));
         }
-//        rangeScale = rangeScalePoints == null ? null : new LineStripFunction(rangeScalePoints.x, rangeScalePoints.y);
 
         // Channels
         NodeList channelNodes = document.getElementsByTagName("channel");
@@ -115,6 +112,8 @@ public class MidiMap {
         Node dMaxAttr = dataAttributes.getNamedItem("dmax");
         double dMax = dMaxAttr == null ? 0 : Double.parseDouble(dMaxAttr.getNodeValue());
 
+        String scaleId = MidiMap.getScaleId(paramName);
+
         switch (scale) {
             case LIN:
                 parameter = new ParameterLinear(paramName, paramAddress, bytes, signed, min, max, dMin, dMax);
@@ -126,13 +125,18 @@ public class MidiMap {
                 parameter = new ParameterLog(paramName, paramAddress, bytes, signed, min, max, dMin, dMax);
                 break;
             case SPLINE:
-                String scaleId = MidiMap.getScaleId(paramName);
                 parameter = new ParameterSpline(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
                 break;
             case POW:
                 Node expAttr = dataAttributes.getNamedItem("exp");
                 double exp = expAttr == null ? 0 : Double.parseDouble(expAttr.getNodeValue());
                 parameter = new ParameterPower(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, exp);
+                break;
+            case STAIRS:
+                parameter = new ParameterStairs(paramName, paramAddress, scalePointsMap.get(scaleId));
+                break;
+            case POLY:
+                parameter = new ParameterPolygonal(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
                 break;
             default:
                 throw new SAXException("Unimplemented scale type.");

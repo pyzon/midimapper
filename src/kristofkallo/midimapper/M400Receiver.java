@@ -118,28 +118,6 @@ public class M400Receiver implements Receiver {
         return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
     }
 
-//    private double clamp(double number, double min, double max) {
-//        // handle inverted intervals
-//        if (max < min) {
-//            double tmp = min;
-//            min = max;
-//            max = tmp;
-//        }
-//        if (number < min) {
-//            number = min;
-//        }
-//        if (number > max) {
-//            number = max;
-//        }
-//        return number;
-//    }
-
-//    private int mapRange(double source) {
-//        // multiply by (-1) because the scale is inverted in the fabfilter plugin
-//        source = clamp(-source / 10, 0, 100);
-//        double res = midiMap.getRangeScaleValue(source);
-//        return (int) clamp(res, 0, 16383);
-//    }
 //    private int mapRel(double source) {
 //        source = clamp(source, 0, 5000);
 //        double y;
@@ -156,22 +134,5 @@ public class M400Receiver implements Receiver {
 //        source = clamp(source, 0, 250);
 //        double res = midiMap.getRangeScaleValue(source / 2.5);
 //        return (int) clamp(res, 0, 16383);
-//    }
-//    private int mapRatio(double source) {
-//        System.out.println(source);
-//        if (source <= 0) { return 0; }
-//        if (source <= 1) { return 1856; }
-//        if (source <= 2) { return 3264; }
-//        if (source <= 3) { return 4288; }
-//        if (source <= 4) { return 5248; }
-//        if (source <= 5) { return 5888; }
-//        if (source <= 6) { return 6560; }
-//        if (source <= 7) { return 7648; }
-//        if (source <= 8) { return 8784; }
-//        if (source <= 9) { return 9824; }
-//        if (source <= 10) { return 11144; }
-//        if (source <= 11) { return 13104; }
-//        if (source <= 12) { return 15217; }
-//        return 16383;
 //    }
 }

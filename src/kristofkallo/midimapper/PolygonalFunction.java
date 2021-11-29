@@ -1,10 +1,10 @@
 package kristofkallo.midimapper;
 
-public class LineStripFunction {
+public class PolygonalFunction {
     private final double[] x;
     private final double[] y;
 
-    public LineStripFunction(double[] x, double[] y) {
+    public PolygonalFunction(double[] x, double[] y) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("the number of x and y coordinates should equal");
         }
