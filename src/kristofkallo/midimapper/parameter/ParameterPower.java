@@ -4,7 +4,7 @@ import kristofkallo.midimapper.Address;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class ParameterPower extends Parameter {
-    private double exponent;
+    private final double exponent;
 
     public ParameterPower(String name, Address address, int bytes, boolean signed, double min, double max, double dMin, double dMax, double exponent) {
         this.name = name;

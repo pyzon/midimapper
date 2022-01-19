@@ -1,7 +1,6 @@
 package kristofkallo.midimapper.parameter;
 
 import kristofkallo.midimapper.Address;
-import kristofkallo.midimapper.Scale;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class ParameterLinear extends Parameter {
