@@ -138,6 +138,15 @@ public class MidiMap {
             case POLY:
                 parameter = new ParameterPolygonal(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
                 break;
+            case EXPLIN:
+                Node threshAttr = dataAttributes.getNamedItem("thresh");
+                double thresh = threshAttr == null ? 0 : Double.parseDouble(threshAttr.getNodeValue());
+                Node baseAttr = dataAttributes.getNamedItem("base");
+                double base = baseAttr == null ? 0 : Double.parseDouble(baseAttr.getNodeValue());
+                Node coeffAttr = dataAttributes.getNamedItem("coeff");
+                double coeff = coeffAttr == null ? 0 : Double.parseDouble(coeffAttr.getNodeValue());
+                parameter = new ParameterExpLin(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, thresh, base, coeff);
+                break;
             default:
                 throw new SAXException("Unimplemented scale type.");
         }
