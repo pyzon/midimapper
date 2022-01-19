@@ -1,7 +1,6 @@
 package kristofkallo.midimapper.parameter;
 
 import kristofkallo.midimapper.Address;
-import kristofkallo.midimapper.Scale;
 
 public abstract class Parameter {
     protected String name;
@@ -66,8 +65,8 @@ public abstract class Parameter {
     }
 
     protected double clampSource(double source) {
-        double sourceClamped = Parameter.clamp(source, this.min, this.max);
-        sourceClamped = Parameter.clamp(sourceClamped, this.dMin, this.dMax);
+        double sourceClamped = clamp(source, min, max);
+        sourceClamped = clamp(sourceClamped, dMin, dMax);
         return sourceClamped;
     }
 }

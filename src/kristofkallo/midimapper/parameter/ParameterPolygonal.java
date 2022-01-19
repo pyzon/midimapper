@@ -26,9 +26,9 @@ public class ParameterPolygonal extends Parameter {
 
     @Override
     public int mapConsoleToDAW(int source) {
-        double sourceClamped = this.clampSource(source);
-        double res = this.getPolygonalFunctionValue(sourceClamped);
-        return (int) Parameter.clamp(res, 0, 16383);
+        double sourceClamped = clampSource(source);
+        double res = getPolygonalFunctionValue(sourceClamped);
+        return (int) clamp(res, 0, 16383);
     }
 
     @Override

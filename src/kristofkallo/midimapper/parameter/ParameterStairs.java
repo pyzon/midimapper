@@ -20,9 +20,9 @@ public class ParameterStairs extends Parameter {
 
     @Override
     public int mapConsoleToDAW(int source) {
-        for (int i = 0; i < this.scalePoints.x.length; i++) {
-            if (source <= this.scalePoints.x[i]) {
-                return (int) Parameter.clamp(this.scalePoints.y[i], 0, 16383);
+        for (int i = 0; i < scalePoints.x.length; i++) {
+            if (source <= scalePoints.x[i]) {
+                return (int) clamp(scalePoints.y[i], 0, 16383);
             }
         }
         return 16383;

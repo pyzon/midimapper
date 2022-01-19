@@ -16,8 +16,8 @@ public class ParameterLog extends Parameter {
     }
     @Override
     public int mapConsoleToDAW(int source) {
-        double sourceClamped = this.clampSource(source);
-        return (int) Math.floor((double) 16383 * Math.log(sourceClamped / this.dMin) / Math.log(this.dMax / this.dMin));
+        double sourceClamped = clampSource(source);
+        return (int) Math.floor(16383.0 * Math.log(sourceClamped / dMin) / Math.log(dMax / dMin));
     }
 
     @Override

@@ -18,8 +18,8 @@ public class ParameterLinear extends Parameter {
 
     @Override
     public int mapConsoleToDAW(int source) {
-        double sourceClamped = this.clampSource(source);
-        return (int) Math.floor(16383 * (sourceClamped - this.dMin) / (this.dMax - this.dMin));
+        double sourceClamped = clampSource(source);
+        return (int) Math.floor(16383 * (sourceClamped - dMin) / (dMax - dMin));
     }
 
     @Override

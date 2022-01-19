@@ -20,9 +20,9 @@ public class ParameterPower extends Parameter {
 
     @Override
     public int mapConsoleToDAW(int source) {
-        double sourceClamped = this.clampSource(source);
-        double x = (source - this.dMin) / (this.dMax - this.dMin);
-        double y = Math.pow(x, this.exponent);
+        double sourceClamped = clampSource(source);
+        double x = (source - dMin) / (dMax - dMin);
+        double y = Math.pow(x, exponent);
         double res = Math.floor(16383 * y);
         return (int) clamp(res, 0, 16383);
     }
