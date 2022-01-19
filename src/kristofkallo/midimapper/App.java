@@ -16,7 +16,7 @@ import java.util.Scanner;
  * displaying error or warning messages.
  *
  * It has MIDI devices for two-way communication.
- * It establishes MIDI connections, registering receivers.
+ * It establishes MIDI connections and registers receivers.
  */
 public class App {
     static final String APP_NAME = "M-400 MIDI Mapper";
