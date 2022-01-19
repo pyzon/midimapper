@@ -17,17 +17,34 @@ public class MidiMap {
     private final ArrayList<Channel> channels;
 
     MidiMap(String pathname) throws ParserConfigurationException, IOException, SAXException {
-        channels = new ArrayList<>();
+        channels = readMap(pathname);
+    }
+
+    private static ArrayList<Channel> readMap(String pathname) throws ParserConfigurationException, IOException, SAXException {
+        ArrayList<Channel> channels = new ArrayList<>();
 
         File mapFile = new File(pathname);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        dbFactory.setNamespaceAware(true);
-        dbFactory.setIgnoringElementContentWhitespace(true);
-        DocumentBuilder documentBuilder = dbFactory.newDocumentBuilder();
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        builderFactory.setNamespaceAware(true);
+        builderFactory.setIgnoringElementContentWhitespace(true);
+        DocumentBuilder documentBuilder = builderFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(mapFile);
         document.getDocumentElement().normalize();
 
         // Get the scale info before the parameters, because the parameter constructors need them
+        Map<String, ScalePoints> scalePointsMap = readScales(document);
+
+        // Channels
+        NodeList channelNodes = document.getElementsByTagName("channel");
+        for(int i = 0; i < channelNodes.getLength(); i++) {
+            Node channelNode = channelNodes.item(i);
+            Channel channel = readChannel(channelNode, scalePointsMap);
+            channels.add(channel);
+        }
+        return channels;
+    }
+
+    private static Map<String, ScalePoints> readScales(Document document) {
         Map<String, ScalePoints> scalePointsMap = new HashMap<>(2);
 
         NodeList scaleNodes = document.getElementsByTagName("scale");
@@ -35,45 +52,63 @@ public class MidiMap {
             Node scaleNode = scaleNodes.item(i);
             String scaleId = scaleNode.getAttributes().getNamedItem("id").getNodeValue();
             NodeList scalePointNodes = scaleNode.getChildNodes();
-            scalePointsMap.put(scaleId, this.loadScale(scalePointNodes));
+            scalePointsMap.put(scaleId, readScale(scalePointNodes));
         }
 
-        // Channels
-        NodeList channelNodes = document.getElementsByTagName("channel");
-        for(int i = 0; i < channelNodes.getLength(); i++) {
-            Node channelNode = channelNodes.item(i);
-            NamedNodeMap channelAttributes = channelNode.getAttributes();
-            String id = channelAttributes.getNamedItem("id").getNodeValue();
-            String name = channelAttributes.getNamedItem("name").getNodeValue();
+        return scalePointsMap;
+    }
 
-            Node addressNode = channelNode.getFirstChild();
-            while (!addressNode.getNodeName().equals("address")) {
-                addressNode = addressNode.getNextSibling();
+    private static ScalePoints readScale(NodeList scalePointNodes) {
+        ArrayList<Node> pointNodes = new ArrayList<>();
+        for (int i = 0; i < scalePointNodes.getLength(); i++) {
+            Node pointNode = scalePointNodes.item(i);
+            if (!pointNode.getNodeName().equals("point")) {
+                continue;
             }
-            NamedNodeMap addressAttributes = addressNode.getAttributes();
-            byte sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
-            byte sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
-            byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue(), 16);
-            Address channelAddress = new Address(sysex0, sysex1, nrpn);
+            pointNodes.add(pointNode);
+        }
+        int n = pointNodes.size();
+        double[] x = new double[n];
+        double[] y = new double[n];
+        for (int i = 0; i < n; i++) {
+            NamedNodeMap pointAttributes = pointNodes.get(i).getAttributes();
+            x[i] = Double.parseDouble(pointAttributes.getNamedItem("x").getNodeValue());
+            y[i] = Double.parseDouble(pointAttributes.getNamedItem("y").getNodeValue());
+        }
+        return new ScalePoints(x, y);
+    }
 
-            Channel channel = new Channel(id, name, channelAddress);
+    private static Channel readChannel(Node channelNode, Map<String, ScalePoints> scalePointsMap) throws SAXException {
+        NamedNodeMap channelAttributes = channelNode.getAttributes();
+        String id = channelAttributes.getNamedItem("id").getNodeValue();
+        String name = channelAttributes.getNamedItem("name").getNodeValue();
 
-            // Parameters
-            Node paramNode = addressNode.getNextSibling();
-            while (paramNode != null) {
-                if (!paramNode.getNodeName().equals("parameter")) {
-                    paramNode = paramNode.getNextSibling();
-                    continue;
-                }
-                Parameter parameter = MidiMap.readParameter(paramNode, scalePointsMap);
-                channel.putParameter(parameter);
+        Node addressNode = channelNode.getFirstChild();
+        while (!addressNode.getNodeName().equals("address")) {
+            addressNode = addressNode.getNextSibling();
+        }
+        NamedNodeMap addressAttributes = addressNode.getAttributes();
+        byte sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
+        byte sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
+        byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue(), 16);
+        Address channelAddress = new Address(sysex0, sysex1, nrpn);
 
+        Channel channel = new Channel(id, name, channelAddress);
+
+        // Parameters
+        Node paramNode = addressNode.getNextSibling();
+        while (paramNode != null) {
+            if (!paramNode.getNodeName().equals("parameter")) {
                 paramNode = paramNode.getNextSibling();
+                continue;
             }
+            Parameter parameter = readParameter(paramNode, scalePointsMap);
+            channel.putParameter(parameter);
 
-            channels.add(channel);
+            paramNode = paramNode.getNextSibling();
         }
 
+        return channel;
     }
 
     private static Parameter readParameter(Node paramNode, Map<String, ScalePoints> scalePointsMap) throws SAXException {
@@ -159,31 +194,8 @@ public class MidiMap {
                 .findAny()
                 .orElse(null);
     }
-    private ScalePoints loadScale(NodeList scalePointNodes) {
-        ArrayList<Node> pointNodes = new ArrayList<>();
-        for (int i = 0; i < scalePointNodes.getLength(); i++) {
-            Node pointNode = scalePointNodes.item(i);
-            if (!pointNode.getNodeName().equals("point")) {
-                continue;
-            }
-            pointNodes.add(pointNode);
-        }
-        int n = pointNodes.size();
-        double[] x = new double[n];
-        double[] y = new double[n];
-        for (int i = 0; i < n; i++) {
-            NamedNodeMap pointAttributes = pointNodes.get(i).getAttributes();
-            x[i] = Double.parseDouble(pointAttributes.getNamedItem("x").getNodeValue());
-            y[i] = Double.parseDouble(pointAttributes.getNamedItem("y").getNodeValue());
-        }
-        return new ScalePoints(x, y);
-    }
 
     private static String getScaleId(String name) {
         return "scale-" + name.replace(' ', '-');
     }
-
-//    public double getRangeScaleValue(double x) {
-//        return rangeScale.value(x);
-//    }
 }
