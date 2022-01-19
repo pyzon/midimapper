@@ -31,12 +31,10 @@ public class M400Receiver implements Receiver {
     public void send(MidiMessage message, long timeStamp) {
         // Sanity check
         if (receiver == null) {
-            Main.app.getTrayMenu().getTrayIcon().displayMessage(APP_NAME, "Receiver is null. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-            return;
+            throw new NullPointerException("receiver is null, this should not happen");
         }
         if (midiMap == null) {
-            Main.app.getTrayMenu().getTrayIcon().displayMessage(APP_NAME, "MidiMap is null. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-            return;
+            throw new NullPointerException("midiMap is null, this should not happen");
         }
 
         byte[] msg = message.getMessage();
@@ -60,6 +58,11 @@ public class M400Receiver implements Receiver {
                 }
                 byte[] data = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
                 int value = param.mapConsoleToDAW(squash(data, param.isSigned()));
+
+                if (value > 16383) {
+                    double s = squash(data, param.isSigned());
+                    System.out.println();
+                }
 
                 byte[] valueParts = split(value);
 
@@ -113,7 +116,7 @@ public class M400Receiver implements Receiver {
      */
     private byte[] split(int number) {
         if (number < 0 || 16383 < number) {
-            throw new IllegalArgumentException("expected unsigned 14-bit number");
+            throw new IllegalArgumentException(String.format("expected unsigned 14-bit number, got %d", number));
         }
         return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
     }
