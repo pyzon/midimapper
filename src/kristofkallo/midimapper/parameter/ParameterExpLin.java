@@ -7,6 +7,7 @@ public class ParameterExpLin extends Parameter {
     private final double threshold;
     private final double base;
     private final double coefficient;
+    private final double thresholdY;
     public ParameterExpLin(String name, Address address, int bytes, boolean signed, double min, double max, double dMin, double dMax, double threshold, double base, double coefficient) {
         this.name = name;
         this.address = address;
@@ -19,6 +20,7 @@ public class ParameterExpLin extends Parameter {
         this.threshold = threshold;
         this.base = base;
         this.coefficient = coefficient;
+        this.thresholdY = coefficient * Math.pow(base, threshold);
     }
     @Override
     public int mapConsoleToDAW(int source) {
@@ -27,7 +29,8 @@ public class ParameterExpLin extends Parameter {
         if (sourceClamped < threshold) {
             res = Math.floor(16383 * coefficient * Math.pow(base, sourceClamped));
         } else {
-            res = Math.floor(16383 * (sourceClamped - dMin) / (dMax - dMin));
+            double y = thresholdY + (1 - thresholdY) * (sourceClamped - threshold) / (dMax - threshold);
+            res = Math.floor(16383 * y);
         }
         return (int) clamp(res, 0, 16383);
     }
