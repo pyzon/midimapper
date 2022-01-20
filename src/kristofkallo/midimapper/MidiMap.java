@@ -136,7 +136,6 @@ public class MidiMap {
         Parameter parameter;
 
         Node signedAttr = dataAttributes.getNamedItem("signed");
-//        boolean signed = (scale == Scale.FADER || scale == Scale.RANGE);
         boolean signed = signedAttr != null && Boolean.parseBoolean(signedAttr.getNodeValue());
         Node minAttr = dataAttributes.getNamedItem("min");
         double min = minAttr == null ? 0 : Double.parseDouble(minAttr.getNodeValue());
@@ -146,6 +145,14 @@ public class MidiMap {
         double dMin = dMinAttr == null ? 0 : Double.parseDouble(dMinAttr.getNodeValue());
         Node dMaxAttr = dataAttributes.getNamedItem("dmax");
         double dMax = dMaxAttr == null ? 0 : Double.parseDouble(dMaxAttr.getNodeValue());
+        Node expAttr = dataAttributes.getNamedItem("exp");
+        double exp = expAttr == null ? 0 : Double.parseDouble(expAttr.getNodeValue());
+        Node threshAttr = dataAttributes.getNamedItem("thresh");
+        double thresh = threshAttr == null ? 0 : Double.parseDouble(threshAttr.getNodeValue());
+        Node baseAttr = dataAttributes.getNamedItem("base");
+        double base = baseAttr == null ? 0 : Double.parseDouble(baseAttr.getNodeValue());
+        Node coeffAttr = dataAttributes.getNamedItem("coeff");
+        double coeff = coeffAttr == null ? 0 : Double.parseDouble(coeffAttr.getNodeValue());
 
         String scaleId = MidiMap.getScaleId(paramName);
 
@@ -163,9 +170,10 @@ public class MidiMap {
                 parameter = new ParameterSpline(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
                 break;
             case POW:
-                Node expAttr = dataAttributes.getNamedItem("exp");
-                double exp = expAttr == null ? 0 : Double.parseDouble(expAttr.getNodeValue());
                 parameter = new ParameterPower(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, exp);
+                break;
+            case POWLIN:
+                parameter = new ParameterPowLin(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, exp, thresh, coeff);
                 break;
             case STAIRS:
                 parameter = new ParameterStairs(paramName, paramAddress, scalePointsMap.get(scaleId));
@@ -174,12 +182,6 @@ public class MidiMap {
                 parameter = new ParameterPolygonal(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
                 break;
             case EXPLIN:
-                Node threshAttr = dataAttributes.getNamedItem("thresh");
-                double thresh = threshAttr == null ? 0 : Double.parseDouble(threshAttr.getNodeValue());
-                Node baseAttr = dataAttributes.getNamedItem("base");
-                double base = baseAttr == null ? 0 : Double.parseDouble(baseAttr.getNodeValue());
-                Node coeffAttr = dataAttributes.getNamedItem("coeff");
-                double coeff = coeffAttr == null ? 0 : Double.parseDouble(coeffAttr.getNodeValue());
                 parameter = new ParameterExpLin(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, thresh, base, coeff);
                 break;
             default:
