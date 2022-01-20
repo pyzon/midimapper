@@ -26,9 +26,17 @@
 			<address sysex0="0" sysex1="20" nrpn="5"/>
 			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
 		</parameter>
+		<parameter name="filter att">
+			<address sysex0="0" sysex1="22" nrpn="6"/>
+			<data bytes="2" scale="EXPLIN" signed="true" min="-480" max="150" dmin="-1000" dmax="360" thresh="-216" base="1.005772709" coeff="0.6934"/>
+		</parameter>
 		<parameter name="filter freq">
-			<address sysex0="0" sysex1="24" nrpn="6"/>
+			<address sysex0="0" sysex1="24" nrpn="7"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="20000" dmin="10" dmax="30000"/>
+		</parameter>
+		<parameter name="filter q">
+			<address sysex0="0" sysex1="27" nrpn="8"/>
+			<data bytes="2" scale="LOG" signed="false" min="36" max="1600" dmin="2.5" dmax="4000"/>
 		</parameter>
 		<parameter name="gate sw">
 			<address sysex0="0" sysex1="30" nrpn="7"/>
@@ -44,11 +52,15 @@
 		</parameter>
 		<parameter name="gate range">
 			<address sysex0="0" sysex1="37" nrpn="0a"/>
-			<data bytes="2" scale="POLY" signed="true" min="-100" max="0" dmin="-100" dmax="0"/>
+			<data bytes="2" scale="POLY" signed="true" min="-1000" max="0" dmin="-1000" dmax="0"/>
 		</parameter>
 		<parameter name="gate attack">
 			<address sysex0="0" sysex1="39" nrpn="0b"/>
 			<data bytes="2" scale="POW" signed="false" min="0" max="8000" dmin="0" dmax="10000" exp="0.25"/>
+		</parameter>
+		<parameter name="gate rel">
+			<address sysex0="0" sysex1="3b" nrpn="0c"/>
+			<data bytes="2" scale="POWLIN" signed="false" min="0" max="8000" dmin="0" dmax="5000" exp="0.333333" thresh="2500" coeff="0.9"/>
 		</parameter>
 		<parameter name="gate hold">
 			<address sysex0="0" sysex1="3d" nrpn="0d"/>
@@ -72,23 +84,63 @@
 		</parameter>
 		<parameter name="comp attack">
 			<address sysex0="0" sysex1="46" nrpn="12"/>
-			<data bytes="2" scale="POW" signed="false" min="0" max="8000" dmin="0" dmax="2500" exp="0.3333333"/>
+			<data bytes="2" scale="POW" signed="false" min="0" max="8000" dmin="0" dmax="2500" exp="0.333333"/>
+		</parameter>
+		<parameter name="comp rel">
+			<address sysex0="0" sysex1="48" nrpn="13"/>
+			<data bytes="2" scale="SPLINE" signed="false" min="0" max="8000" dmin="10" dmax="2500"/>
+		</parameter>
+		<parameter name="comp gain">
+			<address sysex0="0" sysex1="4a" nrpn="14"/>
+			<data bytes="2" scale="EXPLIN" signed="true" min="-400" max="400" dmin="-1000" dmax="360" thresh="-216" base="1.005772709" coeff="0.6934"/>
+		</parameter>
+		<parameter name="comp a-gain">
+			<address sysex0="0" sysex1="4c" nrpn="15"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="eq sw">
 			<address sysex0="0" sysex1="50" nrpn="16"/>
 			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
 		</parameter>
+		<parameter name="eq att">
+			<address sysex0="0" sysex1="51" nrpn="17"/>
+			<data bytes="2" scale="EXPLIN" signed="true" min="-480" max="150" dmin="-1000" dmax="360" thresh="-216" base="1.005772709" coeff="0.6934"/>
+		</parameter>
+		<parameter name="eq1 gain">
+			<address sysex0="0" sysex1="53" nrpn="18"/>
+			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
+		</parameter>
 		<parameter name="eq1 freq">
 			<address sysex0="0" sysex1="55" nrpn="19"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="1000" dmin="10" dmax="30000"/>
+		</parameter>
+		<parameter name="eq2 gain">
+			<address sysex0="0" sysex1="58" nrpn="1a"/>
+			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
 		</parameter>
 		<parameter name="eq2 freq">
 			<address sysex0="0" sysex1="5a" nrpn="1b"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="20000" dmin="10" dmax="30000"/>
 		</parameter>
+		<parameter name="eq2 q">
+			<address sysex0="0" sysex1="5d" nrpn="1c"/>
+			<data bytes="2" scale="LOG" signed="false" min="36" max="1600" dmin="2.5" dmax="4000"/>
+		</parameter>
+		<parameter name="eq3 gain">
+			<address sysex0="0" sysex1="5f" nrpn="1d"/>
+			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
+		</parameter>
 		<parameter name="eq3 freq">
 			<address sysex0="0" sysex1="61" nrpn="1e"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="20000" dmin="10" dmax="30000"/>
+		</parameter>
+		<parameter name="eq3 q">
+			<address sysex0="0" sysex1="64" nrpn="1f"/>
+			<data bytes="2" scale="LOG" signed="false" min="36" max="1600" dmin="2.5" dmax="4000"/>
+		</parameter>
+		<parameter name="eq4 gain">
+			<address sysex0="0" sysex1="66" nrpn="20"/>
+			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
 		</parameter>
 		<parameter name="eq4 freq">
 			<address sysex0="0" sysex1="68" nrpn="21"/>
@@ -102,6 +154,58 @@
 			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 	</channel>
+	<scale id="scale-comp-ratio">
+		<point x="0" y="0"/>
+		<point x="1" y="1856"/>
+		<point x="2" y="3264"/>
+		<point x="3" y="4288"/>
+		<point x="4" y="5248"/>
+		<point x="5" y="5888"/>
+		<point x="6" y="6560"/>
+		<point x="7" y="7648"/>
+		<point x="8" y="8784"/>
+		<point x="9" y="9824"/>
+		<point x="10" y="11144"/>
+		<point x="11" y="13104"/>
+		<point x="12" y="15217"/>
+		<point x="13" y="16383"/>
+	</scale>
+	<scale id="scale-comp-rel">
+		<point x="10" y="0"/>
+		<point x="10.1" y="128"/>
+		<point x="10.3" y="256"/>
+		<point x="10.6" y="384"/>
+		<point x="11.1" y="512"/>
+		<point x="11.8" y="640"/>
+		<point x="12.6" y="768"/>
+		<point x="13.5" y="896"/>
+		<point x="14.5" y="1024"/>
+		<point x="15.7" y="1152"/>
+		<point x="17.1" y="1280"/>
+		<point x="18.6" y="1408"/>
+		<point x="20.2" y="1536"/>
+		<point x="23.9" y="1792"/>
+		<point x="28.2" y="2048"/>
+		<point x="33" y="2304"/>
+		<point x="38.4" y="2560"/>
+		<point x="50.9" y="3072"/>
+		<point x="82.7" y="4096"/>
+		<point x="124" y="5120"/>
+		<point x="174.9" y="6144"/>
+		<point x="236.4" y="7168"/>
+		<point x="309.5" y="8192"/>
+		<point x="396.3" y="9216"/>
+		<point x="500.3" y="10240"/>
+		<point x="626.7" y="11264"/>
+		<point x="784.9" y="12288"/>
+		<point x="991.4" y="13312"/>
+		<point x="1121.7" y="13824"/>
+		<point x="1278.2" y="14336"/>
+		<point x="1471" y="14848"/>
+		<point x="1716.4" y="15360"/>
+		<point x="2042.2" y="15872"/>
+		<point x="2500" y="16383"/>
+	</scale>
 	<scale id="scale-fader">
 		<point x="-1200" y="0"/>
 		<point x="-1167" y="16"/>
@@ -125,6 +229,24 @@
 		<point x="29.7" y="14336"/>
 		<point x="60.2" y="16384"/>
 	</scale>
+	<scale id="scale-gate-hold">
+		<point x="0" y="0"/>
+		<point x="0.5" y="1638"/>
+		<point x="12.5" y="4096"/>
+		<point x="40" y="8192"/>
+		<point x="90" y="11468"/>
+		<point x="227.5" y="14745"/>
+		<point x="250" y="16383"/>
+	</scale>
+	<scale id="scale-gate-range">
+		<point x="-1000" y="16383"/>
+		<point x="-910" y="14745"/>
+		<point x="-360" y="11468"/>
+		<point x="-160" y="8192"/>
+		<point x="-50" y="4096"/>
+		<point x="-2" y="1638"/>
+		<point x="0" y="0"/>
+	</scale>
 	<scale id="scale-gate-ratio">
 		<point x="0" y="0"/>
 		<point x="1" y="1856"/>
@@ -140,39 +262,5 @@
 		<point x="11" y="13104"/>
 		<point x="12" y="15217"/>
 		<point x="13" y="16383"/>
-	</scale>
-	<scale id="scale-comp-ratio">
-		<point x="0" y="0"/>
-		<point x="1" y="1856"/>
-		<point x="2" y="3264"/>
-		<point x="3" y="4288"/>
-		<point x="4" y="5248"/>
-		<point x="5" y="5888"/>
-		<point x="6" y="6560"/>
-		<point x="7" y="7648"/>
-		<point x="8" y="8784"/>
-		<point x="9" y="9824"/>
-		<point x="10" y="11144"/>
-		<point x="11" y="13104"/>
-		<point x="12" y="15217"/>
-		<point x="13" y="16383"/>
-	</scale>
-	<scale id="scale-gate-range">
-		<point x="-1000" y="16383"/>
-		<point x="-910" y="14745"/>
-		<point x="-360" y="11468"/>
-		<point x="-160" y="8192"/>
-		<point x="-50" y="4096"/>
-		<point x="-2" y="1638"/>
-		<point x="0" y="0"/>
-	</scale>
-	<scale id="scale-gate-hold">
-		<point x="0" y="0"/>
-		<point x="0.5" y="1638"/>
-		<point x="12.5" y="4096"/>
-		<point x="40" y="8192"/>
-		<point x="90" y="11468"/>
-		<point x="227.5" y="14745"/>
-		<point x="250" y="16383"/>
 	</scale>
 </midimapconfig>
