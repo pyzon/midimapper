@@ -151,30 +151,37 @@ public class App {
 //        }
 //
         // scale exploration code
-//        try {
-//
-//            for(int value = 0; value < 16383; value += 512) {
-//
-//                byte[] valueParts = split(value);
-//                long timeStamp = System.currentTimeMillis();
-//                ShortMessage outMsg = new ShortMessage();
-//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, 0);
-//                loopMidiReceiver.send(outMsg, timeStamp);
-//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, 10);
-//                loopMidiReceiver.send(outMsg, timeStamp);
-//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
-//                loopMidiReceiver.send(outMsg, timeStamp);
-//                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
-//                loopMidiReceiver.send(outMsg, timeStamp);
-//
-//                System.out.println(value);
-//
-//                Scanner scanner = new Scanner(System.in);
-//                scanner.nextLine();
-//            }
-//        } catch (InvalidMidiDataException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            while(true) {
+                Scanner scanner = new Scanner(System.in);
+                String line = scanner.nextLine();
+
+                int value;
+                try {
+                    value = Integer.parseInt(line);
+                } catch (NumberFormatException e) {
+                    System.out.println("Give me an integer, man.");
+                    continue;
+                }
+                if (value < 0 || value > 16383) {
+                    System.out.println("Make it between 0 and 16383, please.");
+                };
+
+                byte[] valueParts = split(value);
+                long timeStamp = System.currentTimeMillis();
+                ShortMessage outMsg = new ShortMessage();
+                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, 0);
+                loopMidiReceiver.send(outMsg, timeStamp);
+                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, 0);
+                loopMidiReceiver.send(outMsg, timeStamp);
+                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
+                loopMidiReceiver.send(outMsg, timeStamp);
+                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
+                loopMidiReceiver.send(outMsg, timeStamp);
+            }
+        } catch (InvalidMidiDataException e) {
+            e.printStackTrace();
+        }
 
     }
     private void closeDevices() {
