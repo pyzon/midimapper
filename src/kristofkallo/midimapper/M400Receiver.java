@@ -120,22 +120,4 @@ public class M400Receiver implements Receiver {
         }
         return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
     }
-
-//    private int mapRel(double source) {
-//        source = clamp(source, 0, 5000);
-//        double y;
-//        if (source < 2500) {
-//            double x = source / 2500;
-//            y = 0.9 * Math.pow(x, 0.3333333333333);
-//        } else {
-//            y = 0.9 + (source - 2500) / 2500 * 0.1;
-//        }
-//        double res = Math.floor(16383 * y);
-//        return (int) clamp(res, 0, 16383);
-//    }
-//    private int mapHold(double source) {
-//        source = clamp(source, 0, 250);
-//        double res = midiMap.getRangeScaleValue(source / 2.5);
-//        return (int) clamp(res, 0, 16383);
-//    }
 }
