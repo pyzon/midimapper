@@ -146,6 +146,38 @@
 			<address sysex0="0" sysex1="68" nrpn="21"/>
 			<data bytes="3" scale="LOG" signed="false" min="1000" max="20000" dmin="10" dmax="30000"/>
 		</parameter>
+		<parameter name="aux01 send">
+			<address sysex0="1" sysex1="2" nrpn="22"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux02 send">
+			<address sysex0="1" sysex1="0a" nrpn="23"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-907" max="101" dmin="-1201" dmax="60.3"/>
+		</parameter>
+		<parameter name="aux03 send">
+			<address sysex0="1" sysex1="12" nrpn="24"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-908" max="102" dmin="-1202" dmax="60.4"/>
+		</parameter>
+		<parameter name="aux04 send">
+			<address sysex0="1" sysex1="1a" nrpn="25"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-909" max="103" dmin="-1203" dmax="60.5"/>
+		</parameter>
+		<parameter name="aux05 send">
+			<address sysex0="1" sysex1="22" nrpn="26"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-910" max="104" dmin="-1204" dmax="60.6"/>
+		</parameter>
+		<parameter name="aux06 send">
+			<address sysex0="1" sysex1="2a" nrpn="27"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-911" max="105" dmin="-1205" dmax="60.7"/>
+		</parameter>
+		<parameter name="aux07 send">
+			<address sysex0="1" sysex1="32" nrpn="28"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-912" max="106" dmin="-1206" dmax="60.8"/>
+		</parameter>
+		<parameter name="aux08 send">
+			<address sysex0="1" sysex1="3a" nrpn="29"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-913" max="107" dmin="-1207" dmax="60.9"/>
+		</parameter>
 	</channel>
 	<channel id="CH2" name="Kick in">
 		<address sysex0="03" sysex1="01" nrpn="01"/>
@@ -154,6 +186,33 @@
 			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
 		</parameter>
 	</channel>
+	<scale id="scale-aux-send">
+		<point x="-1200" y="0"/>
+		<point x="-800" y="132"/>
+		<point x="-600" y="418"/>
+		<point x="-500" y="743"/>
+		<point x="-400" y="1321"/>
+		<point x="-300" y="2350"/>
+		<point x="-200" y="4179"/>
+		<point x="-150" y="5573"/>
+		<point x="-100" y="7422"/>
+		<point x="-75" y="8581"/>
+		<point x="-60" y="9353"/>
+		<point x="-55" y="9566"/>
+		<point x="-50" y="9791"/>
+		<point x="-45" y="10030"/>
+		<point x="-40" y="10283"/>
+		<point x="-25" y="11136"/>
+		<point x="-10" y="12149"/>
+		<point x="-5" y="12527"/>
+		<point x="0" y="12927"/>
+		<point x="5" y="13133"/>
+		<point x="10" y="13349"/>
+		<point x="25" y="14081"/>
+		<point x="40" y="14949"/>
+		<point x="50" y="15617"/>
+		<point x="60.2" y="16383"/>
+	</scale>
 	<scale id="scale-comp-ratio">
 		<point x="0" y="0"/>
 		<point x="1" y="1856"/>

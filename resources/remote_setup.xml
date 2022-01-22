@@ -37,10 +37,18 @@
 <ctrl><name>CH1 eq3 q</name><stat>2</stat><chan>0</chan><addr>31</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 eq4 gain</name><stat>2</stat><chan>0</chan><addr>32</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>CH1 eq4 freq</name><stat>2</stat><chan>0</chan><addr>33</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux01 send</name><stat>2</stat><chan>0</chan><addr>34</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux02 send</name><stat>2</stat><chan>0</chan><addr>35</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux03 send</name><stat>2</stat><chan>0</chan><addr>36</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux04 send</name><stat>2</stat><chan>0</chan><addr>37</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux05 send</name><stat>2</stat><chan>0</chan><addr>38</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux06 send</name><stat>2</stat><chan>0</chan><addr>39</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux07 send</name><stat>2</stat><chan>0</chan><addr>40</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>CH1 aux08 send</name><stat>2</stat><chan>0</chan><addr>41</addr><max>16383</max><flags>19</flags></ctrl>
 </ctrltable>
 <bank name="VST 1-16">
 <entry ctrl="CH1 att">
-<value><device>VST Mixer</device><chan>0</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot1:on</name><flags>0</flags></value>
 </entry>
 <entry ctrl="CH1 mute">
 <value><device>VST Mixer</device><chan>0</chan><name>mute</name><flags>0</flags></value>
@@ -146,6 +154,30 @@
 </entry>
 <entry ctrl="CH1 eq4 freq">
 <value><device>VST Mixer</device><chan>0</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux01 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot1:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux02 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot2:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux03 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot3:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux04 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot4:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux05 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot5:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux06 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot6:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux07 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot7:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="CH1 aux08 send">
+<value><device>VST Mixer</device><chan>0</chan><name>sends/slot8:volume</name><flags>0</flags></value>
 </entry>
 </bank>
 </remotedescription>
