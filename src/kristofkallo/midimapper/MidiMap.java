@@ -198,6 +198,11 @@ public class MidiMap {
     }
 
     private static String getScaleId(String name) {
-        return "scale-" + name.replace(' ', '-');
+        name = name.replace(' ', '-');
+        // remove digits, so that the different parameters
+        // whose names only differ in numbers
+        // should have the same scales, e.g. "aux01 send" and "aux02 send"
+        name = name.replaceAll("\\d", "");
+        return "scale-" + name;
     }
 }
