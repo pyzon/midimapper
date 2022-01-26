@@ -90,7 +90,7 @@ public class MidiMap {
         NamedNodeMap addressAttributes = addressNode.getAttributes();
         byte sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
         byte sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
-        byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue(), 16);
+        byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue());
         Address channelAddress = new Address(sysex0, sysex1, nrpn);
 
         Channel channel = new Channel(id, name, channelAddress);
@@ -121,7 +121,7 @@ public class MidiMap {
         NamedNodeMap addressAttributes = addressNode.getAttributes();
         byte sysex0 = Byte.parseByte(addressAttributes.getNamedItem("sysex0").getNodeValue(), 16);
         byte sysex1 = Byte.parseByte(addressAttributes.getNamedItem("sysex1").getNodeValue(), 16);
-        byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue(), 16);
+        byte nrpn = Byte.parseByte(addressAttributes.getNamedItem("nrpn").getNodeValue());
         Address paramAddress = new Address(sysex0, sysex1, nrpn);
 
         Node dataNode = addressNode.getNextSibling();
@@ -132,8 +132,6 @@ public class MidiMap {
         int bytes = Integer.parseInt(dataAttributes.getNamedItem("bytes").getNodeValue());
         String scaleStr = dataAttributes.getNamedItem("scale").getNodeValue();
         Scale scale = Scale.valueOf(scaleStr);
-
-        Parameter parameter;
 
         Node signedAttr = dataAttributes.getNamedItem("signed");
         boolean signed = signedAttr != null && Boolean.parseBoolean(signedAttr.getNodeValue());
