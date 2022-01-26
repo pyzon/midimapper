@@ -156,38 +156,10 @@ public class MidiMap {
 
         String scaleId = MidiMap.getScaleId(paramName);
 
-        switch (scale) {
-            case LIN:
-                parameter = new ParameterLinear(paramName, paramAddress, bytes, signed, min, max, dMin, dMax);
-                break;
-            case SW:
-                parameter = new ParameterSwitch(paramName, paramAddress);
-                break;
-            case LOG:
-                parameter = new ParameterLog(paramName, paramAddress, bytes, signed, min, max, dMin, dMax);
-                break;
-            case SPLINE:
-                parameter = new ParameterSpline(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
-                break;
-            case POW:
-                parameter = new ParameterPower(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, exp);
-                break;
-            case POWLIN:
-                parameter = new ParameterPowLin(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, exp, thresh, coeff);
-                break;
-            case STAIRS:
-                parameter = new ParameterStairs(paramName, paramAddress, scalePointsMap.get(scaleId));
-                break;
-            case POLY:
-                parameter = new ParameterPolygonal(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId));
-                break;
-            case EXPLIN:
-                parameter = new ParameterExpLin(paramName, paramAddress, bytes, signed, min, max, dMin, dMax, thresh, base, coeff);
-                break;
-            default:
-                throw new SAXException("Unimplemented scale type.");
-        }
-        return parameter;
+        ParameterFactory parameterFactory = new ParameterFactory();
+
+        return parameterFactory.createParameter(scale, paramName, paramAddress,
+                bytes, signed, min, max, dMin, dMax, scalePointsMap.get(scaleId), exp, thresh, base, coeff);
     }
 
     public Channel getChannelByAddress(byte address0, byte address1) {
