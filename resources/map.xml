@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <midimapconfig version="1.0">
-	<channel id="CH1" name="Kick out">
-		<address sysex0="03" sysex1="00" nrpn="00"/>
+	<channel id="IN1" name="Kick out">
+		<address sysex0="03" sysex1="00" nrpn="0"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
 			<data bytes="2" scale="LIN" signed="true" min="-480" max="240" dmin="-480" dmax="480"/>
@@ -39,151 +39,176 @@
 			<data bytes="2" scale="LOG" signed="false" min="36" max="1600" dmin="2.5" dmax="4000"/>
 		</parameter>
 		<parameter name="gate sw">
-			<address sysex0="0" sysex1="30" nrpn="7"/>
+			<address sysex0="0" sysex1="30" nrpn="9"/>
 			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="gate thresh">
-			<address sysex0="0" sysex1="33" nrpn="8"/>
+			<address sysex0="0" sysex1="33" nrpn="10"/>
 			<data bytes="2" scale="LIN" signed="true" min="-800" max="0" dmin="-600" dmax="0"/>
 		</parameter>
 		<parameter name="gate ratio">
-			<address sysex0="0" sysex1="35" nrpn="9"/>
+			<address sysex0="0" sysex1="35" nrpn="11"/>
 			<data bytes="1" scale="STAIRS"/>
 		</parameter>
 		<parameter name="gate range">
-			<address sysex0="0" sysex1="37" nrpn="0a"/>
+			<address sysex0="0" sysex1="37" nrpn="12"/>
 			<data bytes="2" scale="POLY" signed="true" min="-1000" max="0" dmin="-1000" dmax="0"/>
 		</parameter>
 		<parameter name="gate attack">
-			<address sysex0="0" sysex1="39" nrpn="0b"/>
+			<address sysex0="0" sysex1="39" nrpn="13"/>
 			<data bytes="2" scale="POW" signed="false" min="0" max="8000" dmin="0" dmax="10000" exp="0.25"/>
 		</parameter>
 		<parameter name="gate rel">
-			<address sysex0="0" sysex1="3b" nrpn="0c"/>
+			<address sysex0="0" sysex1="3b" nrpn="14"/>
 			<data bytes="2" scale="POWLIN" signed="false" min="0" max="8000" dmin="0" dmax="5000" exp="0.333333" thresh="2500" coeff="0.9"/>
 		</parameter>
 		<parameter name="gate hold">
-			<address sysex0="0" sysex1="3d" nrpn="0d"/>
+			<address sysex0="0" sysex1="3d" nrpn="15"/>
 			<data bytes="2" scale="POLY" signed="false" min="0" max="8000" dmin="0" dmax="250"/>
 		</parameter>
 		<parameter name="comp sw">
-			<address sysex0="0" sysex1="40" nrpn="0e"/>
+			<address sysex0="0" sysex1="40" nrpn="16"/>
 			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="comp thresh">
-			<address sysex0="0" sysex1="42" nrpn="0f"/>
+			<address sysex0="0" sysex1="42" nrpn="17"/>
 			<data bytes="2" scale="LIN" signed="true" min="-400" max="0" dmin="-600" dmax="0"/>
 		</parameter>
 		<parameter name="comp ratio">
-			<address sysex0="0" sysex1="44" nrpn="10"/>
+			<address sysex0="0" sysex1="44" nrpn="18"/>
 			<data bytes="1" scale="STAIRS"/>
 		</parameter>
 		<parameter name="comp knee">
-			<address sysex0="0" sysex1="45" nrpn="11"/>
+			<address sysex0="0" sysex1="45" nrpn="19"/>
 			<data bytes="1" scale="LIN" signed="false" min="0" max="9" dmin="0" dmax="27"/>
 		</parameter>
 		<parameter name="comp attack">
-			<address sysex0="0" sysex1="46" nrpn="12"/>
+			<address sysex0="0" sysex1="46" nrpn="20"/>
 			<data bytes="2" scale="POW" signed="false" min="0" max="8000" dmin="0" dmax="2500" exp="0.333333"/>
 		</parameter>
 		<parameter name="comp rel">
-			<address sysex0="0" sysex1="48" nrpn="13"/>
+			<address sysex0="0" sysex1="48" nrpn="21"/>
 			<data bytes="2" scale="SPLINE" signed="false" min="0" max="8000" dmin="10" dmax="2500"/>
 		</parameter>
 		<parameter name="comp gain">
-			<address sysex0="0" sysex1="4a" nrpn="14"/>
+			<address sysex0="0" sysex1="4a" nrpn="22"/>
 			<data bytes="2" scale="EXPLIN" signed="true" min="-400" max="400" dmin="-1000" dmax="360" thresh="-216" base="1.005772709" coeff="0.6934"/>
 		</parameter>
 		<parameter name="comp a-gain">
-			<address sysex0="0" sysex1="4c" nrpn="15"/>
+			<address sysex0="0" sysex1="4c" nrpn="23"/>
 			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="eq sw">
-			<address sysex0="0" sysex1="50" nrpn="16"/>
+			<address sysex0="0" sysex1="50" nrpn="24"/>
 			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
 		</parameter>
 		<parameter name="eq att">
-			<address sysex0="0" sysex1="51" nrpn="17"/>
+			<address sysex0="0" sysex1="51" nrpn="25"/>
 			<data bytes="2" scale="EXPLIN" signed="true" min="-480" max="150" dmin="-1000" dmax="360" thresh="-216" base="1.005772709" coeff="0.6934"/>
 		</parameter>
 		<parameter name="eq1 gain">
-			<address sysex0="0" sysex1="53" nrpn="18"/>
+			<address sysex0="0" sysex1="53" nrpn="26"/>
 			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
 		</parameter>
 		<parameter name="eq1 freq">
-			<address sysex0="0" sysex1="55" nrpn="19"/>
+			<address sysex0="0" sysex1="55" nrpn="27"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="1000" dmin="10" dmax="30000"/>
 		</parameter>
 		<parameter name="eq2 gain">
-			<address sysex0="0" sysex1="58" nrpn="1a"/>
+			<address sysex0="0" sysex1="58" nrpn="28"/>
 			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
 		</parameter>
 		<parameter name="eq2 freq">
-			<address sysex0="0" sysex1="5a" nrpn="1b"/>
+			<address sysex0="0" sysex1="5a" nrpn="29"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="20000" dmin="10" dmax="30000"/>
 		</parameter>
 		<parameter name="eq2 q">
-			<address sysex0="0" sysex1="5d" nrpn="1c"/>
+			<address sysex0="0" sysex1="5d" nrpn="30"/>
 			<data bytes="2" scale="LOG" signed="false" min="36" max="1600" dmin="2.5" dmax="4000"/>
 		</parameter>
 		<parameter name="eq3 gain">
-			<address sysex0="0" sysex1="5f" nrpn="1d"/>
+			<address sysex0="0" sysex1="5f" nrpn="31"/>
 			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
 		</parameter>
 		<parameter name="eq3 freq">
-			<address sysex0="0" sysex1="61" nrpn="1e"/>
+			<address sysex0="0" sysex1="61" nrpn="32"/>
 			<data bytes="3" scale="LOG" signed="false" min="20" max="20000" dmin="10" dmax="30000"/>
 		</parameter>
 		<parameter name="eq3 q">
-			<address sysex0="0" sysex1="64" nrpn="1f"/>
+			<address sysex0="0" sysex1="64" nrpn="33"/>
 			<data bytes="2" scale="LOG" signed="false" min="36" max="1600" dmin="2.5" dmax="4000"/>
 		</parameter>
 		<parameter name="eq4 gain">
-			<address sysex0="0" sysex1="66" nrpn="20"/>
+			<address sysex0="0" sysex1="66" nrpn="34"/>
 			<data bytes="2" scale="LIN" signed="true" min="-150" max="150" dmin="-300" dmax="300"/>
 		</parameter>
 		<parameter name="eq4 freq">
-			<address sysex0="0" sysex1="68" nrpn="21"/>
+			<address sysex0="0" sysex1="68" nrpn="35"/>
 			<data bytes="3" scale="LOG" signed="false" min="1000" max="20000" dmin="10" dmax="30000"/>
 		</parameter>
+		<parameter name="aux01 sw">
+			<address sysex0="1" sysex1="0" nrpn="36"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
 		<parameter name="aux01 send">
-			<address sysex0="1" sysex1="2" nrpn="22"/>
+			<address sysex0="1" sysex1="2" nrpn="37"/>
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
+		<parameter name="aux02 sw">
+			<address sysex0="1" sysex1="8" nrpn="38"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
 		<parameter name="aux02 send">
-			<address sysex0="1" sysex1="0a" nrpn="23"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-907" max="101" dmin="-1201" dmax="60.3"/>
+			<address sysex0="1" sysex1="0a" nrpn="39"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux03 sw">
+			<address sysex0="1" sysex1="10" nrpn="40"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="aux03 send">
-			<address sysex0="1" sysex1="12" nrpn="24"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-908" max="102" dmin="-1202" dmax="60.4"/>
+			<address sysex0="1" sysex1="12" nrpn="41"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux04 sw">
+			<address sysex0="1" sysex1="18" nrpn="42"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="aux04 send">
-			<address sysex0="1" sysex1="1a" nrpn="25"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-909" max="103" dmin="-1203" dmax="60.5"/>
+			<address sysex0="1" sysex1="1a" nrpn="43"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux05 sw">
+			<address sysex0="1" sysex1="20" nrpn="44"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="aux05 send">
-			<address sysex0="1" sysex1="22" nrpn="26"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-910" max="104" dmin="-1204" dmax="60.6"/>
+			<address sysex0="1" sysex1="22" nrpn="45"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux06 sw">
+			<address sysex0="1" sysex1="28" nrpn="46"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="aux06 send">
-			<address sysex0="1" sysex1="2a" nrpn="27"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-911" max="105" dmin="-1205" dmax="60.7"/>
+			<address sysex0="1" sysex1="2a" nrpn="47"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux07 sw">
+			<address sysex0="1" sysex1="30" nrpn="48"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="aux07 send">
-			<address sysex0="1" sysex1="32" nrpn="28"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-912" max="106" dmin="-1206" dmax="60.8"/>
+			<address sysex0="1" sysex1="32" nrpn="49"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+		<parameter name="aux08 sw">
+			<address sysex0="1" sysex1="38" nrpn="50"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="aux08 send">
-			<address sysex0="1" sysex1="3a" nrpn="29"/>
-			<data bytes="2" scale="SPLINE" signed="true" min="-913" max="107" dmin="-1207" dmax="60.9"/>
-		</parameter>
-	</channel>
-	<channel id="CH2" name="Kick in">
-		<address sysex0="03" sysex1="01" nrpn="01"/>
-		<parameter name="phase">
-			<address sysex0="00" sysex1="09" nrpn="00"/>
-			<data min="0" max="1" bytes="1" signed="false" scale="LIN" dmin="0" dmax="1"/>
+			<address sysex0="1" sysex1="3a" nrpn="51"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
 	<scale id="scale-aux-send">
