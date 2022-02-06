@@ -1,110 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <remotedescription version="1.1">
 <ctrltable name="Standard MIDI">
-<ctrl><name>IN18 att</name><stat>2</stat><chan>0</chan><addr>2176</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 mute</name><stat>2</stat><chan>0</chan><addr>2177</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 solo</name><stat>2</stat><chan>0</chan><addr>2178</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 fader</name><stat>2</stat><chan>0</chan><addr>2179</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 pan</name><stat>2</stat><chan>0</chan><addr>2180</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 filter sw</name><stat>2</stat><chan>0</chan><addr>2181</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 filter att</name><stat>2</stat><chan>0</chan><addr>2182</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 filter freq</name><stat>2</stat><chan>0</chan><addr>2183</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 filter q</name><stat>2</stat><chan>0</chan><addr>2184</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate sw</name><stat>2</stat><chan>0</chan><addr>2185</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate thresh</name><stat>2</stat><chan>0</chan><addr>2186</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate ratio</name><stat>2</stat><chan>0</chan><addr>2187</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate range</name><stat>2</stat><chan>0</chan><addr>2188</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate attack</name><stat>2</stat><chan>0</chan><addr>2189</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate rel</name><stat>2</stat><chan>0</chan><addr>2190</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 gate hold</name><stat>2</stat><chan>0</chan><addr>2191</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp sw</name><stat>2</stat><chan>0</chan><addr>2192</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp thresh</name><stat>2</stat><chan>0</chan><addr>2193</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp ratio</name><stat>2</stat><chan>0</chan><addr>2194</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp knee</name><stat>2</stat><chan>0</chan><addr>2195</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp attack</name><stat>2</stat><chan>0</chan><addr>2196</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp rel</name><stat>2</stat><chan>0</chan><addr>2197</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp gain</name><stat>2</stat><chan>0</chan><addr>2198</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 comp a-gain</name><stat>2</stat><chan>0</chan><addr>2199</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq sw</name><stat>2</stat><chan>0</chan><addr>2200</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq att</name><stat>2</stat><chan>0</chan><addr>2201</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq1 gain</name><stat>2</stat><chan>0</chan><addr>2202</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq1 freq</name><stat>2</stat><chan>0</chan><addr>2203</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq2 gain</name><stat>2</stat><chan>0</chan><addr>2204</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq2 freq</name><stat>2</stat><chan>0</chan><addr>2205</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq2 q</name><stat>2</stat><chan>0</chan><addr>2206</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq3 gain</name><stat>2</stat><chan>0</chan><addr>2207</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq3 freq</name><stat>2</stat><chan>0</chan><addr>2208</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq3 q</name><stat>2</stat><chan>0</chan><addr>2209</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq4 gain</name><stat>2</stat><chan>0</chan><addr>2210</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 eq4 freq</name><stat>2</stat><chan>0</chan><addr>2211</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux01 sw</name><stat>2</stat><chan>0</chan><addr>2212</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux01 send</name><stat>2</stat><chan>0</chan><addr>2213</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux02 sw</name><stat>2</stat><chan>0</chan><addr>2214</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux02 send</name><stat>2</stat><chan>0</chan><addr>2215</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux03 sw</name><stat>2</stat><chan>0</chan><addr>2216</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux03 send</name><stat>2</stat><chan>0</chan><addr>2217</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux04 sw</name><stat>2</stat><chan>0</chan><addr>2218</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux04 send</name><stat>2</stat><chan>0</chan><addr>2219</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux05 sw</name><stat>2</stat><chan>0</chan><addr>2220</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux05 send</name><stat>2</stat><chan>0</chan><addr>2221</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux06 sw</name><stat>2</stat><chan>0</chan><addr>2222</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux06 send</name><stat>2</stat><chan>0</chan><addr>2223</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux07 sw</name><stat>2</stat><chan>0</chan><addr>2224</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux07 send</name><stat>2</stat><chan>0</chan><addr>2225</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux08 sw</name><stat>2</stat><chan>0</chan><addr>2226</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN18 aux08 send</name><stat>2</stat><chan>0</chan><addr>2227</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 att</name><stat>2</stat><chan>0</chan><addr>2304</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 mute</name><stat>2</stat><chan>0</chan><addr>2305</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 solo</name><stat>2</stat><chan>0</chan><addr>2306</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 fader</name><stat>2</stat><chan>0</chan><addr>2307</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 pan</name><stat>2</stat><chan>0</chan><addr>2308</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 filter sw</name><stat>2</stat><chan>0</chan><addr>2309</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 filter att</name><stat>2</stat><chan>0</chan><addr>2310</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 filter freq</name><stat>2</stat><chan>0</chan><addr>2311</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 filter q</name><stat>2</stat><chan>0</chan><addr>2312</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate sw</name><stat>2</stat><chan>0</chan><addr>2313</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate thresh</name><stat>2</stat><chan>0</chan><addr>2314</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate ratio</name><stat>2</stat><chan>0</chan><addr>2315</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate range</name><stat>2</stat><chan>0</chan><addr>2316</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate attack</name><stat>2</stat><chan>0</chan><addr>2317</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate rel</name><stat>2</stat><chan>0</chan><addr>2318</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 gate hold</name><stat>2</stat><chan>0</chan><addr>2319</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp sw</name><stat>2</stat><chan>0</chan><addr>2320</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp thresh</name><stat>2</stat><chan>0</chan><addr>2321</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp ratio</name><stat>2</stat><chan>0</chan><addr>2322</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp knee</name><stat>2</stat><chan>0</chan><addr>2323</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp attack</name><stat>2</stat><chan>0</chan><addr>2324</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp rel</name><stat>2</stat><chan>0</chan><addr>2325</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp gain</name><stat>2</stat><chan>0</chan><addr>2326</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 comp a-gain</name><stat>2</stat><chan>0</chan><addr>2327</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq sw</name><stat>2</stat><chan>0</chan><addr>2328</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq att</name><stat>2</stat><chan>0</chan><addr>2329</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq1 gain</name><stat>2</stat><chan>0</chan><addr>2330</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq1 freq</name><stat>2</stat><chan>0</chan><addr>2331</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq2 gain</name><stat>2</stat><chan>0</chan><addr>2332</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq2 freq</name><stat>2</stat><chan>0</chan><addr>2333</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq2 q</name><stat>2</stat><chan>0</chan><addr>2334</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq3 gain</name><stat>2</stat><chan>0</chan><addr>2335</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq3 freq</name><stat>2</stat><chan>0</chan><addr>2336</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq3 q</name><stat>2</stat><chan>0</chan><addr>2337</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq4 gain</name><stat>2</stat><chan>0</chan><addr>2338</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 eq4 freq</name><stat>2</stat><chan>0</chan><addr>2339</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux01 sw</name><stat>2</stat><chan>0</chan><addr>2340</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux01 send</name><stat>2</stat><chan>0</chan><addr>2341</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux02 sw</name><stat>2</stat><chan>0</chan><addr>2342</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux02 send</name><stat>2</stat><chan>0</chan><addr>2343</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux03 sw</name><stat>2</stat><chan>0</chan><addr>2344</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux03 send</name><stat>2</stat><chan>0</chan><addr>2345</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux04 sw</name><stat>2</stat><chan>0</chan><addr>2346</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux04 send</name><stat>2</stat><chan>0</chan><addr>2347</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux05 sw</name><stat>2</stat><chan>0</chan><addr>2348</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux05 send</name><stat>2</stat><chan>0</chan><addr>2349</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux06 sw</name><stat>2</stat><chan>0</chan><addr>2350</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux06 send</name><stat>2</stat><chan>0</chan><addr>2351</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux07 sw</name><stat>2</stat><chan>0</chan><addr>2352</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux07 send</name><stat>2</stat><chan>0</chan><addr>2353</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux08 sw</name><stat>2</stat><chan>0</chan><addr>2354</addr><max>16383</max><flags>19</flags></ctrl>
-<ctrl><name>IN19 aux08 send</name><stat>2</stat><chan>0</chan><addr>2355</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN20 att</name><stat>2</stat><chan>0</chan><addr>2432</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN20 mute</name><stat>2</stat><chan>0</chan><addr>2433</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN20 solo</name><stat>2</stat><chan>0</chan><addr>2434</addr><max>16383</max><flags>19</flags></ctrl>
@@ -885,320 +781,216 @@
 <ctrl><name>IN34 aux07 send</name><stat>2</stat><chan>0</chan><addr>4273</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN34 aux08 sw</name><stat>2</stat><chan>0</chan><addr>4274</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN34 aux08 send</name><stat>2</stat><chan>0</chan><addr>4275</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 att</name><stat>2</stat><chan>0</chan><addr>4352</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 mute</name><stat>2</stat><chan>0</chan><addr>4353</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 solo</name><stat>2</stat><chan>0</chan><addr>4354</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 fader</name><stat>2</stat><chan>0</chan><addr>4355</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 pan</name><stat>2</stat><chan>0</chan><addr>4356</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 filter sw</name><stat>2</stat><chan>0</chan><addr>4357</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 filter att</name><stat>2</stat><chan>0</chan><addr>4358</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 filter freq</name><stat>2</stat><chan>0</chan><addr>4359</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 filter q</name><stat>2</stat><chan>0</chan><addr>4360</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate sw</name><stat>2</stat><chan>0</chan><addr>4361</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate thresh</name><stat>2</stat><chan>0</chan><addr>4362</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate ratio</name><stat>2</stat><chan>0</chan><addr>4363</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate range</name><stat>2</stat><chan>0</chan><addr>4364</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate attack</name><stat>2</stat><chan>0</chan><addr>4365</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate rel</name><stat>2</stat><chan>0</chan><addr>4366</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 gate hold</name><stat>2</stat><chan>0</chan><addr>4367</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp sw</name><stat>2</stat><chan>0</chan><addr>4368</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp thresh</name><stat>2</stat><chan>0</chan><addr>4369</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp ratio</name><stat>2</stat><chan>0</chan><addr>4370</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp knee</name><stat>2</stat><chan>0</chan><addr>4371</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp attack</name><stat>2</stat><chan>0</chan><addr>4372</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp rel</name><stat>2</stat><chan>0</chan><addr>4373</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp gain</name><stat>2</stat><chan>0</chan><addr>4374</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 comp a-gain</name><stat>2</stat><chan>0</chan><addr>4375</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq sw</name><stat>2</stat><chan>0</chan><addr>4376</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq att</name><stat>2</stat><chan>0</chan><addr>4377</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq1 gain</name><stat>2</stat><chan>0</chan><addr>4378</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq1 freq</name><stat>2</stat><chan>0</chan><addr>4379</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq2 gain</name><stat>2</stat><chan>0</chan><addr>4380</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq2 freq</name><stat>2</stat><chan>0</chan><addr>4381</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq2 q</name><stat>2</stat><chan>0</chan><addr>4382</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq3 gain</name><stat>2</stat><chan>0</chan><addr>4383</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq3 freq</name><stat>2</stat><chan>0</chan><addr>4384</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq3 q</name><stat>2</stat><chan>0</chan><addr>4385</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq4 gain</name><stat>2</stat><chan>0</chan><addr>4386</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 eq4 freq</name><stat>2</stat><chan>0</chan><addr>4387</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux01 sw</name><stat>2</stat><chan>0</chan><addr>4388</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux01 send</name><stat>2</stat><chan>0</chan><addr>4389</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux02 sw</name><stat>2</stat><chan>0</chan><addr>4390</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux02 send</name><stat>2</stat><chan>0</chan><addr>4391</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux03 sw</name><stat>2</stat><chan>0</chan><addr>4392</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux03 send</name><stat>2</stat><chan>0</chan><addr>4393</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux04 sw</name><stat>2</stat><chan>0</chan><addr>4394</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux04 send</name><stat>2</stat><chan>0</chan><addr>4395</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux05 sw</name><stat>2</stat><chan>0</chan><addr>4396</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux05 send</name><stat>2</stat><chan>0</chan><addr>4397</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux06 sw</name><stat>2</stat><chan>0</chan><addr>4398</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux06 send</name><stat>2</stat><chan>0</chan><addr>4399</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux07 sw</name><stat>2</stat><chan>0</chan><addr>4400</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux07 send</name><stat>2</stat><chan>0</chan><addr>4401</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux08 sw</name><stat>2</stat><chan>0</chan><addr>4402</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN35 aux08 send</name><stat>2</stat><chan>0</chan><addr>4403</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 att</name><stat>2</stat><chan>0</chan><addr>4480</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 mute</name><stat>2</stat><chan>0</chan><addr>4481</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 solo</name><stat>2</stat><chan>0</chan><addr>4482</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 fader</name><stat>2</stat><chan>0</chan><addr>4483</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 pan</name><stat>2</stat><chan>0</chan><addr>4484</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 filter sw</name><stat>2</stat><chan>0</chan><addr>4485</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 filter att</name><stat>2</stat><chan>0</chan><addr>4486</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 filter freq</name><stat>2</stat><chan>0</chan><addr>4487</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 filter q</name><stat>2</stat><chan>0</chan><addr>4488</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate sw</name><stat>2</stat><chan>0</chan><addr>4489</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate thresh</name><stat>2</stat><chan>0</chan><addr>4490</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate ratio</name><stat>2</stat><chan>0</chan><addr>4491</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate range</name><stat>2</stat><chan>0</chan><addr>4492</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate attack</name><stat>2</stat><chan>0</chan><addr>4493</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate rel</name><stat>2</stat><chan>0</chan><addr>4494</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 gate hold</name><stat>2</stat><chan>0</chan><addr>4495</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp sw</name><stat>2</stat><chan>0</chan><addr>4496</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp thresh</name><stat>2</stat><chan>0</chan><addr>4497</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp ratio</name><stat>2</stat><chan>0</chan><addr>4498</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp knee</name><stat>2</stat><chan>0</chan><addr>4499</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp attack</name><stat>2</stat><chan>0</chan><addr>4500</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp rel</name><stat>2</stat><chan>0</chan><addr>4501</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp gain</name><stat>2</stat><chan>0</chan><addr>4502</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 comp a-gain</name><stat>2</stat><chan>0</chan><addr>4503</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq sw</name><stat>2</stat><chan>0</chan><addr>4504</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq att</name><stat>2</stat><chan>0</chan><addr>4505</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq1 gain</name><stat>2</stat><chan>0</chan><addr>4506</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq1 freq</name><stat>2</stat><chan>0</chan><addr>4507</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq2 gain</name><stat>2</stat><chan>0</chan><addr>4508</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq2 freq</name><stat>2</stat><chan>0</chan><addr>4509</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq2 q</name><stat>2</stat><chan>0</chan><addr>4510</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq3 gain</name><stat>2</stat><chan>0</chan><addr>4511</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq3 freq</name><stat>2</stat><chan>0</chan><addr>4512</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq3 q</name><stat>2</stat><chan>0</chan><addr>4513</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq4 gain</name><stat>2</stat><chan>0</chan><addr>4514</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 eq4 freq</name><stat>2</stat><chan>0</chan><addr>4515</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux01 sw</name><stat>2</stat><chan>0</chan><addr>4516</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux01 send</name><stat>2</stat><chan>0</chan><addr>4517</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux02 sw</name><stat>2</stat><chan>0</chan><addr>4518</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux02 send</name><stat>2</stat><chan>0</chan><addr>4519</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux03 sw</name><stat>2</stat><chan>0</chan><addr>4520</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux03 send</name><stat>2</stat><chan>0</chan><addr>4521</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux04 sw</name><stat>2</stat><chan>0</chan><addr>4522</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux04 send</name><stat>2</stat><chan>0</chan><addr>4523</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux05 sw</name><stat>2</stat><chan>0</chan><addr>4524</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux05 send</name><stat>2</stat><chan>0</chan><addr>4525</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux06 sw</name><stat>2</stat><chan>0</chan><addr>4526</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux06 send</name><stat>2</stat><chan>0</chan><addr>4527</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux07 sw</name><stat>2</stat><chan>0</chan><addr>4528</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux07 send</name><stat>2</stat><chan>0</chan><addr>4529</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux08 sw</name><stat>2</stat><chan>0</chan><addr>4530</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN36 aux08 send</name><stat>2</stat><chan>0</chan><addr>4531</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 att</name><stat>2</stat><chan>0</chan><addr>4608</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 mute</name><stat>2</stat><chan>0</chan><addr>4609</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 solo</name><stat>2</stat><chan>0</chan><addr>4610</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 fader</name><stat>2</stat><chan>0</chan><addr>4611</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 pan</name><stat>2</stat><chan>0</chan><addr>4612</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 filter sw</name><stat>2</stat><chan>0</chan><addr>4613</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 filter att</name><stat>2</stat><chan>0</chan><addr>4614</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 filter freq</name><stat>2</stat><chan>0</chan><addr>4615</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 filter q</name><stat>2</stat><chan>0</chan><addr>4616</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate sw</name><stat>2</stat><chan>0</chan><addr>4617</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate thresh</name><stat>2</stat><chan>0</chan><addr>4618</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate ratio</name><stat>2</stat><chan>0</chan><addr>4619</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate range</name><stat>2</stat><chan>0</chan><addr>4620</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate attack</name><stat>2</stat><chan>0</chan><addr>4621</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate rel</name><stat>2</stat><chan>0</chan><addr>4622</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 gate hold</name><stat>2</stat><chan>0</chan><addr>4623</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp sw</name><stat>2</stat><chan>0</chan><addr>4624</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp thresh</name><stat>2</stat><chan>0</chan><addr>4625</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp ratio</name><stat>2</stat><chan>0</chan><addr>4626</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp knee</name><stat>2</stat><chan>0</chan><addr>4627</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp attack</name><stat>2</stat><chan>0</chan><addr>4628</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp rel</name><stat>2</stat><chan>0</chan><addr>4629</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp gain</name><stat>2</stat><chan>0</chan><addr>4630</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 comp a-gain</name><stat>2</stat><chan>0</chan><addr>4631</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq sw</name><stat>2</stat><chan>0</chan><addr>4632</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq att</name><stat>2</stat><chan>0</chan><addr>4633</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq1 gain</name><stat>2</stat><chan>0</chan><addr>4634</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq1 freq</name><stat>2</stat><chan>0</chan><addr>4635</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq2 gain</name><stat>2</stat><chan>0</chan><addr>4636</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq2 freq</name><stat>2</stat><chan>0</chan><addr>4637</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq2 q</name><stat>2</stat><chan>0</chan><addr>4638</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq3 gain</name><stat>2</stat><chan>0</chan><addr>4639</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq3 freq</name><stat>2</stat><chan>0</chan><addr>4640</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq3 q</name><stat>2</stat><chan>0</chan><addr>4641</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq4 gain</name><stat>2</stat><chan>0</chan><addr>4642</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 eq4 freq</name><stat>2</stat><chan>0</chan><addr>4643</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux01 sw</name><stat>2</stat><chan>0</chan><addr>4644</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux01 send</name><stat>2</stat><chan>0</chan><addr>4645</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux02 sw</name><stat>2</stat><chan>0</chan><addr>4646</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux02 send</name><stat>2</stat><chan>0</chan><addr>4647</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux03 sw</name><stat>2</stat><chan>0</chan><addr>4648</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux03 send</name><stat>2</stat><chan>0</chan><addr>4649</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux04 sw</name><stat>2</stat><chan>0</chan><addr>4650</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux04 send</name><stat>2</stat><chan>0</chan><addr>4651</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux05 sw</name><stat>2</stat><chan>0</chan><addr>4652</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux05 send</name><stat>2</stat><chan>0</chan><addr>4653</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux06 sw</name><stat>2</stat><chan>0</chan><addr>4654</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux06 send</name><stat>2</stat><chan>0</chan><addr>4655</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux07 sw</name><stat>2</stat><chan>0</chan><addr>4656</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux07 send</name><stat>2</stat><chan>0</chan><addr>4657</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux08 sw</name><stat>2</stat><chan>0</chan><addr>4658</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN37 aux08 send</name><stat>2</stat><chan>0</chan><addr>4659</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 att</name><stat>2</stat><chan>0</chan><addr>4736</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 mute</name><stat>2</stat><chan>0</chan><addr>4737</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 solo</name><stat>2</stat><chan>0</chan><addr>4738</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 fader</name><stat>2</stat><chan>0</chan><addr>4739</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 pan</name><stat>2</stat><chan>0</chan><addr>4740</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 filter sw</name><stat>2</stat><chan>0</chan><addr>4741</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 filter att</name><stat>2</stat><chan>0</chan><addr>4742</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 filter freq</name><stat>2</stat><chan>0</chan><addr>4743</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 filter q</name><stat>2</stat><chan>0</chan><addr>4744</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate sw</name><stat>2</stat><chan>0</chan><addr>4745</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate thresh</name><stat>2</stat><chan>0</chan><addr>4746</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate ratio</name><stat>2</stat><chan>0</chan><addr>4747</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate range</name><stat>2</stat><chan>0</chan><addr>4748</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate attack</name><stat>2</stat><chan>0</chan><addr>4749</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate rel</name><stat>2</stat><chan>0</chan><addr>4750</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 gate hold</name><stat>2</stat><chan>0</chan><addr>4751</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp sw</name><stat>2</stat><chan>0</chan><addr>4752</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp thresh</name><stat>2</stat><chan>0</chan><addr>4753</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp ratio</name><stat>2</stat><chan>0</chan><addr>4754</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp knee</name><stat>2</stat><chan>0</chan><addr>4755</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp attack</name><stat>2</stat><chan>0</chan><addr>4756</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp rel</name><stat>2</stat><chan>0</chan><addr>4757</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp gain</name><stat>2</stat><chan>0</chan><addr>4758</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 comp a-gain</name><stat>2</stat><chan>0</chan><addr>4759</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq sw</name><stat>2</stat><chan>0</chan><addr>4760</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq att</name><stat>2</stat><chan>0</chan><addr>4761</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq1 gain</name><stat>2</stat><chan>0</chan><addr>4762</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq1 freq</name><stat>2</stat><chan>0</chan><addr>4763</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq2 gain</name><stat>2</stat><chan>0</chan><addr>4764</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq2 freq</name><stat>2</stat><chan>0</chan><addr>4765</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq2 q</name><stat>2</stat><chan>0</chan><addr>4766</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq3 gain</name><stat>2</stat><chan>0</chan><addr>4767</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq3 freq</name><stat>2</stat><chan>0</chan><addr>4768</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq3 q</name><stat>2</stat><chan>0</chan><addr>4769</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq4 gain</name><stat>2</stat><chan>0</chan><addr>4770</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 eq4 freq</name><stat>2</stat><chan>0</chan><addr>4771</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux01 sw</name><stat>2</stat><chan>0</chan><addr>4772</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux01 send</name><stat>2</stat><chan>0</chan><addr>4773</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux02 sw</name><stat>2</stat><chan>0</chan><addr>4774</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux02 send</name><stat>2</stat><chan>0</chan><addr>4775</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux03 sw</name><stat>2</stat><chan>0</chan><addr>4776</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux03 send</name><stat>2</stat><chan>0</chan><addr>4777</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux04 sw</name><stat>2</stat><chan>0</chan><addr>4778</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux04 send</name><stat>2</stat><chan>0</chan><addr>4779</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux05 sw</name><stat>2</stat><chan>0</chan><addr>4780</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux05 send</name><stat>2</stat><chan>0</chan><addr>4781</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux06 sw</name><stat>2</stat><chan>0</chan><addr>4782</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux06 send</name><stat>2</stat><chan>0</chan><addr>4783</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux07 sw</name><stat>2</stat><chan>0</chan><addr>4784</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux07 send</name><stat>2</stat><chan>0</chan><addr>4785</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux08 sw</name><stat>2</stat><chan>0</chan><addr>4786</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>IN38 aux08 send</name><stat>2</stat><chan>0</chan><addr>4787</addr><max>16383</max><flags>19</flags></ctrl>
 </ctrltable>
 <bank name="VST">
-<entry ctrl="IN18 att">
-<value><device>VST Mixer</device><chan>17</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 mute">
-<value><device>VST Mixer</device><chan>17</chan><name>mute</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 solo">
-<value><device>VST Mixer</device><chan>17</chan><name>solo</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 fader">
-<value><device>VST Mixer</device><chan>17</chan><name>volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 pan">
-<value><device>VST Mixer</device><chan>17</chan><name>panner:panX</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 filter sw">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot1:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 filter att">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot1:param4</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 filter freq">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 filter q">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot1:param151</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate sw">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate thresh">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate ratio">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate range">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate attack">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate rel">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:param7</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 gate hold">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp sw">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp thresh">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp ratio">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param2</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp knee">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp attack">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param5</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp rel">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param6</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp gain">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param10</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 comp a-gain">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot3:param14</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq sw">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq att">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param4</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq1 gain">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param150</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq1 freq">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq2 gain">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param157</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq2 freq">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq2 q">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param158</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq3 gain">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param164</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq3 freq">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq3 q">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param165</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq4 gain">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param171</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 eq4 freq">
-<value><device>VST Mixer</device><chan>17</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux01 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot1:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux01 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot1:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux02 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot2:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux02 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot2:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux03 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot3:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux03 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot3:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux04 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot4:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux04 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot4:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux05 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot5:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux05 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot5:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux06 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot6:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux06 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot6:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux07 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot7:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux07 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot7:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux08 sw">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot8:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN18 aux08 send">
-<value><device>VST Mixer</device><chan>17</chan><name>sends/slot8:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 att">
-<value><device>VST Mixer</device><chan>18</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 mute">
-<value><device>VST Mixer</device><chan>18</chan><name>mute</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 solo">
-<value><device>VST Mixer</device><chan>18</chan><name>solo</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 fader">
-<value><device>VST Mixer</device><chan>18</chan><name>volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 pan">
-<value><device>VST Mixer</device><chan>18</chan><name>panner:panX</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 filter sw">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot1:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 filter att">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot1:param4</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 filter freq">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 filter q">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot1:param151</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate sw">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate thresh">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate ratio">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate range">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate attack">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate rel">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:param7</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 gate hold">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp sw">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp thresh">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp ratio">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param2</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp knee">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp attack">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param5</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp rel">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param6</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp gain">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param10</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 comp a-gain">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot3:param14</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq sw">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq att">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param4</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq1 gain">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param150</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq1 freq">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq2 gain">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param157</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq2 freq">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq2 q">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param158</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq3 gain">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param164</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq3 freq">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq3 q">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param165</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq4 gain">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param171</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 eq4 freq">
-<value><device>VST Mixer</device><chan>18</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux01 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot1:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux01 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot1:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux02 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot2:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux02 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot2:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux03 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot3:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux03 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot3:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux04 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot4:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux04 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot4:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux05 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot5:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux05 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot5:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux06 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot6:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux06 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot6:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux07 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot7:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux07 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot7:volume</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux08 sw">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot8:on</name><flags>0</flags></value>
-</entry>
-<entry ctrl="IN19 aux08 send">
-<value><device>VST Mixer</device><chan>18</chan><name>sends/slot8:volume</name><flags>0</flags></value>
-</entry>
 <entry ctrl="IN20 att">
 <value><device>VST Mixer</device><chan>19</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
 </entry>
@@ -3538,6 +3330,630 @@
 </entry>
 <entry ctrl="IN34 aux08 send">
 <value><device>VST Mixer</device><chan>33</chan><name>sends/slot8:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 att">
+<value><device>VST Mixer</device><chan>34</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 mute">
+<value><device>VST Mixer</device><chan>34</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 solo">
+<value><device>VST Mixer</device><chan>34</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 fader">
+<value><device>VST Mixer</device><chan>34</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 pan">
+<value><device>VST Mixer</device><chan>34</chan><name>panner:panX</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 filter sw">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 filter att">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot1:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 filter freq">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 filter q">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot1:param151</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate sw">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate thresh">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate ratio">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate range">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate attack">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate rel">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:param7</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 gate hold">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp sw">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp thresh">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp ratio">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp knee">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp attack">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param5</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp rel">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp gain">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param10</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 comp a-gain">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot3:param14</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq sw">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq att">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq1 gain">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param150</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq1 freq">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq2 gain">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param157</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq2 freq">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq2 q">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param158</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq3 gain">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param164</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq3 freq">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq3 q">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param165</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq4 gain">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param171</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 eq4 freq">
+<value><device>VST Mixer</device><chan>34</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux01 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux01 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot1:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux02 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux02 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot2:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux03 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux03 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot3:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux04 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux04 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot4:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux05 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot5:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux05 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot5:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux06 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot6:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux06 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot6:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux07 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot7:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux07 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot7:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux08 sw">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot8:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN35 aux08 send">
+<value><device>VST Mixer</device><chan>34</chan><name>sends/slot8:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 att">
+<value><device>VST Mixer</device><chan>35</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 mute">
+<value><device>VST Mixer</device><chan>35</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 solo">
+<value><device>VST Mixer</device><chan>35</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 fader">
+<value><device>VST Mixer</device><chan>35</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 pan">
+<value><device>VST Mixer</device><chan>35</chan><name>panner:panX</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 filter sw">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 filter att">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot1:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 filter freq">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 filter q">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot1:param151</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate sw">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate thresh">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate ratio">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate range">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate attack">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate rel">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:param7</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 gate hold">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp sw">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp thresh">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp ratio">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp knee">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp attack">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param5</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp rel">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp gain">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param10</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 comp a-gain">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot3:param14</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq sw">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq att">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq1 gain">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param150</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq1 freq">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq2 gain">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param157</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq2 freq">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq2 q">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param158</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq3 gain">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param164</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq3 freq">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq3 q">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param165</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq4 gain">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param171</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 eq4 freq">
+<value><device>VST Mixer</device><chan>35</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux01 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux01 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot1:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux02 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux02 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot2:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux03 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux03 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot3:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux04 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux04 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot4:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux05 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot5:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux05 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot5:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux06 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot6:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux06 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot6:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux07 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot7:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux07 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot7:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux08 sw">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot8:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN36 aux08 send">
+<value><device>VST Mixer</device><chan>35</chan><name>sends/slot8:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 att">
+<value><device>VST Mixer</device><chan>36</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 mute">
+<value><device>VST Mixer</device><chan>36</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 solo">
+<value><device>VST Mixer</device><chan>36</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 fader">
+<value><device>VST Mixer</device><chan>36</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 pan">
+<value><device>VST Mixer</device><chan>36</chan><name>panner:panX</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 filter sw">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 filter att">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot1:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 filter freq">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 filter q">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot1:param151</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate sw">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate thresh">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate ratio">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate range">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate attack">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate rel">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:param7</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 gate hold">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp sw">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp thresh">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp ratio">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp knee">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp attack">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param5</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp rel">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp gain">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param10</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 comp a-gain">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot3:param14</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq sw">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq att">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq1 gain">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param150</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq1 freq">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq2 gain">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param157</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq2 freq">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq2 q">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param158</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq3 gain">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param164</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq3 freq">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq3 q">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param165</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq4 gain">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param171</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 eq4 freq">
+<value><device>VST Mixer</device><chan>36</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux01 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux01 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot1:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux02 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux02 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot2:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux03 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux03 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot3:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux04 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux04 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot4:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux05 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot5:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux05 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot5:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux06 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot6:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux06 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot6:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux07 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot7:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux07 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot7:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux08 sw">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot8:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN37 aux08 send">
+<value><device>VST Mixer</device><chan>36</chan><name>sends/slot8:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 att">
+<value><device>VST Mixer</device><chan>37</chan><name>quickControls:QuickControl1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 mute">
+<value><device>VST Mixer</device><chan>37</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 solo">
+<value><device>VST Mixer</device><chan>37</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 fader">
+<value><device>VST Mixer</device><chan>37</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 pan">
+<value><device>VST Mixer</device><chan>37</chan><name>panner:panX</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 filter sw">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 filter att">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot1:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 filter freq">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot1:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 filter q">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot1:param151</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate sw">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate thresh">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:param0</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate ratio">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate range">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate attack">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate rel">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:param7</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 gate hold">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot2:param8</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp sw">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp thresh">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param1</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp ratio">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param2</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp knee">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param3</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp attack">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param5</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp rel">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param6</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp gain">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param10</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 comp a-gain">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot3:param14</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq sw">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq att">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param4</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq1 gain">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param150</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq1 freq">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param149</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq2 gain">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param157</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq2 freq">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param156</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq2 q">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param158</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq3 gain">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param164</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq3 freq">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param163</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq3 q">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param165</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq4 gain">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param171</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 eq4 freq">
+<value><device>VST Mixer</device><chan>37</chan><name>inserts/slot4:param170</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux01 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot1:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux01 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot1:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux02 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot2:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux02 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot2:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux03 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot3:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux03 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot3:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux04 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot4:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux04 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot4:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux05 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot5:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux05 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot5:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux06 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot6:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux06 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot6:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux07 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot7:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux07 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot7:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux08 sw">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot8:on</name><flags>0</flags></value>
+</entry>
+<entry ctrl="IN38 aux08 send">
+<value><device>VST Mixer</device><chan>37</chan><name>sends/slot8:volume</name><flags>0</flags></value>
 </entry>
 </bank>
 </remotedescription>
