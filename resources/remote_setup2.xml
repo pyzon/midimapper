@@ -521,6 +521,30 @@
 <ctrl><name>IN48 aux07 send</name><stat>2</stat><chan>0</chan><addr>6065</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN48 aux08 sw</name><stat>2</stat><chan>0</chan><addr>6066</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>IN48 aux08 send</name><stat>2</stat><chan>0</chan><addr>6067</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX1 mute</name><stat>2</stat><chan>0</chan><addr>6144</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX1 solo</name><stat>2</stat><chan>0</chan><addr>6145</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX1 fader</name><stat>2</stat><chan>0</chan><addr>6146</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX2 mute</name><stat>2</stat><chan>0</chan><addr>6272</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX2 solo</name><stat>2</stat><chan>0</chan><addr>6273</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX2 fader</name><stat>2</stat><chan>0</chan><addr>6274</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX3 mute</name><stat>2</stat><chan>0</chan><addr>6400</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX3 solo</name><stat>2</stat><chan>0</chan><addr>6401</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX3 fader</name><stat>2</stat><chan>0</chan><addr>6402</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX4 mute</name><stat>2</stat><chan>0</chan><addr>6528</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX4 solo</name><stat>2</stat><chan>0</chan><addr>6529</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX4 fader</name><stat>2</stat><chan>0</chan><addr>6530</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX5 mute</name><stat>2</stat><chan>0</chan><addr>6656</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX5 solo</name><stat>2</stat><chan>0</chan><addr>6657</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX5 fader</name><stat>2</stat><chan>0</chan><addr>6658</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX6 mute</name><stat>2</stat><chan>0</chan><addr>6784</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX6 solo</name><stat>2</stat><chan>0</chan><addr>6785</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX6 fader</name><stat>2</stat><chan>0</chan><addr>6786</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX7 mute</name><stat>2</stat><chan>0</chan><addr>6912</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX7 solo</name><stat>2</stat><chan>0</chan><addr>6913</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX7 fader</name><stat>2</stat><chan>0</chan><addr>6914</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX8 mute</name><stat>2</stat><chan>0</chan><addr>7040</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX8 solo</name><stat>2</stat><chan>0</chan><addr>7041</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>AUX8 fader</name><stat>2</stat><chan>0</chan><addr>7042</addr><max>16383</max><flags>19</flags></ctrl>
 </ctrltable>
 <bank name="VST">
 <entry ctrl="IN39 att">
@@ -2082,6 +2106,78 @@
 </entry>
 <entry ctrl="IN48 aux08 send">
 <value><device>VST Mixer</device><chan>47</chan><name>sends/slot8:volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX1 mute">
+<value><device>VST Mixer</device><chan>48</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX1 solo">
+<value><device>VST Mixer</device><chan>48</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX1 fader">
+<value><device>VST Mixer</device><chan>48</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX2 mute">
+<value><device>VST Mixer</device><chan>49</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX2 solo">
+<value><device>VST Mixer</device><chan>49</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX2 fader">
+<value><device>VST Mixer</device><chan>49</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX3 mute">
+<value><device>VST Mixer</device><chan>50</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX3 solo">
+<value><device>VST Mixer</device><chan>50</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX3 fader">
+<value><device>VST Mixer</device><chan>50</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX4 mute">
+<value><device>VST Mixer</device><chan>51</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX4 solo">
+<value><device>VST Mixer</device><chan>51</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX4 fader">
+<value><device>VST Mixer</device><chan>51</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX5 mute">
+<value><device>VST Mixer</device><chan>52</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX5 solo">
+<value><device>VST Mixer</device><chan>52</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX5 fader">
+<value><device>VST Mixer</device><chan>52</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX6 mute">
+<value><device>VST Mixer</device><chan>53</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX6 solo">
+<value><device>VST Mixer</device><chan>53</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX6 fader">
+<value><device>VST Mixer</device><chan>53</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX7 mute">
+<value><device>VST Mixer</device><chan>54</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX7 solo">
+<value><device>VST Mixer</device><chan>54</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX7 fader">
+<value><device>VST Mixer</device><chan>54</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX8 mute">
+<value><device>VST Mixer</device><chan>55</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX8 solo">
+<value><device>VST Mixer</device><chan>55</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="AUX8 fader">
+<value><device>VST Mixer</device><chan>55</chan><name>volume</name><flags>0</flags></value>
 </entry>
 </bank>
 </remotedescription>

@@ -10128,8 +10128,128 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
+	<channel id="AUX1" name="Reverb 1">
+		<address sysex0="05" sysex1="00" nrpn="48"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX2" name="Reverb 2">
+		<address sysex0="05" sysex1="01" nrpn="49"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX3" name="Delay">
+		<address sysex0="05" sysex1="02" nrpn="50"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX4" name="Tap Delay">
+		<address sysex0="05" sysex1="03" nrpn="51"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX5" name="Aux 5">
+		<address sysex0="05" sysex1="04" nrpn="52"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX6" name="Aux 6">
+		<address sysex0="05" sysex1="05" nrpn="53"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX7" name="Aux 7">
+		<address sysex0="05" sysex1="06" nrpn="54"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="AUX8" name="Aux 8">
+		<address sysex0="05" sysex1="07" nrpn="55"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
 	<scale id="scale-aux-send">
-		<point x="-1200" y="0"/>
+		<point x="-906" y="0"/>
 		<point x="-800" y="132"/>
 		<point x="-600" y="418"/>
 		<point x="-500" y="743"/>
