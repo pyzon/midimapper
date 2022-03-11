@@ -24,7 +24,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -235,7 +235,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -422,7 +422,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN3" name="Snare 1 Top">
+	<channel id="IN3" name="Snare1 Top">
 		<address sysex0="03" sysex1="02" nrpn="2"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -446,7 +446,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -633,7 +633,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN4" name="Snare 1 Bottom">
+	<channel id="IN4" name="Snare1 Bot">
 		<address sysex0="03" sysex1="03" nrpn="3"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -657,7 +657,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -844,7 +844,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN5" name="Snare 2">
+	<channel id="IN5" name="Snare2">
 		<address sysex0="03" sysex1="04" nrpn="4"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -868,7 +868,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -1055,7 +1055,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN6" name="Tom 1">
+	<channel id="IN6" name="Tom1">
 		<address sysex0="03" sysex1="05" nrpn="5"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -1079,7 +1079,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -1266,7 +1266,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN7" name="Tom 2">
+	<channel id="IN7" name="Tom2">
 		<address sysex0="03" sysex1="06" nrpn="6"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -1290,7 +1290,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -1477,7 +1477,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN8" name="Tom 3">
+	<channel id="IN8" name="Tom3">
 		<address sysex0="03" sysex1="07" nrpn="7"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -1501,7 +1501,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -1688,7 +1688,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN9" name="Tom 4">
+	<channel id="IN9" name="Tom4">
 		<address sysex0="03" sysex1="08" nrpn="8"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -1712,7 +1712,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -1923,7 +1923,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -2134,7 +2134,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -2345,7 +2345,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -2532,7 +2532,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN13" name="BackingTrack">
+	<channel id="IN13" name="BackingTr">
 		<address sysex0="03" sysex1="0c" nrpn="12"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -2556,7 +2556,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -2767,7 +2767,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -2978,7 +2978,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -3165,7 +3165,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN16" name="E.Guitar 1">
+	<channel id="IN16" name="E.Guitar1">
 		<address sysex0="03" sysex1="0f" nrpn="15"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -3189,7 +3189,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -3376,7 +3376,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN17" name="E.Guitar 2">
+	<channel id="IN17" name="E.Guitar2">
 		<address sysex0="03" sysex1="10" nrpn="16"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -3400,7 +3400,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -3587,7 +3587,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN18" name="E.Guitar 3 ST">
+	<channel id="IN18" name="E.Guit3 ST">
 		<address sysex0="03" sysex1="11" nrpn="17"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -3611,7 +3611,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -3822,7 +3822,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -4033,7 +4033,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -4220,7 +4220,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN21" name="Saxophone 1">
+	<channel id="IN21" name="Saxophone1">
 		<address sysex0="03" sysex1="14" nrpn="20"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -4244,7 +4244,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -4431,7 +4431,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN22" name="Saxophone 2">
+	<channel id="IN22" name="Saxophone2">
 		<address sysex0="03" sysex1="15" nrpn="21"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -4455,7 +4455,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -4666,7 +4666,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -4877,7 +4877,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -5088,7 +5088,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -5275,7 +5275,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN26" name="LEAD Guitar">
+	<channel id="IN26" name="LEAD Guit">
 		<address sysex0="03" sysex1="19" nrpn="25"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -5299,7 +5299,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -5486,7 +5486,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN27" name="Vocal 1">
+	<channel id="IN27" name="Vocal1">
 		<address sysex0="03" sysex1="1a" nrpn="26"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -5510,7 +5510,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -5697,7 +5697,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN28" name="Vocal 2">
+	<channel id="IN28" name="Vocal2">
 		<address sysex0="03" sysex1="1b" nrpn="27"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -5721,7 +5721,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -5908,7 +5908,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN29" name="Vocal 3">
+	<channel id="IN29" name="Vocal3">
 		<address sysex0="03" sysex1="1c" nrpn="28"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -5932,7 +5932,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -6119,7 +6119,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN30" name="Vocal 4">
+	<channel id="IN30" name="Vocal4">
 		<address sysex0="03" sysex1="1d" nrpn="29"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -6143,7 +6143,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -6330,7 +6330,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN31" name="Vocal 5">
+	<channel id="IN31" name="Vocal5">
 		<address sysex0="03" sysex1="1e" nrpn="30"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -6354,7 +6354,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -6541,7 +6541,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN32" name="Vocal 6">
+	<channel id="IN32" name="Vocal6">
 		<address sysex0="03" sysex1="1f" nrpn="31"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -6565,7 +6565,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -6752,7 +6752,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN33" name="Vocal 7">
+	<channel id="IN33" name="Vocal7">
 		<address sysex0="03" sysex1="20" nrpn="32"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -6776,7 +6776,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -6963,7 +6963,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN34" name="Vocal 8">
+	<channel id="IN34" name="Vocal8">
 		<address sysex0="03" sysex1="21" nrpn="33"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -6987,7 +6987,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -7174,7 +7174,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN35" name="Speech 1">
+	<channel id="IN35" name="Speech1">
 		<address sysex0="03" sysex1="22" nrpn="34"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -7198,7 +7198,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -7385,7 +7385,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN36" name="Speech 2">
+	<channel id="IN36" name="Speech2">
 		<address sysex0="03" sysex1="23" nrpn="35"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -7409,7 +7409,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -7620,7 +7620,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -7807,7 +7807,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN38" name="Play 1">
+	<channel id="IN38" name="Play1">
 		<address sysex0="03" sysex1="25" nrpn="37"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -7831,7 +7831,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -8018,7 +8018,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN39" name="Play 2">
+	<channel id="IN39" name="Play2">
 		<address sysex0="03" sysex1="26" nrpn="38"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -8042,7 +8042,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -8229,7 +8229,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN40" name="Input 40">
+	<channel id="IN40" name="Input40">
 		<address sysex0="03" sysex1="27" nrpn="39"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -8253,7 +8253,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -8440,7 +8440,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN41" name="Input 41">
+	<channel id="IN41" name="Input41">
 		<address sysex0="03" sysex1="28" nrpn="40"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -8464,7 +8464,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -8651,7 +8651,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN42" name="Input 42">
+	<channel id="IN42" name="Input42">
 		<address sysex0="03" sysex1="29" nrpn="41"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -8675,7 +8675,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -8862,7 +8862,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN43" name="Input 43">
+	<channel id="IN43" name="Input43">
 		<address sysex0="03" sysex1="2a" nrpn="42"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -8886,7 +8886,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -9073,7 +9073,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN44" name="Input 44">
+	<channel id="IN44" name="Input44">
 		<address sysex0="03" sysex1="2b" nrpn="43"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -9097,7 +9097,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -9284,7 +9284,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN45" name="Input 45">
+	<channel id="IN45" name="Input45">
 		<address sysex0="03" sysex1="2c" nrpn="44"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -9308,7 +9308,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -9495,7 +9495,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN46" name="Input 46">
+	<channel id="IN46" name="Input46">
 		<address sysex0="03" sysex1="2d" nrpn="45"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -9519,7 +9519,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -9706,7 +9706,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN47" name="Input 47">
+	<channel id="IN47" name="Input47">
 		<address sysex0="03" sysex1="2e" nrpn="46"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -9730,7 +9730,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -9917,7 +9917,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="IN48" name="Input 48">
+	<channel id="IN48" name="Input48">
 		<address sysex0="03" sysex1="2f" nrpn="47"/>
 		<parameter name="att">
 			<address sysex0="0" sysex1="0a" nrpn="0"/>
@@ -9941,7 +9941,7 @@
 		</parameter>
 		<parameter name="filter sw">
 			<address sysex0="0" sysex1="20" nrpn="5"/>
-			<data bytes="1" scale="LIN" signed="false" min="0" max="1" dmin="0" dmax="1.5"/>
+			<data bytes="1" scale="SW"/>
 		</parameter>
 		<parameter name="filter att">
 			<address sysex0="0" sysex1="22" nrpn="6"/>
@@ -10128,7 +10128,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX1" name="Reverb 1">
+	<channel id="AUX1" name="Reverb1">
 		<address sysex0="05" sysex1="00" nrpn="48"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10143,7 +10143,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX2" name="Reverb 2">
+	<channel id="AUX2" name="Reverb2">
 		<address sysex0="05" sysex1="01" nrpn="49"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10188,7 +10188,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX5" name="Aux 5">
+	<channel id="AUX5" name="Aux5">
 		<address sysex0="05" sysex1="04" nrpn="52"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10203,7 +10203,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX6" name="Aux 6">
+	<channel id="AUX6" name="Aux6">
 		<address sysex0="05" sysex1="05" nrpn="53"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10218,7 +10218,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX7" name="Aux 7">
+	<channel id="AUX7" name="Aux7">
 		<address sysex0="05" sysex1="06" nrpn="54"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10233,7 +10233,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX8" name="Aux 8">
+	<channel id="AUX8" name="Aux8">
 		<address sysex0="05" sysex1="07" nrpn="55"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10245,6 +10245,126 @@
 		</parameter>
 		<parameter name="fader">
 			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA1" name="Drums">
+		<address sysex0="09" sysex1="00" nrpn="56"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA2" name="Guitar">
+		<address sysex0="09" sysex1="01" nrpn="57"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA3" name="Keys">
+		<address sysex0="09" sysex1="02" nrpn="58"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA4" name="Brass">
+		<address sysex0="09" sysex1="03" nrpn="59"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA5" name="Vocal">
+		<address sysex0="09" sysex1="04" nrpn="60"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA6" name="URH">
+		<address sysex0="09" sysex1="05" nrpn="61"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="DCA7" name="Effects">
+		<address sysex0="09" sysex1="06" nrpn="62"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="MAIN1" name="Master">
+		<address sysex0="09" sysex1="07" nrpn="71"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="08" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="09" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0a" nrpn="2"/>
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
