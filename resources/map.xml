@@ -10128,7 +10128,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX1" name="Reverb1">
+	<channel id="FX1" name="Reverb1">
 		<address sysex0="05" sysex1="00" nrpn="48"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10143,7 +10143,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX2" name="Reverb2">
+	<channel id="FX2" name="Reverb2">
 		<address sysex0="05" sysex1="01" nrpn="49"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10158,7 +10158,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX3" name="Delay">
+	<channel id="FX3" name="Delay">
 		<address sysex0="05" sysex1="02" nrpn="50"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10173,7 +10173,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX4" name="Tap Delay">
+	<channel id="FX4" name="Tap Delay">
 		<address sysex0="05" sysex1="03" nrpn="51"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10188,7 +10188,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX5" name="Aux5">
+	<channel id="FX5" name="Fx5">
 		<address sysex0="05" sysex1="04" nrpn="52"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10203,7 +10203,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX6" name="Aux6">
+	<channel id="FX6" name="Fx6">
 		<address sysex0="05" sysex1="05" nrpn="53"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10218,7 +10218,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX7" name="Aux7">
+	<channel id="FX7" name="Fx7">
 		<address sysex0="05" sysex1="06" nrpn="54"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10233,7 +10233,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="AUX8" name="Aux8">
+	<channel id="FX8" name="Fx8">
 		<address sysex0="05" sysex1="07" nrpn="55"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="0c" nrpn="0"/>
@@ -10248,7 +10248,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA1" name="Drums">
+	<channel id="Group1" name="Drums">
 		<address sysex0="09" sysex1="00" nrpn="56"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10263,7 +10263,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA2" name="Guitar">
+	<channel id="Group2" name="Guitar">
 		<address sysex0="09" sysex1="01" nrpn="57"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10278,7 +10278,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA3" name="Keys">
+	<channel id="Group3" name="Keys">
 		<address sysex0="09" sysex1="02" nrpn="58"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10293,7 +10293,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA4" name="Brass">
+	<channel id="Group4" name="Brass">
 		<address sysex0="09" sysex1="03" nrpn="59"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10308,7 +10308,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA5" name="Vocal">
+	<channel id="Group5" name="Vocal">
 		<address sysex0="09" sysex1="04" nrpn="60"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10323,7 +10323,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA6" name="URH">
+	<channel id="Group6" name="URH">
 		<address sysex0="09" sysex1="05" nrpn="61"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10338,7 +10338,7 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="DCA7" name="Effects">
+	<channel id="Group7" name="Effects">
 		<address sysex0="09" sysex1="06" nrpn="62"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
@@ -10353,7 +10353,127 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
-	<channel id="MAIN1" name="Master">
+	<channel id="Group8" name="Play">
+		<address sysex0="05" sysex1="08" nrpn="63"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group9" name="Backing">
+		<address sysex0="05" sysex1="09" nrpn="64"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group10" name="Group10">
+		<address sysex0="05" sysex1="0a" nrpn="65"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group11" name="Group11">
+		<address sysex0="05" sysex1="0b" nrpn="66"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group12" name="Group12">
+		<address sysex0="05" sysex1="0c" nrpn="67"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group13" name="Group13">
+		<address sysex0="05" sysex1="0d" nrpn="68"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group14" name="Group14">
+		<address sysex0="05" sysex1="0e" nrpn="69"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Group15" name="Group15">
+		<address sysex0="05" sysex1="0f" nrpn="70"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
+	<channel id="Master" name="Master">
 		<address sysex0="09" sysex1="07" nrpn="71"/>
 		<parameter name="mute">
 			<address sysex0="00" sysex1="08" nrpn="0"/>
