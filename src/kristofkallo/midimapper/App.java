@@ -116,7 +116,7 @@ public class App {
             trayMenu.getTrayIcon().displayMessage(APP_NAME, "loopMidiOut device not found. Is loopMIDI running?", TrayIcon.MessageType.ERROR);
             return;
         }
-        // Checks for isOpen() are not necessary
+        // Note: Checks for isOpen() are not necessary
         // Get receivers
         Receiver loopMidiReceiver = null;
         try {
@@ -142,14 +142,14 @@ public class App {
             e.printStackTrace();
             return;
         }
-//        try {
-//            loopMidiOut.getTransmitter().setReceiver(new LoopMidiReceiver(m400Receiver));
-//        } catch (MidiUnavailableException e) {
-//            trayMenu.getTrayIcon().displayMessage(APP_NAME, "m400 transmitter could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
-//            e.printStackTrace();
-//            return;
-//        }
-//
+        try {
+            loopMidiOut.getTransmitter().setReceiver(new LoopMidiReceiver(m400Receiver, midiMap));
+        } catch (MidiUnavailableException e) {
+            trayMenu.getTrayIcon().displayMessage(APP_NAME, "m400 transmitter could not be retrieved. (This shouldn't happen.)", TrayIcon.MessageType.ERROR);
+            e.printStackTrace();
+            return;
+        }
+
         // scale exploration code
         try {
             while(true) {

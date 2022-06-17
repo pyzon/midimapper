@@ -6,10 +6,7 @@ import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiMessage;
 import javax.sound.midi.Receiver;
 import javax.sound.midi.ShortMessage;
-import java.awt.*;
 import java.util.Arrays;
-
-import static kristofkallo.midimapper.App.APP_NAME;
 
 public class M400Receiver implements Receiver {
     private static final byte SYS_EX_STATUS_BYTE = (byte) 0xf0;
@@ -39,12 +36,12 @@ public class M400Receiver implements Receiver {
 
         byte[] msg = message.getMessage();
         // SysEx status byte f0 which is -16
-        if (msg[0] == SYS_EX_STATUS_BYTE &&
-            msg[1] == MANUFACTURER_ID &&
-            msg[2] == DEVICE_ID &&
-            Arrays.equals(Arrays.copyOfRange(msg, 3, 6), MODEL_ID) &&
-            msg[6] == DATA_SET_COMMAND_ID) {
-            try {
+        try {
+            if (msg[0] == SYS_EX_STATUS_BYTE &&
+                    msg[1] == MANUFACTURER_ID &&
+                    msg[2] == DEVICE_ID &&
+                    Arrays.equals(Arrays.copyOfRange(msg, 3, 6), MODEL_ID) &&
+                    msg[6] == DATA_SET_COMMAND_ID) {
                 Channel channel = midiMap.getChannelByAddress(msg[7], msg[8]);
                 if (channel == null) {
                     // Channel is not in the map file, i.e. unused
@@ -57,14 +54,13 @@ public class M400Receiver implements Receiver {
                     return;
                 }
                 byte[] data = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
-                int value = param.mapConsoleToDAW(squash(data, param.isSigned()));
+                int value = param.mapConsoleToDAW(
+                        param.isSigned() ?
+                                MidiData.fromByteArraySigned(data).getData() :
+                                MidiData.fromByteArrayUnsigned(data).getData()
+                );
 
-                if (value > 16383) {
-                    double s = squash(data, param.isSigned());
-                    System.out.println();
-                }
-
-                byte[] valueParts = split(value);
+                byte[] valueParts = new MidiData(value).toByteArray(2);
 
                 ShortMessage outMsg = new ShortMessage();
                 outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, channel.getAddress().getNrpn());
@@ -76,48 +72,16 @@ public class M400Receiver implements Receiver {
                 outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
                 receiver.send(outMsg, timeStamp);
 
-            } catch (InvalidMidiDataException e) {
-                e.printStackTrace();
             }
+        } catch (InvalidMidiDataException e) {
+            e.printStackTrace();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("MIDI message too short");
         }
     }
 
     @Override
     public void close() {
 
-    }
-
-    /**
-     * Interprets an array of 7-bit bytes as a signed or unsigned number.
-     * The first byte is the MSB.
-     * The number follows the two's complement representation.
-     * @param bytes Array of 7-bit bytes, meaning that the first bit is 0 and is
-     *              ignored during the interpretation.
-     * @return The squashed number as an int.
-     */
-    private int squash(byte[] bytes, boolean signed) {
-        int result = 0;
-        for(int i = 0; i < bytes.length; i++) {
-            result += bytes[i] << ((bytes.length - i - 1) * 7);
-        }
-        // negative
-        if (signed && bytes[0] >= 64) {
-            int mask = -1;
-            mask = mask << (bytes.length * 7);
-            result = result | mask;
-        }
-        return result;
-    }
-
-    /**
-     * Splits a 14 digit unsigned integer into two 7-bit bytes.
-     * @param number The number to split.
-     * @return Array of two bytes, the first one being the MSB.
-     */
-    private byte[] split(int number) {
-        if (number < 0 || 16383 < number) {
-            throw new IllegalArgumentException(String.format("expected unsigned 14-bit number, got %d", number));
-        }
-        return new byte[]{(byte)(number >> 7), (byte)(number & 127)};
     }
 }
