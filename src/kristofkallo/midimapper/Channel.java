@@ -33,6 +33,12 @@ public class Channel {
                 .findAny()
                 .orElse(null);
     }
+    public Parameter getParameterByNrpn(byte nrpn) {
+        return parameters.stream()
+                .filter(p -> p.getAddress().getNrpn() == nrpn)
+                .findAny()
+                .orElse(null);
+    }
     public void putParameter(Parameter parameter) {
         parameters.add(parameter);
     }

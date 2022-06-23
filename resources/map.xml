@@ -10488,6 +10488,21 @@
 			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
 		</parameter>
 	</channel>
+	<channel id="Tap" name="Tap Delay Main">
+		<address sysex0="06" sysex1="00" nrpn="72"/>
+		<parameter name="mute">
+			<address sysex0="00" sysex1="0c" nrpn="0"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="solo">
+			<address sysex0="00" sysex1="0d" nrpn="1"/>
+			<data bytes="1" scale="SW"/>
+		</parameter>
+		<parameter name="fader">
+			<address sysex0="00" sysex1="0e" nrpn="2"/>
+			<data bytes="2" scale="SPLINE" signed="true" min="-906" max="100" dmin="-1200" dmax="60.2"/>
+		</parameter>
+	</channel>
 	<scale id="scale-aux-send">
 		<point x="-906" y="0"/>
 		<point x="-800" y="132"/>

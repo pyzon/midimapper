@@ -166,6 +166,12 @@ public class MidiMap {
                 .findAny()
                 .orElse(null);
     }
+    public Channel getChannelByNrpn(byte nrpn) {
+        return channels.stream()
+                .filter(ch -> ch.getAddress().getNrpn() == nrpn)
+                .findAny()
+                .orElse(null);
+    }
 
     private static String getScaleId(String name) {
         name = name.replace(' ', '-');

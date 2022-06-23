@@ -8,8 +8,11 @@ import javax.sound.midi.Receiver;
 import javax.sound.midi.ShortMessage;
 import java.util.Arrays;
 
+import static kristofkallo.midimapper.MidiDataTransform.fromByteArraySigned;
+import static kristofkallo.midimapper.MidiDataTransform.toByteArray;
+
+
 public class M400Receiver implements Receiver {
-    private static final byte SYS_EX_STATUS_BYTE = (byte) 0xf0;
     private static final byte EOX = (byte) 0xf7; // End of System Exclusive message
     private static final byte MANUFACTURER_ID = 0x41;
     private static final byte DEVICE_ID = 0x00;
@@ -37,39 +40,41 @@ public class M400Receiver implements Receiver {
         byte[] msg = message.getMessage();
         // SysEx status byte f0 which is -16
         try {
-            if (msg[0] == SYS_EX_STATUS_BYTE &&
-                    msg[1] == MANUFACTURER_ID &&
-                    msg[2] == DEVICE_ID &&
-                    Arrays.equals(Arrays.copyOfRange(msg, 3, 6), MODEL_ID) &&
-                    msg[6] == DATA_SET_COMMAND_ID) {
+            if (M400ByteCode.SYS_EX_STATUS_BYTE.is(msg[0]) &&
+                    M400ByteCode.MANUFACTURER_ID.is(msg[1]) &&
+                    M400ByteCode.DEVICE_ID.is(msg[2]) &&
+                    M400ByteCode.MODEL_ID_0.is(msg[3]) &&
+                    M400ByteCode.MODEL_ID_1.is(msg[4]) &&
+                    M400ByteCode.MODEL_ID_2.is(msg[5]) &&
+                    M400ByteCode.DATA_SET_COMMAND_ID.is(msg[6])) {
                 Channel channel = midiMap.getChannelByAddress(msg[7], msg[8]);
                 if (channel == null) {
-                    // Channel is not in the map file, i.e. unused
+                    // Channel unmapped, i.e. unused
                     return;
                 }
 
                 Parameter param = channel.getParameterByAddress(msg[9], msg[10]);
                 if (param == null) {
-                    // Parameter is not in the map file, i.e. unused
+                    // Parameter unmapped, i.e. unused
                     return;
                 }
-                byte[] data = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
-                int value = param.mapConsoleToDAW(
-                        param.isSigned() ?
-                                MidiData.fromByteArraySigned(data).getData() :
-                                MidiData.fromByteArrayUnsigned(data).getData()
-                );
 
-                byte[] valueParts = new MidiData(value).toByteArray(2);
+                byte[] srcData = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
+
+                byte[] dstData = toByteArray(
+                        param.mapConsoleToDAW(
+                                fromByteArraySigned(srcData)
+                        ), 2
+                );
 
                 ShortMessage outMsg = new ShortMessage();
                 outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 99, channel.getAddress().getNrpn());
                 receiver.send(outMsg, timeStamp);
                 outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 98, param.getAddress().getNrpn());
                 receiver.send(outMsg, timeStamp);
-                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, valueParts[0]);
+                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 6, dstData[0]);
                 receiver.send(outMsg, timeStamp);
-                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, valueParts[1]);
+                outMsg.setMessage(ShortMessage.CONTROL_CHANGE, 0, 38, dstData[1]);
                 receiver.send(outMsg, timeStamp);
 
             }

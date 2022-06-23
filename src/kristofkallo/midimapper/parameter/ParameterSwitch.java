@@ -22,6 +22,6 @@ public class ParameterSwitch extends Parameter {
 
     @Override
     public int mapDAWToConsole(int source) {
-        throw new NotImplementedException();
+        return source == 0 ? 0 : 1;
     }
 }

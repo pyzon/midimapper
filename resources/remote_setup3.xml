@@ -593,6 +593,9 @@
 <ctrl><name>Master mute</name><stat>2</stat><chan>0</chan><addr>9088</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>Master solo</name><stat>2</stat><chan>0</chan><addr>9089</addr><max>16383</max><flags>19</flags></ctrl>
 <ctrl><name>Master fader</name><stat>2</stat><chan>0</chan><addr>9090</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>Tap mute</name><stat>2</stat><chan>0</chan><addr>9216</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>Tap solo</name><stat>2</stat><chan>0</chan><addr>9217</addr><max>16383</max><flags>19</flags></ctrl>
+<ctrl><name>Tap fader</name><stat>2</stat><chan>0</chan><addr>9218</addr><max>16383</max><flags>19</flags></ctrl>
 </ctrltable>
 <bank name="VST">
 <entry ctrl="IN39 Play2 att">
@@ -2370,6 +2373,15 @@
 </entry>
 <entry ctrl="Master fader">
 <value><device>VST Mixer</device><chan>71</chan><name>volume</name><flags>0</flags></value>
+</entry>
+<entry ctrl="Tap mute">
+<value><device>VST Mixer</device><chan>51</chan><name>mute</name><flags>0</flags></value>
+</entry>
+<entry ctrl="Tap solo">
+<value><device>VST Mixer</device><chan>51</chan><name>solo</name><flags>0</flags></value>
+</entry>
+<entry ctrl="Tap fader">
+<value><device>VST Mixer</device><chan>51</chan><name>volume</name><flags>0</flags></value>
 </entry>
 </bank>
 </remotedescription>
