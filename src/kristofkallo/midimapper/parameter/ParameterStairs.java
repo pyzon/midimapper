@@ -9,7 +9,7 @@ public class ParameterStairs extends Parameter {
     public ParameterStairs(String name, Address address, ScalePoints scalePoints) {
         this.name = name;
         this.address = address;
-        this.bytes = 1;
+        this.lengthInBytes = 1;
         this.signed = false;
         this.min = 0;
         this.max = 1;

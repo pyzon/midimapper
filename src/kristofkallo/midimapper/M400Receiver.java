@@ -59,7 +59,7 @@ public class M400Receiver implements Receiver {
                     return;
                 }
 
-                byte[] srcData = Arrays.copyOfRange(msg, 11, 11 + param.getBytes());
+                byte[] srcData = Arrays.copyOfRange(msg, 11, 11 + param.getLengthInBytes());
 
                 byte[] dstData = toByteArray(
                         param.mapConsoleToDAW(

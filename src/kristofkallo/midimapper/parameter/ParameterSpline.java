@@ -12,7 +12,7 @@ public class ParameterSpline extends Parameter {
     public ParameterSpline(String name, Address address, int bytes, boolean signed, double min, double max, double dMin, double dMax, ScalePoints scalePoints) {
         this.name = name;
         this.address = address;
-        this.bytes = bytes;
+        this.lengthInBytes = bytes;
         this.signed = signed;
         this.min = min;
         this.max = max;

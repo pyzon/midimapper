@@ -11,7 +11,7 @@ public class ParameterExpLin extends Parameter {
     public ParameterExpLin(String name, Address address, int bytes, boolean signed, double min, double max, double dMin, double dMax, double threshold, double base, double coefficient) {
         this.name = name;
         this.address = address;
-        this.bytes = bytes;
+        this.lengthInBytes = bytes;
         this.signed = signed;
         this.min = min;
         this.max = max;

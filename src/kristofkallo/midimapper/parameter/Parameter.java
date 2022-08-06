@@ -5,7 +5,7 @@ import kristofkallo.midimapper.Address;
 public abstract class Parameter {
     protected String name;
     protected Address address;
-    protected int bytes;
+    protected int lengthInBytes;
     protected boolean signed;
     protected double min;
     protected double max;
@@ -28,8 +28,8 @@ public abstract class Parameter {
         return max;
     }
 
-    public int getBytes() {
-        return bytes;
+    public int getLengthInBytes() {
+        return lengthInBytes;
     }
 
     public boolean isSigned() {
